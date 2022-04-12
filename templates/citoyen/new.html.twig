@@ -1,13 +1,11 @@
-<!DOCTYPE html>
 
 
-<html lang="en">
-
+{% block head %}
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title> Inscription Citoyen</title>
+{% block title %}
+  <title> Inscription Citoyen</title>{% endblock  %}
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -38,7 +36,8 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
+{% endblock %}
+{% block body %}
 <body>
 
   <main>
@@ -68,7 +67,7 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPrneom" class="form-label">Prénom :</label>
+                      <label for="yourPrenom" class="form-label">Prénom :</label>
                       {{ form_widget(form.prenom,{'attr':{'class':'form-control'}}) }}
                       
                       <span style="color:red">{{ form_errors(form.prenom) }}</span>
@@ -152,5 +151,4 @@
   <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
-
-</html>
+{% endblock %}
