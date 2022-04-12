@@ -56,6 +56,7 @@ class CitoyenController extends AbstractController
             'citoyen' => $citoyen,
             'form' => $form->createView(),
         ]);
+
     }
 
     /**

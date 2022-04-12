@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CCitoyen%2523getMotDePasse
+
+return [PHP_INT_MAX, []];
