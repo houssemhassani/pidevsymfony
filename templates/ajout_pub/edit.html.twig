@@ -1,0 +1,13 @@
+
+
+{% block title %}Edit Publication{% endblock %}
+
+{% block body %}
+    <h1>Edit Publication</h1>
+
+    {{ include('ajout_pub/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ajout_pub_index') }}">back to list</a>
+
+    {{ include('ajout_pub/_delete_form.html.twig') }}
+{% endblock %}

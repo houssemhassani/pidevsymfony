@@ -1,0 +1,53 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding-left: 200px">
+
+        <div class="card">
+            <div class="card-body">
+                <center><h5 class="card-title">Ajout Publication</h5></center>
+
+                <!-- General Form Elements -->
+                {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Statut</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.status,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(form.status,{'attr':{'class':'text-Danger'}}) }}
+                    </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-4 col-form-label">Choisir Image</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.photo,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <legend class="col-form-label col-sm-9 pt-0"></legend>
+                    <div class="col-sm-5">
+
+                        <div class="form-check">
+
+                            {{ form_widget(form.confirmPublication,{'attr':{'class':'form-check-input'}}) }}
+                        </div>
+
+                    </div>
+                </div>
+                <br/>
+
+                <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                    {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+

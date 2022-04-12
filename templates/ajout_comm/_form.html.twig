@@ -1,0 +1,35 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding-left: 200px">
+
+        <div class="card">
+            <div class="card-body">
+                <center><h5 class="card-title">Ajout Commentaire</h5></center>
+
+                <!-- General Form Elements -->
+                {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Content</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.content,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(form.content,{'attr':{'class':'text-Danger'}}) }}
+                    </div>
+                </div>
+
+
+                <br/>
+
+                <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                    {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+

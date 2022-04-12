@@ -1,0 +1,11 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}New Commantaire{% endblock %}
+
+{% block body %}
+    <h1>Create new Commantaire</h1>
+
+    {{ include('ajout_comm/_form.html.twig') }}
+
+    <a href="{{ path('app_ajout_comm_index') }}">back to list</a>
+{% endblock %}

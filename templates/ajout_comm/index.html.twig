@@ -1,0 +1,61 @@
+{% extends 'baseadmin.html.twig' %}
+
+
+
+{% block body %}
+    <h1>Commentaire index</h1>
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding-left: 250px">
+
+        <div class="col-lg-8">
+
+            <div class="card">
+                <div class="card-body">
+                    <center> <h5 class="card-title">Liste Des Commentaires</h5> </center>
+
+                    <!-- Table with stripped rows -->
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Content</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for commantaire in commantaires %}
+                            <tr>
+                                <td>{{ commantaire.id }}</td>
+                                <td>{{ commantaire.content }}</td>
+
+                                <td>
+                                    <a class="btn btn-warning" href="{{ path('app_ajout_comm_show', {'id': commantaire.id}) }}">show</a>
+
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" href="{{ path('app_ajout_comm_edit', {'id': commantaire.id}) }}">edit</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{ path('app_ajout_comm_new') }}">Ajouter</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                    <!-- End small tables -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+{% endblock %}
