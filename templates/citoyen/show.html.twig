@@ -1,0 +1,57 @@
+
+{% block title %}Citoyen{% endblock %}
+
+{% block body %}
+    <h1>Citoyen</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ citoyen.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ citoyen.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ citoyen.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ citoyen.email }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ citoyen.cin }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ citoyen.numTel }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ citoyen.ville }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ citoyen.photo }}</td>
+            </tr>
+            <tr>
+                <th>MotDePasse</th>
+                <td>{{ citoyen.motDePasse }}</td>
+            </tr>
+            <tr>
+                <th>EmailConfirmed</th>
+                <td>{{ citoyen.emailConfirmed ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_citoyen_index') }}">back to list</a>
+
+    <a href="{{ path('app_citoyen_edit', {'id': citoyen.id}) }}">edit</a>
+
+    {{ include('citoyen/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,50 @@
+
+{% block title %}Citoyen index{% endblock %}
+
+{% block body %}
+    <h1>Citoyen index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Cin</th>
+                <th>NumTel</th>
+                <th>Ville</th>
+                <th>Photo</th>
+                <th>MotDePasse</th>
+                <th>EmailConfirmed</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for citoyen in citoyens %}
+            <tr>
+                <td>{{ citoyen.id }}</td>
+                <td>{{ citoyen.nom }}</td>
+                <td>{{ citoyen.prenom }}</td>
+                <td>{{ citoyen.email }}</td>
+                <td>{{ citoyen.cin }}</td>
+                <td>{{ citoyen.numTel }}</td>
+                <td>{{ citoyen.ville }}</td>
+                <td>{{ citoyen.photo }}</td>
+                <td>{{ citoyen.motDePasse }}</td>
+                <td>{{ citoyen.emailConfirmed ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_citoyen_show', {'id': citoyen.id}) }}">show</a>
+                    <a href="{{ path('app_citoyen_edit', {'id': citoyen.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_citoyen_new') }}">Create new</a>
+{% endblock %}
