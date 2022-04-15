@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Tache
  *
- * @ORM\Table(name="tache")
+ * @ORM\Table(name="tache", indexes={@ORM\Index(name="emp_id", columns={"emp_id"})})
  * @ORM\Entity
  */
 class Tache
@@ -22,46 +22,49 @@ class Tache
     private $idTache;
 
     /**
-     * @var int
+     * @var int|null
      *
-     * @ORM\Column(name="num_tache", type="integer", nullable=false)
+     * @ORM\Column(name="num_tache", type="integer", nullable=true)
      */
     private $numTache;
 
     /**
-     * @var string
+     * @var int|null
      *
-     * @ORM\Column(name="nom_tache", type="string", length=255, nullable=false)
-     */
-    private $nomTache;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="emp_id", type="integer", nullable=false)
-     */
-    private $empId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="needed_time", type="integer", nullable=false)
+     * @ORM\Column(name="needed_time", type="integer", nullable=true)
      */
     private $neededTime;
 
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="etat_tache", type="string", length=255, nullable=false, options={"default"="'NOT DONE'"})
+     * @ORM\Column(name="nom_tache", type="string", length=255, nullable=true)
      */
-    private $etatTache = '\'NOT DONE\'';
+    private $nomTache;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="importance", type="string", length=255, nullable=false, options={"default"="'Normal'"})
+     * @ORM\Column(name="etat_tache", type="string", length=255, nullable=false, options={"default"="NOT DONE"})
      */
-    private $importance = '\'Normal\'';
+    private $etatTache = 'NOT DONE';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="importance", type="string", length=255, nullable=false, options={"default"="Normal"})
+     */
+    private $importance = 'Normal';
+
+    /**
+     * @var \Employee
+     *
+     * @ORM\ManyToOne(targetEntity="Employee")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="emp_id", referencedColumnName="id")
+     * })
+     */
+    private $emp;
 
 
 }

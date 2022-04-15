@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Employee;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class Employee1Type extends AbstractType
@@ -17,7 +19,9 @@ class Employee1Type extends AbstractType
             ->add('prenom')
             ->add('email')
             ->add('cin')
-            ->add('motDePasse')
+            ->add('confirmMotDePasse', PasswordType::class)
+            ->add('motDePasse', PasswordType::class)
+            ->add('service')
             ->add('ajouter', SubmitType::class)
         ;
     }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Commantaire
  *
- * @ORM\Table(name="commantaire", indexes={@ORM\Index(name="commantaire_ibfk_1", columns={"id_citoyen"}), @ORM\Index(name="commantaire_ibfk_3", columns={"id_publication"})})
+ * @ORM\Table(name="commantaire", indexes={@ORM\Index(name="id_employee", columns={"id_employee"}), @ORM\Index(name="id_citoyen", columns={"id_citoyen"}), @ORM\Index(name="id_publication", columns={"id_publication"})})
  * @ORM\Entity
  */
 class Commantaire
@@ -29,11 +29,14 @@ class Commantaire
     private $content;
 
     /**
-     * @var int
+     * @var \Publication
      *
-     * @ORM\Column(name="id_employee", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Publication")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_publication", referencedColumnName="id")
+     * })
      */
-    private $idEmployee;
+    private $idPublication;
 
     /**
      * @var \Citoyen
@@ -46,14 +49,14 @@ class Commantaire
     private $idCitoyen;
 
     /**
-     * @var \Publication
+     * @var \Employee
      *
-     * @ORM\ManyToOne(targetEntity="Publication")
+     * @ORM\ManyToOne(targetEntity="Employee")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_publication", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_employee", referencedColumnName="id")
      * })
      */
-    private $idPublication;
+    private $idEmployee;
 
 
 }

@@ -2,9 +2,13 @@
 
 namespace App\Entity;
 
+use App\Entity\Service;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Employee
@@ -20,6 +24,7 @@ class Employee implements UserInterface
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups({"campaign_get", "user_logged"})
      */
     private $id;
 
@@ -40,6 +45,7 @@ class Employee implements UserInterface
      * @Assert\Length(min=3,minMessage="Votre Prenom doit être supèrieur à 3 caractéres")
      */
     private $prenom;
+    private $roles = [];
 
     /**
      * @var string
@@ -58,6 +64,10 @@ class Employee implements UserInterface
      * @ORM\Column(name="cin", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Ce champs ne doit pas être vide")
      * @Assert\Length(min=8,max=8,minMessage="CIN doit être égale à 8 chiffres numériques")
+     *  @Assert\Regex(
+     *     pattern     = "/^[0-1]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]$/i",
+     *     message="premier caractère soit 1 ou 0")
+     *
      */
     private $cin;
 
@@ -76,12 +86,16 @@ class Employee implements UserInterface
     private $role;
 
     /**
-     * @var string
+     * @var string The hashed password
      *
      * @ORM\Column(name="mot_de_passe", type="string", length=255, nullable=false)
-     * @Assert\NotBlank(message="Ce champs ne doit pas être vide")
-     * @Assert\Length(min=6,minMessage="Votre Mot De Passe doit être supèrieur à 6 caractéres")
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
+     *  @Assert\Regex(
+     *  pattern="/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/",
+     *  message="Votre mot de passe doit contenir au moins 1 chiffre, 1 majuscule, 1 minuscule et avoir une longueur d'au moins 8 caractères."
+     * )
      */
+
     private $motDePasse;
 
     /**
@@ -91,6 +105,7 @@ class Employee implements UserInterface
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="equipe_id", referencedColumnName="id_equipe")
      * })
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
      */
     private $equipe;
 
@@ -101,10 +116,61 @@ class Employee implements UserInterface
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="service_id", referencedColumnName="id")
      * })
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
      */
     private $service;
+    /**
+     * @Assert\NotIdenticalTo('name'='password')
+     */
+    private $confirmMotDePasse;
+    public function addService(\App\Entity\Service $service)
+    {
+        $this->service[] = $service;
+
+        return $this;
+    }
+    /**
+ * @return mixed
+ */public function getConfirmMotDePasse()
+{
+    return $this->confirmMotDePasse;
+}
+public function setConfirmMotDePasse($confirmmotdepasse)
+{
+    $this->confirmMotDePasse=$confirmmotdepasse;
+}
+
+    public function removeService(\App\Entity\Service $service)
+    {
+        $this->service->removeElement($service);
+    }
+    public function addEquipe(\App\Entity\Equipe $equipe)
+    {
+        $this->equipe[] = $equipe;
+
+        return $this;
+    }
+
+
+    public function removeEquipe(\App\Entity\Equipe $equipe)
+    {
+        $this->equipe->removeElement($equipe);
+    }
+    public function setService($service)
+    {
+        $this->service=$service;
+    }
     public $nomService;
     public $nomEquipe;
+    public function getEquipe()
+    {
+        return $this->equipe;
+    }
+    public function getService()
+    {
+        return $this->service;
+    }
+ 
     public function getId()
     {
         return $this->id;
@@ -129,11 +195,37 @@ class Employee implements UserInterface
     {
         return $this->email;
     }
-    public function getRoles()
+
+    public function getRole()
     {
         return $this->role;
     }
-    public function getPassword()
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+    public function setEquipe($equipe)
+    {
+        $this->equipe=$equipe;
+    }
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword() :string
     {
         return $this->motDePasse;
     }
@@ -144,15 +236,6 @@ class Employee implements UserInterface
     public function getPhoto()
     {
         return $this->photo;
-    }
-    
-    public function getService()
-    {
-        return $this->service;
-    }
-    public function getEquipe()
-    {
-        return  $this->equipe;
     }
     public function getSalt()
     {
@@ -180,10 +263,11 @@ class Employee implements UserInterface
     {
         $this->prenom=$prenom;
     }
-    public function setRoles($role)
+    public function setRole($role)
     {
         $this->role=$role;
     }
+
     public function setEmail($email)
     {
         $this->email=$email;
@@ -220,5 +304,17 @@ class Employee implements UserInterface
             // see section on salt below
             // $this->salt
         ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+    /**
+ * Constructor
+ */
+    public function __construct()
+    {
+        $this->service = new ArrayCollection();
+        $this->equipe=new ArrayCollection();
+    }
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->cin;
     }
 }

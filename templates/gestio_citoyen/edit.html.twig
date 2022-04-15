@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Citoyen{% endblock %}
+
+{% block body %}
+    <h1>Edit Citoyen</h1>
+
+    {{ include('gestio_citoyen/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_gestio_citoyen_index') }}">back to list</a>
+
+    {{ include('gestio_citoyen/_delete_form.html.twig') }}
+{% endblock %}

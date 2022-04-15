@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Demande
  *
- * @ORM\Table(name="demande", indexes={@ORM\Index(name="demande_ibfk_1", columns={"id_service"})})
+ * @ORM\Table(name="demande", indexes={@ORM\Index(name="id_citoyen", columns={"id_citoyen"}), @ORM\Index(name="id_service", columns={"id_service"})})
  * @ORM\Entity
  */
 class Demande
@@ -29,30 +29,23 @@ class Demande
     private $numDemande;
 
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="type_demande", type="string", length=50, nullable=false)
+     * @ORM\Column(name="type_demande", type="string", length=255, nullable=true)
      */
     private $typeDemande;
 
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="date_demande", type="string", length=255, nullable=false)
+     * @ORM\Column(name="date_demande", type="string", length=255, nullable=true)
      */
     private $dateDemande;
 
     /**
-     * @var int
+     * @var string|null
      *
-     * @ORM\Column(name="id_citoyen", type="integer", nullable=false)
-     */
-    private $idCitoyen;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etat", type="string", length=255, nullable=false)
+     * @ORM\Column(name="etat", type="string", length=255, nullable=true)
      */
     private $etat;
 
@@ -65,6 +58,16 @@ class Demande
      * })
      */
     private $idService;
+
+    /**
+     * @var \Citoyen
+     *
+     * @ORM\ManyToOne(targetEntity="Citoyen")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_citoyen", referencedColumnName="id")
+     * })
+     */
+    private $idCitoyen;
 
 
 }

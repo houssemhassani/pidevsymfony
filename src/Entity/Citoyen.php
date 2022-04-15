@@ -36,6 +36,7 @@ class Citoyen implements UserInterface
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Ce champs ne doit pas être vide")
      * @Assert\Length(min=3,minMessage="Votre Prenom doit être supèrieur à 3 caractéres")
      */
     private $prenom;
@@ -57,6 +58,9 @@ class Citoyen implements UserInterface
      * @ORM\Column(name="cin", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Ce champs ne doit pas être vide")
      * @Assert\Length(min=8,max=8,minMessage="CIN doit être égale à 8 chiffres numériques")
+     * @Assert\Regex(
+     *     pattern     = "/^[0-1]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]$/i",
+     *     message="premier caractère soit 1 ou 0")
      */
     private $cin;
 
@@ -88,8 +92,11 @@ class Citoyen implements UserInterface
      * @var string
      *
      * @ORM\Column(name="mot_de_passe", type="string", length=255, nullable=false)
-     * @Assert\NotBlank(message="Ce champs ne doit pas être vide")
-     * @Assert\Length(min=6,minMessage="Votre Mot De Passe doit être supèrieur à 6 caractéres")
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
+     *  @Assert\Regex(
+     *  pattern="/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/",
+     *  message="Votre mot de passe doit contenir au moins 1 chiffre, 1 majuscule, 1 minuscule et avoir une longueur d'au moins 8 caractères."
+     * )
      */
     private $motDePasse;
 
@@ -99,6 +106,20 @@ class Citoyen implements UserInterface
      * @ORM\Column(name="email_confirmed", type="boolean", nullable=false)
      */
     private $emailConfirmed;
+    /**
+     * @Assert\NotIdenticalTo('name'='password')
+     */
+    private $confirmMotDePasse;
+    /**
+     * @return mixed
+     */public function getConfirmMotDePasse()
+{
+    return $this->confirmMotDePasse;
+}
+    public function setConfirmMotDePasse($confirmmotdepasse)
+    {
+        $this->confirmMotDePasse=$confirmmotdepasse;
+    }
     public function getRoles()
     {
         return null;

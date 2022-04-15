@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Notification
  *
- * @ORM\Table(name="notification", indexes={@ORM\Index(name="FK_BF5476CAF8097ED5", columns={"id_demande"})})
+ * @ORM\Table(name="notification", indexes={@ORM\Index(name="id_demande", columns={"id_demande"})})
  * @ORM\Entity
  */
 class Notification
@@ -36,11 +36,11 @@ class Notification
     private $emailNotification;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="num_notification", type="integer", nullable=false)
+     * @ORM\Column(name="nom_notification", type="string", length=255, nullable=false)
      */
-    private $numNotification;
+    private $nomNotification;
 
     /**
      * @var \Demande
