@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div style="display: flex;align-items: center;justify-content: center;margin-top: 150px; padding: 10px; width: 100%">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Notifications</h5>
+
+                <!-- General Form Elements -->
+                {{ form_start(form,{attr:{novalidate:'novalidate'} }) }}
+
+                <label for="inputText" class="col-sm-8 col-form-label">typeNotification</label>
+                <div class="col-sm-10">
+                    {{ form_widget(form.typeNotification,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.typeNotification,{'attr':{'class':'text-danger'}}) }}
+                </div>
+
+
+
+                <label for="inputText" class="col-sm-8 col-form-label">emailNotification</label>
+                <div class="col-sm-10">
+                    {{ form_widget(form.emailNotification,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.emailNotification,{'attr':{'class':'text-danger'}}) }}
+                </div>
+
+
+
+                <label for="inputText" class="col-sm-8 col-form-label">numNotification</label>
+                <div class="col-sm-10">
+                    {{ form_widget(form.numNotification ,{'attr':{'class':'form-control'}}) }}
+                    {{ form_errors(form.numNotification ,{'attr':{'class':'text-danger'}}) }}
+                </div>
+
+
+
+
+
+                <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+                    {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                </div>
+
+
+
+
+
+
+
+
+                {{ form_end(form) }}
+
+
+                </form><!-- End General Form Elements -->
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+   <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top:150px;">
+       <div class="col-lg-7">
+
+           <div class="card">
+               <div class="card-body">
+
+         <a href="{{ path('app_demande_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size:50px;"></i></a>
+                   <h5 class="card-title">listes des demandes</h5>
+
+                   <!-- Table with stripped rows -->
+                   <table class="table table-striped">
+                       <thead>
+                       <tr>
+
+                           <th>NumDemande</th>
+                           <th>TypeDemande</th>
+                           <th>DateDemande</th>
+                           <th>Etat</th>
+                           <th>actions</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       {% for demande in demandes %}
+                           <tr>
+
+                               <td>{{ demande.numDemande }}</td>
+                               <td>{{ demande.typeDemande }}</td>
+                               <td>{{ demande.dateDemande }}</td>
+                               <td>{{ demande.etat }}</td>
+                               <td>
+                                   <a  class="btn btn-success"  href="{{ path('app_demande_delete', {'id': demande.id}) }}">delete</a>
+                                   <a class="btn btn-danger"   href="{{ path('app_demande_edit', {'id': demande.id}) }}">edit</a>
+                               </td>
+                           </tr>
+
+                       {% endfor %}
+                       </tbody>
+                   </table>
+                   <!-- End small tables -->
+
+               </div>
+           </div>
+
+       </div>
+
+   </div>
+
+{% endblock %}
