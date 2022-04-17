@@ -9,29 +9,30 @@
         <div class="card">
             <div class="card-body">
 
-                <a href="{{ path('app_notification_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size:50px;"></i></a>
+
                 <h5 class="card-title">Notification</h5>
 
                 <!-- Table with stripped rows -->
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
+
                 <th>TypeNotification</th>
                 <th>EmailNotification</th>
-                <th>NumNotification</th>
+                <th>id demande</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for notification in notifications %}
             <tr>
-                <td>{{ notification.id }}</td>
+
                 <td>{{ notification.typeNotification }}</td>
                 <td>{{ notification.emailNotification }}</td>
-                <td>{{ notification.numNotification }}</td>
+                <td>{{ notification.idDemande }}</td>
+
                 <td>
-                    <a class="btn btn-success" href="{{ path('app_notification_show', {'id': notification.id}) }}">delete</a>
+                    <a class="btn btn-success" href="{{ path('delete', {'id': notification.id}) }}">delete</a>
                     <a class="btn btn-danger"  href="{{ path('app_notification_edit', {'id': notification.id}) }}">edit</a>
                 </td>
             </tr>

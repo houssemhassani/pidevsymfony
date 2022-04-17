@@ -64,6 +64,7 @@ class DemandeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             (new \DateTime('now'));
+          //  ( new \DateTime-('Y-m-d H:i:s'));
             $demande-> setEtat('en cours');
             $entityManager->persist($demande);
             $entityManager->flush();
@@ -101,7 +102,7 @@ class DemandeController extends AbstractController
             return $this->redirectToRoute('app_demande_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('demande/edit.html.twig', [
+        return $this->render('demande/edit1.html.twig', [
             'demande' => $demande,
             'form' => $form->createView(),
         ]);

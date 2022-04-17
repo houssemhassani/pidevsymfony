@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class Demande1Type extends AbstractType
 {
@@ -18,6 +19,10 @@ class Demande1Type extends AbstractType
             ->add('numDemande')
             ->add('typeDemande')
             ->add('dateDemande')
+          //  ->add('etat')
+          ->add('etat', TextType::class, [
+              'attr' => ['readonly' => true],
+          ])
 
            /* ->add('etat',ChoiceType::class,array(
                 'choices'  => array (

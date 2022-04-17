@@ -17,8 +17,8 @@ class NotificationType extends AbstractType
             ->add('typeNotification',ChoiceType::class,array(
                 'choices'  => array (
 
-                    'Email'=> 1,
-                    'SMS'=>2,
+                    'Email'=> 'Email',
+                    'SMS'=>'SMS',
                 )))
             ->add('emailNotification')
             ->add('numNotification')

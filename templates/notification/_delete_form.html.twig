@@ -1,4 +1,9 @@
-<form method="post" action="{{ path('app_notification_delete', {'id': notification.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+{% extends 'base.html.twig' %}
+{% block body %}
+<div style="display: flex;align-items: center;justify-content: center;margin-top: 150px; padding: 10px; width: 100%">
+<form method="post" action="{{ path('delete', {'id': notification.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ notification.id) }}">
     <button class="btn">Delete</button>
 </form>
+</div>
+{% endblock %}

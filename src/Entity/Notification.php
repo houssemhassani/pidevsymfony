@@ -36,9 +36,9 @@ class Notification
     private $emailNotification;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="nom_notification", type="string", length=255, nullable=false)
+     * @ORM\Column(name="nom_notification", type="integer", nullable=false)
      */
     private $nomNotification;
 
@@ -81,14 +81,14 @@ class Notification
         return $this;
     }
 
-    public function getNomNotification(): ?string
+    public function getNumNotification(): ?string
     {
         return $this->nomNotification;
     }
 
-    public function setNomNotification(string $nomNotification): self
+    public function setNumNotification(string $nomNotification): self
     {
-        $this->nomNotification = $nomNotification;
+        $this->NomNotification = $nomNotification;
 
         return $this;
     }

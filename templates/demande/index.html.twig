@@ -31,11 +31,12 @@
 
                                <td>{{ demande.numDemande }}</td>
                                <td>{{ demande.typeDemande }}</td>
-                               <td>{{ demande.dateDemande }}</td>
+                               <td>{{ demande.dateDemande | date }}</td>
                                <td>{{ demande.etat }}</td>
                                <td>
                                    <a  class="btn btn-success"  href="{{ path('app_demande_delete', {'id': demande.id}) }}">delete</a>
                                    <a class="btn btn-danger"   href="{{ path('app_demande_edit', {'id': demande.id}) }}">edit</a>
+                                   <a class="btn btn-primary"   href="{{ path('app_notification_new',{'id': demande.id})}}">notifier</a>
                                </td>
                            </tr>
 

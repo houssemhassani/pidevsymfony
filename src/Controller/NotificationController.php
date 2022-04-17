@@ -1,14 +1,20 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Demande;
 use App\Entity\Notification;
 use App\Form\NotificationType;
+use App\Repository\DemandeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Notifier\Message\SmsMessage;
+use Symfony\Component\Notifier\TexterInterface;
+
+
+
 
 /**
  * @Route("/notification")
@@ -29,16 +35,24 @@ class NotificationController extends AbstractController
         ]);
     }
 
+
+
+
     /**
-     * @Route("/new", name="app_notification_new", methods={"GET", "POST"})
+     * @Route("/{id}/new", name="app_notification_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request,Demande $demande , EntityManagerInterface $entityManager,DemandeRepository $repository): Response
     {
+
         $notification = new Notification();
+
+        $notification->setIdDemande($demande);
         $form = $this->createForm(NotificationType::class, $notification);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
             $entityManager->persist($notification);
             $entityManager->flush();
 
@@ -82,7 +96,7 @@ class NotificationController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_notification_delete", methods={"POST"})
+     * @Route("/{id}", name="delete", methods={"POST"})
      */
     public function delete(Request $request, Notification $notification, EntityManagerInterface $entityManager): Response
     {
