@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Employee{% endblock %}
+{% block title %}Ajout Employee{% endblock %}
 
 {% block body %}
 
@@ -49,7 +49,7 @@
 
                 <label for="inputPassword4" class="form-label">confirm Mot De Passe :</label>
                 {{ form_widget(form.confirmMotDePasse,{'attr':{'class':'form-control'}}) }}
-                <span style="color:red">{{ form_errors(form.confirmMotDePasse) }}</span>
+                <span style="color:red">{{ message }}</span>
                 <br/>
                 <div class="text-center">
                   {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}})}}

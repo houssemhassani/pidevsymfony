@@ -58,9 +58,6 @@ class Citoyen implements UserInterface
      * @ORM\Column(name="cin", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Ce champs ne doit pas être vide")
      * @Assert\Length(min=8,max=8,minMessage="CIN doit être égale à 8 chiffres numériques")
-     * @Assert\Regex(
-     *     pattern     = "/^[0-1]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]$/i",
-     *     message="premier caractère soit 1 ou 0")
      */
     private $cin;
 
@@ -87,9 +84,8 @@ class Citoyen implements UserInterface
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
      */
     private $photo;
-
     /**
-     * @var string
+     * @var string The hashed password
      *
      * @ORM\Column(name="mot_de_passe", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Ce champs est obligatoire")
@@ -98,6 +94,7 @@ class Citoyen implements UserInterface
      *  message="Votre mot de passe doit contenir au moins 1 chiffre, 1 majuscule, 1 minuscule et avoir une longueur d'au moins 8 caractères."
      * )
      */
+
     private $motDePasse;
 
     /**
@@ -106,49 +103,42 @@ class Citoyen implements UserInterface
      * @ORM\Column(name="email_confirmed", type="boolean", nullable=false)
      */
     private $emailConfirmed;
-    /**
-     * @Assert\NotIdenticalTo('name'='password')
-     */
+
     private $confirmMotDePasse;
+    private $roles;
+
     /**
      * @return mixed
-     */public function getConfirmMotDePasse()
-{
-    return $this->confirmMotDePasse;
-}
-    public function setConfirmMotDePasse($confirmmotdepasse)
+     */
+    public function getConfirmMotDePasse()
     {
-        $this->confirmMotDePasse=$confirmmotdepasse;
+        return $this->confirmMotDePasse;
     }
-    public function getRoles()
+
+    /**
+     * @param mixed $confirmMotDePasse
+     */
+    public function setConfirmMotDePasse($confirmMotDePasse)
     {
-        return null;
-    }
-    public function getPassword()
-    {
-        return $this->motDePasse;
-    }
-    public function getUserName()
-    {
-        return $this->cin;
+        $this->confirmMotDePasse = $confirmMotDePasse;
     }
     public function getId()
     {
         return $this->id;
     }
+    public function getUserName()
+    {
+        return $this->nom." ".$this->prenom;
+    }
+    public function getCin()
+    {
+        return $this->cin;
+    }
     public function getNom()
     {
         return $this->nom;
     }
-    public function setNom($nom)
-    {
-        $this->nom=$nom;
-    }
     public function getPrenom()
-    {
-        return $this->prenom;
-    }
-    public function setPrenom($prenom)
     {
         return $this->prenom;
     }
@@ -156,57 +146,87 @@ class Citoyen implements UserInterface
     {
         return $this->email;
     }
-    public function setEmail($email)
+
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->email=$email;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_EMPLOYEE';
+
+        return array_unique($roles);
     }
-    public function getCin()
+
+    /**
+     * @return bool
+     */
+    public function isEmailConfirmed(): bool
     {
-        return $this->cin;
+        return $this->emailConfirmed;
     }
-    public function setCin($cin)
+
+    /**
+     * @param bool $emailConfirmed
+     */
+    public function setEmailConfirmed(bool $emailConfirmed): void
     {
-        $this->cin=$cin;
+        $this->emailConfirmed = $emailConfirmed;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumTel(): int
+    {
+        return $this->numTel;
+    }
+
+    /**
+     * @param int $numTel
+     */
+    public function setNumTel(int $numTel): void
+    {
+        $this->numTel = $numTel;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVille(): string
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param string $ville
+     */
+    public function setVille(string $ville): void
+    {
+        $this->ville = $ville;
+    }
+
+
+    public function setEquipe($equipe)
+    {
+        $this->equipe=$equipe;
+    }
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword() :string
+    {
+        return $this->motDePasse;
     }
     public function getMotDePasse()
     {
         return $this->motDePasse;
     }
-    public function setMotDePasse($mdp)
-    {
-        $this->motDePasse=$mdp;
-    }
-    public function getEmailConfirmed()
-    {
-        return $this->emailConfirmed;
-    }
-    public function setEmailConfirmed($em)
-    {
-        $this->emailConfirmed=$em;
-    }
-    public function getNumTel()
-    {
-        return $this->numTel;
-    }
-    public function setNumTel($num)
-    {
-        $this->numTel=$num;
-    }
-    public function getVille()
-    {
-        return $this->ville;
-    }
-    public function setVille($ville)
-    {
-        $this->ville=$ville;
-    }
     public function getPhoto()
     {
         return $this->photo;
-    }
-    public function setPhoto($photo)
-    {
-        $this->photo=$photo;
     }
     public function getSalt()
     {
@@ -214,15 +234,37 @@ class Citoyen implements UserInterface
         // see section on salt below
         return null;
     }
-    public function setUsername($cin)
+    public function setNom($nom)
+    {
+        $this->nom=$nom;
+    }
+    public function setPhoto($photo)
+    {
+        $this->photo=$photo;
+    }
+    public function setUsername($email)
+    {
+        $this->email=$email;
+    }
+    public function setCin($cin)
     {
         $this->cin=$cin;
     }
-    public function setRoles($role)
+    public function setPrenom($prenom)
     {
-        $role=0;
+        $this->prenom=$prenom;
+    }
+
+
+    public function setEmail($email)
+    {
+        $this->email=$email;
     }
     public function setPassword($motdepasse)
+    {
+        $this->motDePasse=$motdepasse;
+    }
+    public function setMotDePasse($motdepasse)
     {
         $this->motDePasse=$motdepasse;
     }
@@ -233,22 +275,33 @@ class Citoyen implements UserInterface
     public function serialize()
     {
         return serialize(array(
-             $this->id,
-             $this->cin,
-             $this->motDePasse,
-             // see section on salt below
-             // $this->salt,
-         ));
+            $this->id,
+            $this->email,
+            $this->motDePasse,
+            // see section on salt below
+            // $this->salt,
+        ));
     }
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
     {
         list(
             $this->id,
-            $this->cin,
+            $this->email,
             $this->motDePasse,
             // see section on salt below
             // $this->salt
-        ) = unserialize($serialized, array('allowed_classes' => false));
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+
+    }
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->cin;
     }
 }

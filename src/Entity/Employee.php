@@ -120,14 +120,21 @@ class Employee implements UserInterface
      */
     private $service;
     /**
-     * @Assert\NotIdenticalTo('name'='password')
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
+     *  @Assert\Regex(
+     *  pattern="/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/",
+     *  message="Votre mot de passe doit contenir au moins 1 chiffre, 1 majuscule, 1 minuscule et avoir une longueur d'au moins 8 caractères."
+     * )
      */
     private $confirmMotDePasse;
     public function addService(\App\Entity\Service $service)
     {
         $this->service[] = $service;
-
         return $this;
+    }
+    public function removeService(\App\Entity\Service $service)
+    {
+        $this->service->removeElement($service);
     }
     /**
  * @return mixed
@@ -140,10 +147,7 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     $this->confirmMotDePasse=$confirmmotdepasse;
 }
 
-    public function removeService(\App\Entity\Service $service)
-    {
-        $this->service->removeElement($service);
-    }
+
     public function addEquipe(\App\Entity\Equipe $equipe)
     {
         $this->equipe[] = $equipe;
@@ -177,7 +181,7 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     }
     public function getUserName()
     {
-        return $this->cin;
+        return $this->nom." ".$this->prenom;
     }
     public function getCin()
     {
@@ -207,7 +211,7 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_EMPLOYEE';
 
         return array_unique($roles);
     }
@@ -251,9 +255,9 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     {
         $this->photo=$photo;
     }
-    public function setUsername($cin)
+    public function setUsername($email)
     {
-        $this->cin=$cin;
+        $this->email=$email;
     }
     public function setCin($cin)
     {
@@ -288,7 +292,7 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     {
         return serialize(array(
              $this->id,
-             $this->cin,
+             $this->email,
              $this->motDePasse,
              // see section on salt below
              // $this->salt,
@@ -299,7 +303,7 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     {
         list(
             $this->id,
-            $this->cin,
+            $this->email,
             $this->motDePasse,
             // see section on salt below
             // $this->salt

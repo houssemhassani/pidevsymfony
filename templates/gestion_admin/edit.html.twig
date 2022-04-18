@@ -1,9 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Admin{% endblock %}
+{% block title %}Modification Employee{% endblock %}
 
 {% block body %}
-    <h1>Edit Admin</h1>
+    <div class="row">
+        <div style="display: flex;align-items: center;justify-content: center;margin-top: 80px; padding:10px">
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ path('app_gestion_admin_index') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                    <h5 class="card-title">Modification D'un Administrateur</h5>
+
+
+                    {{ form_start(form,{'attr':{'novalidate': 'novalidate'}}) }}
+
+                    <label for="inputNanme4" class="form-label">Nom :</label>
+                    {{ form_widget(form.nom,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.nom) }}</span>
+
+
+                    <label for="inputNanme4" class="form-label">Prénom :</label>
+                    {{ form_widget(form.prenom,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.prenom) }}</span>
+
+
+                    <label for="inputEmail4" class="form-label">Email :</label>
+                    {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.email) }}</span>
+
+                    <label for="inputNanme4" class="form-label">CIN :</label>
+                    {{ form_widget(form.cin,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.cin) }}</span>
+
+                    <label for="inputPassword4" class="form-label">Mot De Passe :</label>
+                    {{ form_widget(form.motDePasse,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.motDePasse) }}</span>
+
+                    <label for="inputPassword4" class="form-label">Confirmer Mot De Passe :</label>
+                    {{ form_widget(form.confirmMotDePasse,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.confirmMotDePasse) }}</span>
+
+                    <br/>
+                    <div class="text-center">
+                        {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}})}}
+                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                    </div>
+                    {{ form_end(form) }}<!-- Vertical Form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{ include('gestion_admin/_form.html.twig', {'button_label': 'Update'}) }}
 

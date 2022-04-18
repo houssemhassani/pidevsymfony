@@ -26,11 +26,7 @@
             <tr>
                 <th>Cin</th>
                 <td>{{ employee.cin }}</td>
-                <td> <a href="{{ path('app_gestion_employee_index') }}">back to list</a>
-
-                        <a href="{{ path('app_gestion_employee_edit', {'id': employee.id}) }}">edit</a>
-
-                        {{ include('gestion_employee/_delete_form.html.twig') }}
+                <td>
                         </td>
             </tr>
 
@@ -41,6 +37,11 @@
             </tr>
         </tbody>
     </table>
+    <a href="{{ path('app_gestion_employee_index') }}">back to list</a>
+
+    <a href="{{ path('app_gestion_employee_edit', {'id': employee.id}) }}">edit</a>
+
+    {{ include('gestion_employee/_delete_form.html.twig') }}
 
 
 {% endblock %}

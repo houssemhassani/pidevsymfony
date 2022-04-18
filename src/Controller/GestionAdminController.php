@@ -10,9 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use function PHPUnit\Framework\equalTo;
 
 /**
- * @Route("/gestion/admin")
+ * @Route("/gesadmin")
  */
 class GestionAdminController extends AbstractController
 {
@@ -33,22 +35,27 @@ class GestionAdminController extends AbstractController
     /**
      * @Route("/new", name="app_gestion_admin_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request,UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager): Response
     {
         $admin = new Admin();
         $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($admin);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_gestion_admin_index', [], Response::HTTP_SEE_OTHER);
+        if ($form->isSubmitted() && $form->isValid()  ) {
+            if($admin->getConfirmMotDePasse()==$admin->getMotDePasse())
+            {
+                $hash = $encoder->encodePassword($admin, $admin->getPassword());
+                $admin->setMotDePasse($hash);
+                $entityManager->persist($admin);
+                $entityManager->flush();
+                return $this->redirectToRoute('app_gestion_admin_index', [], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->render('gestion_admin/new.html.twig', [
             'admin' => $admin,
             'form' => $form->createView(),
+
         ]);
     }
 

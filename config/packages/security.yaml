@@ -2,22 +2,40 @@ security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     encoders:
         App\Entity\Employee:
-            # Use native password encoder
-            # This value auto-selects the best possible hashing algorithm
-            # (i.e. Sodium when available).
             algorithm: bcrypt
         App\Entity\Citoyen:
             algorithm: bcrypt
+        App\Entity\Admin:
+            algorithm: bcrypt
     providers:
-        users_in_memory: { memory: null }
+        app_user_provider:
+            entity:
+                class: App\Entity\Employee
+                property: cin
+
+
+        #users_in_memory: { memory: null }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
                 
         main:
-            anonymous: lazy
-            provider: users_in_memory
+            anonymous: true
+            provider: app_user_provider
+            form_login:
+                    login_path: app_login
+                    check_path: app_login
+            guard:
+                authenticators:
+                    - App\Security\EmployeeAuthenticator
+                    - App\Security\CitoyenAuthenticator
+                entry_point: App\Security\EmployeeAuthenticator
+
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -28,5 +46,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/responsable, roles: ROLE_RESPONSABLE }
+        - { path: ^/citoyen, roles: ROLE_CITOYEN }
+        - { path: ^/employee, roles: ROLE_EMPLOYEE }

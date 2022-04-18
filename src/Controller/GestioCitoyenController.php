@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/gescitoyen")
@@ -33,17 +34,20 @@ class GestioCitoyenController extends AbstractController
     /**
      * @Route("/new", name="app_gestio_citoyen_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request,UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager): Response
     {
         $citoyen = new Citoyen();
         $form = $this->createForm(CitoyenType::class, $citoyen);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($citoyen);
-            $entityManager->flush();
+        if ($form->isSubmitted()  ) {
 
-            return $this->redirectToRoute('app_gestio_citoyen_index', [], Response::HTTP_SEE_OTHER);
+                $hash = $encoder->encodePassword($citoyen, $citoyen->getPassword());
+                $citoyen->setEmailConfirmed(false);
+                $citoyen->setMotDePasse($hash);
+                $entityManager->persist($citoyen);
+                $entityManager->flush();
+                return $this->redirectToRoute('app_gestio_citoyen_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('gestio_citoyen/new.html.twig', [

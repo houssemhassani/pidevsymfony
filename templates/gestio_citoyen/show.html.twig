@@ -3,13 +3,23 @@
 {% block title %}Citoyen{% endblock %}
 
 {% block body %}
+<main id="main" class="main">
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
     <h1>Citoyen</h1>
 
     <table class="table">
+
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ citoyen.id }}</td>
+
             </tr>
             <tr>
                 <th>Nom</th>
@@ -49,10 +59,18 @@
             </tr>
         </tbody>
     </table>
-
     <a href="{{ path('app_gestio_citoyen_index') }}">back to list</a>
 
     <a href="{{ path('app_gestio_citoyen_edit', {'id': citoyen.id}) }}">edit</a>
 
+
     {{ include('gestio_citoyen/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
 {% endblock %}

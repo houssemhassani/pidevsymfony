@@ -40,7 +40,6 @@ class GestionEmployeeController extends AbstractController
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
 
-        $cin=$employee->getCin();
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $employee->setRole(0);

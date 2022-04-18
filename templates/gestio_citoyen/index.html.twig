@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des employées{% endblock %}
+{% block title %}Gestion Citoyen{% endblock %}
 
 {% block body %}
     <main id="main" class="main">
@@ -11,7 +11,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ path('app_gestio_citoyen_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                            <a href="{{ path('app_gestion_employee_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
                             <h5 class="card-title">Liste des Citoyens</h5>
                             <!-- Table with stripped rows -->
                             <table class="table datatable">
@@ -25,22 +25,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for citoyen in citoyens %}
+                                {% for employee in citoyens %}
                                     <tr>
-                                        <td>{{ citoyen.nom }}</td>
-                                        <td>{{ citoyen.prenom }}</td>
-                                        <td>{{ citoyen.email }}</td>
-                                        <td>{{ citoyen.cin }}</td>
+                                        <td>{{ employee.nom }}</td>
+                                        <td>{{ employee.prenom }}</td>
+                                        <td>{{ employee.email }}</td>
+                                        <td>{{ employee.cin }}</td>
                                         <td>
-                                            <a href="{{ path('app_gestio_citoyen_delete', {'id': citoyen.id}) }}">Supprimer</a>
-                                            <a href="{{ path('app_gestio_citoyen_edit', {'id': citoyen.id}) }}">Modifier</a>
+                                            <a href="{{ path('app_gestio_citoyen_show', {'id': employee.id}) }}">Supprimer</a>
+                                            <a href="{{ path('app_gestio_citoyen_edit', {'id': employee.id}) }}">Modifier</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
                             <br/>
-                            <a href="{{ path('app_gestion_employee_new') }}">Ajouter nouveau</a>
+                            <a href="{{ path('app_gestio_citoyen_new') }}">Ajouter nouveau</a>
                             <!-- End Table with stripped rows -->
 
                         </div>

@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Admin
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="admin", uniqueConstraints={@ORM\UniqueConstraint(name="cin", columns={"cin"})})
  * @ORM\Entity
  */
-class Admin
+class Admin implements UserInterface
 {
     /**
      * @var int
@@ -66,8 +69,31 @@ class Admin
      * @var string
      *
      * @ORM\Column(name="mot_de_passe", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
+     *  @Assert\Regex(
+     *  pattern="/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/",
+     *  message="Votre mot de passe doit contenir au moins 1 chiffre, 1 majuscule, 1 minuscule et avoir une longueur d'au moins 8 caractères."
+     * )
      */
     private $motDePasse;
+
+    private $confirmMotDePasse;
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmMotDePasse()
+    {
+        return $this->confirmMotDePasse;
+    }
+
+    /**
+     * @param mixed $confirmMotDePasse
+     */
+    public function setConfirmMotDePasse($confirmMotDePasse)
+    {
+        $this->confirmMotDePasse = $confirmMotDePasse;
+    }
 
     public function getId()
     {
@@ -89,6 +115,10 @@ class Admin
     {
         return $this->cin;
     }
+    public function setCin($cin)
+    {
+        $this->cin=$cin;
+    }
     public function getMotDePasse()
     {
         return $this->motDePasse;
@@ -108,5 +138,30 @@ class Admin
     public function setMotDePasse($mdp)
     {
         $this->motDePasse=$mdp;
+    }
+
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+    }
+
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }
