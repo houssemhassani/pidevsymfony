@@ -11,6 +11,19 @@
                <div class="card-body">
 
          <a href="{{ path('app_demande_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size:50px;"></i></a>
+
+
+                  <form method="POST" action="{{ path('recherche')}}">
+                      <label>Recherche</label>
+
+                   <input type="text" name="search"> <input type="submit" value="Recherche">
+
+
+                  </form>
+
+
+
+
                    <h5 class="card-title">listes des demandes</h5>
 
                    <!-- Table with stripped rows -->
@@ -35,7 +48,7 @@
                                <td>{{ demande.etat }}</td>
                                <td>
                                    <a  class="btn btn-success"  href="{{ path('app_demande_delete', {'id': demande.id}) }}">delete</a>
-                                   <a class="btn btn-danger"   href="{{ path('app_demande_edit', {'id': demande.id}) }}">edit</a>
+                                   <a class="btn btn-danger"   href="{{ path('app_demande_edit', {'id': demande.id}) }}">traité</a>
                                    <a class="btn btn-primary"   href="{{ path('app_notification_new',{'id': demande.id})}}">notifier</a>
                                </td>
                            </tr>

@@ -20,7 +20,7 @@ class Demande1Type extends AbstractType
             ->add('typeDemande')
             ->add('dateDemande')
           //  ->add('etat')
-          ->add('etat', TextType::class, [
+         ->add('etat', TextType::class, [
               'attr' => ['readonly' => true],
           ])
 

@@ -7,6 +7,7 @@ use App\Entity\Demande;
 use App\Entity\Service;
 use App\Form\Demande1Type;
 use App\Repository\CitoyenRepository;
+use App\Repository\DemandeRepository;
 use App\Repository\ServiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,9 +30,11 @@ class DemandeController extends AbstractController
           $demande =$this->getDoctrine()->getManager()->getRepository(Demande::class)->findAll();
 
 
+
         return $this->render('demande/index.html.twig', [
             'demandes'=>$demande
         ]);
+
     }
 
 
@@ -93,10 +96,12 @@ class DemandeController extends AbstractController
      */
     public function edit(Request $request, Demande $demande, EntityManagerInterface $entityManager): Response
     {
+        $demande->setEtat('traité');
         $form = $this->createForm(Demande1Type::class, $demande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_demande_index', [], Response::HTTP_SEE_OTHER);
@@ -120,4 +125,29 @@ class DemandeController extends AbstractController
 
         return $this->redirectToRoute('app_demande_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    /**
+     * @param Request $request
+     * @param DemandeRepository $repository
+     * @return Response
+     * @Route ("table/recherche", name="recherche")
+     */
+
+
+    public function  rechercheByDate(Request $request , DemandeRepository $repository){
+
+      //  $em=$this->getDoctrine()->getManager();
+       // $demande = $em->getRepository($repository)->findAll();
+            $data = $request->get('search');
+            $demande = $repository->findBy (['typeDemande'=>$data],array('numDemande'=>'ASC'));
+
+        return $this->render('demande/index.html.twig', [
+            'demandes'=>$demande
+        ]);
+    }
+
+
+
+
 }
