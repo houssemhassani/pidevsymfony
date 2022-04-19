@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citoyen;
+use App\Entity\Employee;
 use App\Form\CitoyenType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,15 +40,31 @@ class GestioCitoyenController extends AbstractController
         $citoyen = new Citoyen();
         $form = $this->createForm(CitoyenType::class, $citoyen);
         $form->handleRequest($request);
+        $user=new Employee();
 
         if ($form->isSubmitted()  ) {
 
                 $hash = $encoder->encodePassword($citoyen, $citoyen->getPassword());
                 $citoyen->setEmailConfirmed(false);
                 $citoyen->setMotDePasse($hash);
+                $citoyen->setVille("null");
+                $citoyen->setPhoto("null");
+            $user->setRole(2);
+            $user->setNom($form->get('nom')->getData());
+            $user->setPrenom($form->get('prenom')->getData());
+            $user->setCin($form->get('cin')->getData());
+
+            $user->setEmail($form->get('email')->getData());
+            $user->setMotDePasse($hash);
+            $user->setService(null);
+            $user->setEquipe(null);
+
+
                 $entityManager->persist($citoyen);
+            $entityManager->persist($user);
                 $entityManager->flush();
                 return $this->redirectToRoute('app_gestio_citoyen_index', [], Response::HTTP_SEE_OTHER);
+
         }
 
         return $this->render('gestio_citoyen/new.html.twig', [

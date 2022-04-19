@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Service;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *
  * @ORM\Table(name="employee", uniqueConstraints={@ORM\UniqueConstraint(name="cin", columns={"cin"})}, indexes={@ORM\Index(name="equipe_id", columns={"equipe_id"}), @ORM\Index(name="service_id", columns={"service_id"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"cin"}, message="There is already an account with this cin")
  */
 class Employee implements UserInterface
 {
@@ -45,7 +47,7 @@ class Employee implements UserInterface
      * @Assert\Length(min=3,minMessage="Votre Prenom doit être supèrieur à 3 caractéres")
      */
     private $prenom;
-    private $roles = [];
+    private $roles;
 
     /**
      * @var string

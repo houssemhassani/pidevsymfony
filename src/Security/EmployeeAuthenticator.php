@@ -92,8 +92,14 @@ class EmployeeAuthenticator extends AbstractFormLoginAuthenticator implements Pa
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
 
+        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+            return new RedirectResponse($targetPath);
+        }
 
-          return new RedirectResponse($this->urlGenerator->generate('app_gestion_employee_index'));
+        //$user=$this->get('security.context')->getToken()->getUser();
+          return new RedirectResponse($this->urlGenerator->generate('app_gestion_employee_index',[
+
+          ]));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

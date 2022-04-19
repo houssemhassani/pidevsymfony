@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Citoyen;
+use App\Entity\Employee;
 use App\Form\CitoyenType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,6 +39,7 @@ class CitoyenController extends AbstractController
         $citoyen = new Citoyen();
         $form = $this->createForm(CitoyenType::class, $citoyen);
         $form->handleRequest($request);
+        $user=new Employee();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $hash = $encoder->encodePassword($citoyen, $citoyen->getPassword());
@@ -46,6 +48,7 @@ class CitoyenController extends AbstractController
             $citoyen->setPhoto("null");
             $citoyen->setVille("bbd");
             $entityManager->persist($citoyen);
+
             
             $entityManager->flush();
 

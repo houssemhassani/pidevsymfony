@@ -179,7 +179,7 @@ class Citoyen implements UserInterface
     /**
      * @return int
      */
-    public function getNumTel(): int
+    public function getNumTel(): ?int
     {
         return $this->numTel;
     }
@@ -209,13 +209,8 @@ class Citoyen implements UserInterface
     }
 
 
-    public function setEquipe($equipe)
-    {
-        $this->equipe=$equipe;
-    }
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
+
+
     public function getPassword() :string
     {
         return $this->motDePasse;

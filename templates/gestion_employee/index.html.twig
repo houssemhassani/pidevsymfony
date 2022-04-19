@@ -11,9 +11,14 @@
 
           <div class="card">
             <div class="card-body">
+
             <a href="{{ path('app_gestion_employee_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
               <h5 class="card-title">Liste des Employées</h5>
+              <h3>{{ user.getNom() }}</h3>
               <!-- Table with stripped rows -->
+              {% if app.user %}
+                  <h1>{{ app.user.nom }} {{ app.user.role }} </h1>
+              {% endif%}
               <table class="table datatable">
                 <thead>
                   <tr>
@@ -35,8 +40,10 @@
                     <a href="{{ path('app_gestion_employee_delete', {'id': employee.id}) }}">Supprimer</a>
                     <a href="{{ path('app_gestion_employee_edit', {'id': employee.id}) }}">Modifier</a>
                     </td>
+
                  </tr>
                  {% endfor %}
+                {{ knp_pagination_render(employees) }}
                 </tbody>
               </table>
                <br/>
