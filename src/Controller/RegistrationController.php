@@ -6,35 +6,16 @@ use App\Entity\Citoyen;
 use App\Entity\Employee;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Notifications\ActivationCompteNotification;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
-use App\Notifications\CreationCompteNotification;
-
-use Symfony\Contracts\Translation\TranslatorInterface;
-use Twig\Environment;
 
 class RegistrationController extends AbstractController
 {
-    /**
-     * @var CreationCompteNotification
-     */
-    private $notify_creation;
 
-    /**
-     * @var ActivationCompteNotification
-     */
-    private $notify_activation;
 
-    public function __construct(CreationCompteNotification $notify_creation, ActivationCompteNotification $notify_activation)
-    {
-        $this->notify_creation = $notify_creation;
-        $this->notify_activation = $notify_activation;
-    }
 
     /**
      *

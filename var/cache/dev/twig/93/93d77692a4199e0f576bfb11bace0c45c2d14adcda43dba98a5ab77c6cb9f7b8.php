@@ -65,7 +65,7 @@ class __TwigTemplate_ecb84fe1f705473d823f80388392cb68981f0cb1b41fc99a2bd196e507e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Employee";
+        echo "Responsable";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,7 +85,7 @@ class __TwigTemplate_ecb84fe1f705473d823f80388392cb68981f0cb1b41fc99a2bd196e507e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Employee</h1>
+        echo "    <h1>Responsable</h1>
 
     <table class=\"table\">
         <tbody>
@@ -190,10 +190,10 @@ class __TwigTemplate_ecb84fe1f705473d823f80388392cb68981f0cb1b41fc99a2bd196e507e
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Employee{% endblock %}
+{% block title %}Responsable{% endblock %}
 
 {% block body %}
-    <h1>Employee</h1>
+    <h1>Responsable</h1>
 
     <table class=\"table\">
         <tbody>

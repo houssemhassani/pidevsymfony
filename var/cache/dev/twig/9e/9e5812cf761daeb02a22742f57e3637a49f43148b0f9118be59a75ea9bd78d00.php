@@ -384,35 +384,50 @@ class __TwigTemplate_c70221bf6826dee1f3ed4dcc9f63c0dca910e6f07da3473326d2ba733cc
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-1.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"";
+        // line 322
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/product-1.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Ut inventore ipsa voluptas nulla</a></td>
                         <td>\$64</td>
                         <td class=\"fw-bold\">124</td>
                         <td>\$5,828</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-2.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"";
+        // line 329
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/product-2.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Exercitationem similique doloremque</a></td>
                         <td>\$46</td>
                         <td class=\"fw-bold\">98</td>
                         <td>\$4,508</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-3.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"";
+        // line 336
+        echo "admin/img/product-3.jpg";
+        echo "\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Doloribus nisi exercitationem</a></td>
                         <td>\$59</td>
                         <td class=\"fw-bold\">74</td>
                         <td>\$4,366</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-4.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"";
+        // line 343
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/product-4.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Officiis quaerat sint rerum error</a></td>
                         <td>\$32</td>
                         <td class=\"fw-bold\">63</td>
                         <td>\$2,016</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-5.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"";
+        // line 350
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/product-5.jpg"), "html", null, true);
+        echo "\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Sit unde debitis delectus repellendus</a></td>
                         <td>\$79</td>
                         <td class=\"fw-bold\">41</td>
@@ -677,31 +692,46 @@ class __TwigTemplate_c70221bf6826dee1f3ed4dcc9f63c0dca910e6f07da3473326d2ba733cc
 
               <div class=\"news\">
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-1.jpg\" alt=\"\">
+                  <img src=\"";
+        // line 615
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/news-1.jpg"), "html", null, true);
+        echo "\" alt=\"\">
                   <h4><a href=\"#\">Nihil blanditiis at in nihil autem</a></h4>
                   <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-2.jpg\" alt=\"\">
+                  <img src=\"";
+        // line 621
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/news-2.jpg"), "html", null, true);
+        echo "\" alt=\"\">
                   <h4><a href=\"#\">Quidem autem et impedit</a></h4>
                   <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-3.jpg\" alt=\"\">
+                  <img src=\"";
+        // line 627
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/news-3.jpg"), "html", null, true);
+        echo "\" alt=\"\">
                   <h4><a href=\"#\">Id quia et et ut maxime similique occaecati ut</a></h4>
                   <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-4.jpg\" alt=\"\">
+                  <img src=\"";
+        // line 633
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/news-4.jpg"), "html", null, true);
+        echo "\" alt=\"\">
                   <h4><a href=\"#\">Laborum corporis quo dara net para</a></h4>
                   <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-5.jpg\" alt=\"\">
+                  <img src=\"";
+        // line 639
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/news-5.jpg"), "html", null, true);
+        echo "\" alt=\"\">
                   <h4><a href=\"#\">Et dolores corrupti quae illo quod dolor</a></h4>
                   <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
                 </div>
@@ -741,7 +771,7 @@ class __TwigTemplate_c70221bf6826dee1f3ed4dcc9f63c0dca910e6f07da3473326d2ba733cc
 
     public function getDebugInfo()
     {
-        return array (  68 => 3,  58 => 2,  35 => 1,);
+        return array (  733 => 639,  724 => 633,  715 => 627,  706 => 621,  697 => 615,  429 => 350,  419 => 343,  409 => 336,  399 => 329,  389 => 322,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -1067,35 +1097,35 @@ class __TwigTemplate_c70221bf6826dee1f3ed4dcc9f63c0dca910e6f07da3473326d2ba733cc
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-1.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('admin/img/product-1.jpg') }}\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Ut inventore ipsa voluptas nulla</a></td>
                         <td>\$64</td>
                         <td class=\"fw-bold\">124</td>
                         <td>\$5,828</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-2.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('admin/img/product-2.jpg') }}\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Exercitationem similique doloremque</a></td>
                         <td>\$46</td>
                         <td class=\"fw-bold\">98</td>
                         <td>\$4,508</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-3.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ ('admin/img/product-3.jpg') }}\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Doloribus nisi exercitationem</a></td>
                         <td>\$59</td>
                         <td class=\"fw-bold\">74</td>
                         <td>\$4,366</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-4.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('admin/img/product-4.jpg') }}\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Officiis quaerat sint rerum error</a></td>
                         <td>\$32</td>
                         <td class=\"fw-bold\">63</td>
                         <td>\$2,016</td>
                       </tr>
                       <tr>
-                        <th scope=\"row\"><a href=\"#\"><img src=\"assets/img/product-5.jpg\" alt=\"\"></a></th>
+                        <th scope=\"row\"><a href=\"#\"><img src=\"{{ asset('admin/img/product-5.jpg') }}\" alt=\"\"></a></th>
                         <td><a href=\"#\" class=\"text-primary fw-bold\">Sit unde debitis delectus repellendus</a></td>
                         <td>\$79</td>
                         <td class=\"fw-bold\">41</td>
@@ -1360,31 +1390,31 @@ class __TwigTemplate_c70221bf6826dee1f3ed4dcc9f63c0dca910e6f07da3473326d2ba733cc
 
               <div class=\"news\">
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-1.jpg\" alt=\"\">
+                  <img src=\"{{ asset('admin/img/news-1.jpg') }}\" alt=\"\">
                   <h4><a href=\"#\">Nihil blanditiis at in nihil autem</a></h4>
                   <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-2.jpg\" alt=\"\">
+                  <img src=\"{{ asset('admin/img/news-2.jpg') }}\" alt=\"\">
                   <h4><a href=\"#\">Quidem autem et impedit</a></h4>
                   <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-3.jpg\" alt=\"\">
+                  <img src=\"{{ asset('admin/img/news-3.jpg') }}\" alt=\"\">
                   <h4><a href=\"#\">Id quia et et ut maxime similique occaecati ut</a></h4>
                   <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-4.jpg\" alt=\"\">
+                  <img src=\"{{ asset('admin/img/news-4.jpg') }}\" alt=\"\">
                   <h4><a href=\"#\">Laborum corporis quo dara net para</a></h4>
                   <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
                 </div>
 
                 <div class=\"post-item clearfix\">
-                  <img src=\"assets/img/news-5.jpg\" alt=\"\">
+                  <img src=\"{{ asset('admin/img/news-5.jpg') }}\" alt=\"\">
                   <h4><a href=\"#\">Et dolores corrupti quae illo quod dolor</a></h4>
                   <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
                 </div>
@@ -1403,6 +1433,6 @@ class __TwigTemplate_c70221bf6826dee1f3ed4dcc9f63c0dca910e6f07da3473326d2ba733cc
 
   <!-- ======= Footer ======= -->
   
-{% endblock %}", "test/index.html.twig", "C:\\xampp\\htdocs\\Pidev\\templates\\test\\index.html.twig");
+{% endblock %}", "test/index.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\test\\index.html.twig");
     }
 }

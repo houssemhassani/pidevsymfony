@@ -65,7 +65,7 @@ class __TwigTemplate_ca346c0c1bbb147b237f0e1f3cdf47a2df9d01e30a9f7e274c23ca749e0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "New Employee";
+        echo "Ajout Employee";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -175,7 +175,7 @@ class __TwigTemplate_ca346c0c1bbb147b237f0e1f3cdf47a2df9d01e30a9f7e274c23ca749e0
         echo "
                 <span style=\"color:red\">";
         // line 52
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 52, $this->source); })()), "confirmMotDePasse", [], "any", false, false, false, 52), 'errors');
+        echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 52, $this->source); })()), "html", null, true);
         echo "</span>
                 <br/>
                 <div class=\"text-center\">
@@ -229,7 +229,7 @@ class __TwigTemplate_ca346c0c1bbb147b237f0e1f3cdf47a2df9d01e30a9f7e274c23ca749e0
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}New Employee{% endblock %}
+{% block title %}Ajout Employee{% endblock %}
 
 {% block body %}
 
@@ -278,7 +278,7 @@ class __TwigTemplate_ca346c0c1bbb147b237f0e1f3cdf47a2df9d01e30a9f7e274c23ca749e0
 
                 <label for=\"inputPassword4\" class=\"form-label\">confirm Mot De Passe :</label>
                 {{ form_widget(form.confirmMotDePasse,{'attr':{'class':'form-control'}}) }}
-                <span style=\"color:red\">{{ form_errors(form.confirmMotDePasse) }}</span>
+                <span style=\"color:red\">{{ message }}</span>
                 <br/>
                 <div class=\"text-center\">
                   {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}})}}

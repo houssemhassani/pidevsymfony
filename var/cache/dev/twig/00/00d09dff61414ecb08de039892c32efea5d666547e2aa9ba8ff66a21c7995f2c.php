@@ -78,7 +78,7 @@ class __TwigTemplate_8e9af6701599c90a15c5fa0235894511b8d6f0bf13ef36da01f535a4522
               <!-- Vertical Form -->
               ";
         // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_start');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
         echo "
 
                   <label for=\"inputNanme4\" class=\"form-label\">Nom :</label>
@@ -86,46 +86,66 @@ class __TwigTemplate_8e9af6701599c90a15c5fa0235894511b8d6f0bf13ef36da01f535a4522
         // line 20
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), "nom", [], "any", false, false, false, 20), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
+                  <span style=\"color:red\">";
+        // line 21
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 21, $this->source); })()), "nom", [], "any", false, false, false, 21), 'errors');
+        echo "</span>
 
 
                   <label for=\"inputNanme4\" class=\"form-label\">Prénom :</label>
                   ";
-        // line 24
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 24, $this->source); })()), "prenom", [], "any", false, false, false, 24), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "prenom", [], "any", false, false, false, 25), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
+                  <span style=\"color:red\">";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "prenom", [], "any", false, false, false, 26), 'errors');
+        echo "</span>
 
 
                   <label for=\"inputEmail4\" class=\"form-label\">Email :</label>
                   ";
-        // line 28
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 28, $this->source); })()), "email", [], "any", false, false, false, 28), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 30
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "email", [], "any", false, false, false, 30), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
+                  <span style=\"color:red\">";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "email", [], "any", false, false, false, 31), 'errors');
+        echo "</span>
 
                   <label for=\"inputNanme4\" class=\"form-label\">CIN :</label>
                   ";
-        // line 31
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "cin", [], "any", false, false, false, 31), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 34
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 34, $this->source); })()), "cin", [], "any", false, false, false, 34), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
+                  <span style=\"color:red\">";
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "cin", [], "any", false, false, false, 35), 'errors');
+        echo "</span>
 
                   <label for=\"inputPassword4\" class=\"form-label\">Mot De Passe :</label>
                   ";
-        // line 34
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 34, $this->source); })()), "motDePasse", [], "any", false, false, false, 34), 'widget', ["attr" => ["class" => "form-control"]]);
+        // line 38
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), "motDePasse", [], "any", false, false, false, 38), 'widget', ["attr" => ["class" => "form-control"]]);
         echo "
+                  <span style=\"color:red\">";
+        // line 39
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "motDePasse", [], "any", false, false, false, 39), 'errors');
+        echo "</span>
 
                   <label for=\"inputPassword4\" class=\"form-label\">Confirmer Mot De Passe :</label>
                   <input type=\"password\" class=\"form-control\" id=\"inputPassword4\">
                 <br/>
                 <div class=\"text-center\">
                   ";
-        // line 40
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 40, $this->source); })()), "ajouter", [], "any", false, false, false, 40), 'widget', ["attr" => ["class" => "btn btn-primary"]]);
+        // line 45
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 45, $this->source); })()), "ajouter", [], "any", false, false, false, 45), 'widget', ["attr" => ["class" => "btn btn-primary"]]);
         echo "
                   <button type=\"reset\" class=\"btn btn-secondary\">Annuler</button>
                 </div>
               ";
-        // line 43
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 43, $this->source); })()), 'form_end');
+        // line 48
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 48, $this->source); })()), 'form_end');
         echo "<!-- Vertical Form -->
 
 
@@ -133,7 +153,7 @@ class __TwigTemplate_8e9af6701599c90a15c5fa0235894511b8d6f0bf13ef36da01f535a4522
           </div>
           </div>
           <a href=\"";
-        // line 49
+        // line 54
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_responsable_index");
         echo "\">Liste Des Responsables</a>
           </div>
@@ -160,7 +180,7 @@ class __TwigTemplate_8e9af6701599c90a15c5fa0235894511b8d6f0bf13ef36da01f535a4522
 
     public function getDebugInfo()
     {
-        return array (  137 => 49,  128 => 43,  122 => 40,  113 => 34,  107 => 31,  101 => 28,  94 => 24,  87 => 20,  81 => 17,  68 => 6,  58 => 5,  35 => 2,);
+        return array (  157 => 54,  148 => 48,  142 => 45,  133 => 39,  129 => 38,  123 => 35,  119 => 34,  113 => 31,  109 => 30,  102 => 26,  98 => 25,  91 => 21,  87 => 20,  81 => 17,  68 => 6,  58 => 5,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -181,24 +201,29 @@ class __TwigTemplate_8e9af6701599c90a15c5fa0235894511b8d6f0bf13ef36da01f535a4522
               <h5 class=\"card-title\">Ajout D'un Responsable</h5>
 
               <!-- Vertical Form -->
-              {{ form_start(form) }}
+              {{ form_start(form,{'attr':{'novalidate': 'novalidate'}}) }}
 
                   <label for=\"inputNanme4\" class=\"form-label\">Nom :</label>
                   {{ form_widget(form.nom,{'attr':{'class':'form-control'}}) }}
+                  <span style=\"color:red\">{{ form_errors(form.nom) }}</span>
 
 
                   <label for=\"inputNanme4\" class=\"form-label\">Prénom :</label>
                   {{ form_widget(form.prenom,{'attr':{'class':'form-control'}}) }}
+                  <span style=\"color:red\">{{ form_errors(form.prenom) }}</span>
 
 
                   <label for=\"inputEmail4\" class=\"form-label\">Email :</label>
                   {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                  <span style=\"color:red\">{{ form_errors(form.email) }}</span>
 
                   <label for=\"inputNanme4\" class=\"form-label\">CIN :</label>
                   {{ form_widget(form.cin,{'attr':{'class':'form-control'}}) }}
+                  <span style=\"color:red\">{{ form_errors(form.cin) }}</span>
 
                   <label for=\"inputPassword4\" class=\"form-label\">Mot De Passe :</label>
                   {{ form_widget(form.motDePasse,{'attr':{'class':'form-control'}}) }}
+                  <span style=\"color:red\">{{ form_errors(form.motDePasse) }}</span>
 
                   <label for=\"inputPassword4\" class=\"form-label\">Confirmer Mot De Passe :</label>
                   <input type=\"password\" class=\"form-control\" id=\"inputPassword4\">
@@ -218,6 +243,6 @@ class __TwigTemplate_8e9af6701599c90a15c5fa0235894511b8d6f0bf13ef36da01f535a4522
           </section>
           </main>
 {% endblock %}
-", "responsable/new.html.twig", "C:\\xampp\\htdocs\\Pidev\\templates\\responsable\\new.html.twig");
+", "responsable/new.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\responsable\\new.html.twig");
     }
 }

@@ -259,6 +259,6 @@ class __TwigTemplate_c98fd780266de03d5192355384fa3588fc36e3802ef250b38167951eabc
 
     <a href=\"{{ path('app_citoyen_new') }}\">Create new</a>
 {% endblock %}
-", "citoyen/index.html.twig", "C:\\xampp\\htdocs\\Pidev\\templates\\citoyen\\index.html.twig");
+", "citoyen/index.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\citoyen\\index.html.twig");
     }
 }

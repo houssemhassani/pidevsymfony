@@ -65,7 +65,7 @@ class __TwigTemplate_4e49af180957ede55ce0c19c5d839c5206adc1bf76c13dea308c0924818
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Admin index";
+        echo "Gestion Administrateur";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,85 +85,91 @@ class __TwigTemplate_4e49af180957ede55ce0c19c5d839c5206adc1bf76c13dea308c0924818
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Admin index</h1>
+        echo "    <main id=\"main\" class=\"main\">
 
-    <table class=\"table\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Cin</th>
-                <th>MotDePasse</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        ";
-        // line 21
+        <section class=\"section\">
+            <div class=\"row\">
+                <div class=\"col-lg-12\">
+
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <a href=\"";
+        // line 14
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_new");
+        echo "\"><i class=\"ri-arrow-left-circle-fill\" style=\"font-size: 50px;\"></i></a>
+                            <h5 class=\"card-title\">Liste des Administrateurs</h5>
+                            <!-- Table with stripped rows -->
+                            <table class=\"table datatable\">
+                                <thead>
+                                <tr>
+                                    <th scope=\"col\">Nom</th>
+                                    <th scope=\"col\">Prénom</th>
+                                    <th scope=\"col\">CIN</th>
+                                    <th scope=\"col\">Email</th>
+                                    <th scope=\"col\">actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                ";
+        // line 28
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["admins"]) || array_key_exists("admins", $context) ? $context["admins"] : (function () { throw new RuntimeError('Variable "admins" does not exist.', 21, $this->source); })()));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["admin"]) {
-            // line 22
-            echo "            <tr>
-                <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["admin"], "id", [], "any", false, false, false, 23), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["admin"], "nom", [], "any", false, false, false, 24), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["admin"], "prenom", [], "any", false, false, false, 25), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["admin"], "email", [], "any", false, false, false, 26), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["admin"], "cin", [], "any", false, false, false, 27), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["admin"], "motDePasse", [], "any", false, false, false, 28), "html", null, true);
-            echo "</td>
-                <td>
-                    <a href=\"";
+        $context['_seq'] = twig_ensure_traversable((isset($context["admins"]) || array_key_exists("admins", $context) ? $context["admins"] : (function () { throw new RuntimeError('Variable "admins" does not exist.', 28, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["employee"]) {
+            // line 29
+            echo "                                    <tr>
+                                        <td>";
             // line 30
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_show", ["id" => twig_get_attribute($this->env, $this->source, $context["admin"], "id", [], "any", false, false, false, 30)]), "html", null, true);
-            echo "\">show</a>
-                    <a href=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "nom", [], "any", false, false, false, 30), "html", null, true);
+            echo "</td>
+                                        <td>";
             // line 31
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["admin"], "id", [], "any", false, false, false, 31)]), "html", null, true);
-            echo "\">edit</a>
-                </td>
-            </tr>
-        ";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 35
-            echo "            <tr>
-                <td colspan=\"7\">no records found</td>
-            </tr>
-        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "prenom", [], "any", false, false, false, 31), "html", null, true);
+            echo "</td>
+                                        <td>";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "cin", [], "any", false, false, false, 32), "html", null, true);
+            echo "</td>
+                                        <td>";
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "email", [], "any", false, false, false, 33), "html", null, true);
+            echo "</td>
+
+                                        <td>
+                                            <a href=\"";
+            // line 36
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 36)]), "html", null, true);
+            echo "\">Supprimer</a>
+                                            <a href=\"";
+            // line 37
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 37)]), "html", null, true);
+            echo "\">Modifier</a>
+                                        </td>
+                                    </tr>
+                                ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['admin'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['employee'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
-        echo "        </tbody>
-    </table>
-
-    <a href=\"";
-        // line 42
+        // line 41
+        echo "                                </tbody>
+                            </table>
+                            <br/>
+                            <a href=\"";
+        // line 44
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_new");
-        echo "\">Create new</a>
+        echo "\">Ajouter nouveau</a>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -185,53 +191,67 @@ class __TwigTemplate_4e49af180957ede55ce0c19c5d839c5206adc1bf76c13dea308c0924818
 
     public function getDebugInfo()
     {
-        return array (  165 => 42,  160 => 39,  151 => 35,  142 => 31,  138 => 30,  133 => 28,  129 => 27,  125 => 26,  121 => 25,  117 => 24,  113 => 23,  110 => 22,  105 => 21,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  159 => 44,  154 => 41,  144 => 37,  140 => 36,  134 => 33,  130 => 32,  126 => 31,  122 => 30,  119 => 29,  115 => 28,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Admin index{% endblock %}
+{% block title %}Gestion Administrateur{% endblock %}
 
 {% block body %}
-    <h1>Admin index</h1>
+    <main id=\"main\" class=\"main\">
 
-    <table class=\"table\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Cin</th>
-                <th>MotDePasse</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for admin in admins %}
-            <tr>
-                <td>{{ admin.id }}</td>
-                <td>{{ admin.nom }}</td>
-                <td>{{ admin.prenom }}</td>
-                <td>{{ admin.email }}</td>
-                <td>{{ admin.cin }}</td>
-                <td>{{ admin.motDePasse }}</td>
-                <td>
-                    <a href=\"{{ path('app_gestion_admin_show', {'id': admin.id}) }}\">show</a>
-                    <a href=\"{{ path('app_gestion_admin_edit', {'id': admin.id}) }}\">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan=\"7\">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <section class=\"section\">
+            <div class=\"row\">
+                <div class=\"col-lg-12\">
 
-    <a href=\"{{ path('app_gestion_admin_new') }}\">Create new</a>
+                    <div class=\"card\">
+                        <div class=\"card-body\">
+                            <a href=\"{{ path('app_gestion_admin_new') }}\"><i class=\"ri-arrow-left-circle-fill\" style=\"font-size: 50px;\"></i></a>
+                            <h5 class=\"card-title\">Liste des Administrateurs</h5>
+                            <!-- Table with stripped rows -->
+                            <table class=\"table datatable\">
+                                <thead>
+                                <tr>
+                                    <th scope=\"col\">Nom</th>
+                                    <th scope=\"col\">Prénom</th>
+                                    <th scope=\"col\">CIN</th>
+                                    <th scope=\"col\">Email</th>
+                                    <th scope=\"col\">actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for employee in admins %}
+                                    <tr>
+                                        <td>{{ employee.nom }}</td>
+                                        <td>{{ employee.prenom }}</td>
+                                        <td>{{ employee.cin }}</td>
+                                        <td>{{ employee.email }}</td>
+
+                                        <td>
+                                            <a href=\"{{ path('app_gestion_admin_delete', {'id': employee.id}) }}\">Supprimer</a>
+                                            <a href=\"{{ path('app_gestion_admin_edit', {'id': employee.id}) }}\">Modifier</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <br/>
+                            <a href=\"{{ path('app_gestion_admin_new') }}\">Ajouter nouveau</a>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+
 {% endblock %}
 ", "gestion_admin/index.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\gestion_admin\\index.html.twig");
     }

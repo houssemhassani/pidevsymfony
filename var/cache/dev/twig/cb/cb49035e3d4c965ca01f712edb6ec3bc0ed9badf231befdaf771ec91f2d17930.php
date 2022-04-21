@@ -79,6 +79,6 @@ class __TwigTemplate_a37210104967a102fc11b19aae0ac0aae0ab252e32f264fdd6980ac3288
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ employee.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "employee/_delete_form.html.twig", "C:\\xampp\\htdocs\\Pidev\\templates\\employee\\_delete_form.html.twig");
+", "employee/_delete_form.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\employee\\_delete_form.html.twig");
     }
 }

@@ -65,12 +65,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/common' => array(
-            'pretty_version' => '3.2.2',
-            'version' => '3.2.2.0',
+            'pretty_version' => '3.3.0',
+            'version' => '3.3.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/common',
             'aliases' => array(),
-            'reference' => '295082d3750987065912816a9d536c2df735f637',
+            'reference' => 'c824e95d4c83b7102d8bc60595445a6f7d540f96',
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
@@ -164,12 +164,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/persistence' => array(
-            'pretty_version' => '2.5.0',
-            'version' => '2.5.0.0',
+            'pretty_version' => '2.5.1',
+            'version' => '2.5.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/persistence',
             'aliases' => array(),
-            'reference' => 'f8776dd9a0bdcd838812951a75f4ada72065a82a',
+            'reference' => '4473480044c88f30e0e8288e7123b60c7eb9efa3',
             'dev_requirement' => false,
         ),
         'doctrine/sql-formatter' => array(
@@ -197,24 +197,6 @@
             'install_path' => __DIR__ . '/../friendsofphp/proxy-manager-lts',
             'aliases' => array(),
             'reference' => 'c828ced1f932094ab79e4120a106a666565e4d9c',
-            'dev_requirement' => false,
-        ),
-        'knplabs/knp-components' => array(
-            'pretty_version' => 'v3.4.0',
-            'version' => '3.4.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../knplabs/knp-components',
-            'aliases' => array(),
-            'reference' => 'd990ef101bab58a078b6eb7250e57f5c68af5604',
-            'dev_requirement' => false,
-        ),
-        'knplabs/knp-paginator-bundle' => array(
-            'pretty_version' => 'v5.8.0',
-            'version' => '5.8.0.0',
-            'type' => 'symfony-bundle',
-            'install_path' => __DIR__ . '/../knplabs/knp-paginator-bundle',
-            'aliases' => array(),
-            'reference' => '216b9d5708001788321916c5b7632da9fb9ef6ca',
             'dev_requirement' => false,
         ),
         'laminas/laminas-code' => array(
@@ -617,15 +599,6 @@
             'reference' => '430d14c01836b77c28092883d195a43ce413ee32',
             'dev_requirement' => false,
         ),
-        'swiftmailer/swiftmailer' => array(
-            'pretty_version' => 'v6.3.0',
-            'version' => '6.3.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../swiftmailer/swiftmailer',
-            'aliases' => array(),
-            'reference' => '8a5d5072dca8f48460fce2f4131fcc495eec654c',
-            'dev_requirement' => false,
-        ),
         'symfony/asset' => array(
             'pretty_version' => 'v4.4.40',
             'version' => '4.4.40.0',
@@ -693,7 +666,7 @@
             'install_path' => __DIR__ . '/../symfony/css-selector',
             'aliases' => array(),
             'reference' => '0628e6c6d7c92f1a7bae543959bdc17347be2436',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/debug' => array(
             'pretty_version' => 'v4.4.37',
@@ -819,12 +792,12 @@
             'dev_requirement' => false,
         ),
         'symfony/flex' => array(
-            'pretty_version' => 'v1.18.5',
-            'version' => '1.18.5.0',
+            'pretty_version' => 'v1.18.6',
+            'version' => '1.18.6.0',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../symfony/flex',
             'aliases' => array(),
-            'reference' => '10e438f53a972439675dc720706f0cd5c0ed94f1',
+            'reference' => '130851b90c1ea615ac5be6fce827971f4f55afbf',
             'dev_requirement' => false,
         ),
         'symfony/form' => array(
@@ -913,7 +886,6 @@
             'aliases' => array(),
             'reference' => 'e3304841fd41e1e59225919ed1a7e50986a4cb6f',
             'dev_requirement' => false,
-        ),
         ),
         'symfony/maker-bundle' => array(
             'pretty_version' => 'v1.38.0',
@@ -1161,15 +1133,6 @@
             'reference' => 'd2edc6fc8974e81d83614092340e84d05ee15a58',
             'dev_requirement' => false,
         ),
-        'symfony/sendgrid-mailer' => array(
-            'pretty_version' => 'v4.4.40',
-            'version' => '4.4.40.0',
-            'type' => 'symfony-bridge',
-            'install_path' => __DIR__ . '/../symfony/sendgrid-mailer',
-            'aliases' => array(),
-            'reference' => '6df25649e854087ba1a5991448aa58e31810ad45',
-            'dev_requirement' => false,
-        ),
         'symfony/serializer' => array(
             'pretty_version' => 'v4.4.40',
             'version' => '4.4.40.0',
@@ -1201,15 +1164,6 @@
             'install_path' => __DIR__ . '/../symfony/stopwatch',
             'aliases' => array(),
             'reference' => '7f4f5a8122f7530d688cc9edf2f8c9261552fa2d',
-            'dev_requirement' => false,
-        ),
-        'symfony/swiftmailer-bundle' => array(
-            'pretty_version' => 'v3.5.4',
-            'version' => '3.5.4.0',
-            'type' => 'symfony-bundle',
-            'install_path' => __DIR__ . '/../symfony/swiftmailer-bundle',
-            'aliases' => array(),
-            'reference' => '9daab339f226ac958192bf89836cb3378cc0e652',
             'dev_requirement' => false,
         ),
         'symfony/translation' => array(
@@ -1317,15 +1271,6 @@
             'reference' => 'd7f637cc0f0cc14beb0984f2bb50da560b271311',
             'dev_requirement' => false,
         ),
-        'symfonycasts/verify-email-bundle' => array(
-            'pretty_version' => 'v1.10.0',
-            'version' => '1.10.0.0',
-            'type' => 'symfony-bundle',
-            'install_path' => __DIR__ . '/../symfonycasts/verify-email-bundle',
-            'aliases' => array(),
-            'reference' => '7b9b1f59093dd260afa91eb6b3a220906a0fe0e2',
-            'dev_requirement' => false,
-        ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',
             'version' => '1.2.1.0',
@@ -1335,7 +1280,6 @@
             'reference' => '34a41e998c2183e22995f158c581e7b5e755ab9e',
             'dev_requirement' => true,
         ),
-        
         'twig/extra-bundle' => array(
             'pretty_version' => 'v3.3.8',
             'version' => '3.3.8.0',

@@ -258,6 +258,6 @@ class __TwigTemplate_84aa01c54fd4d456edd4fad81b504fd986ad2ddccb47cbe6dba11350bdd
     </body>
 </html>
 {% block after_html %}{% endblock %}
-", "@Twig/layout.html.twig", "C:\\xampp\\htdocs\\Pidev\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
+", "@Twig/layout.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
     }
 }

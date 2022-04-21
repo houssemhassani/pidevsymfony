@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
+class ComposerStaticInit9010973bbe6c301b372092984369a1df
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -21,7 +21,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'c2aad8997a98dfc4771bdbffea3d62b7' => __DIR__ . '/..' . '/laminas/laminas-code/polyfill/ReflectionEnumPolyfill.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -72,7 +71,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
             'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Mime\\' => 23,
-            'Symfony\\Component\\Mailer\\Bridge\\Sendgrid\\' => 41,
             'Symfony\\Component\\Mailer\\' => 25,
             'Symfony\\Component\\Intl\\' => 23,
             'Symfony\\Component\\Inflector\\' => 28,
@@ -98,7 +96,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
             'Symfony\\Bundle\\WebServerBundle\\' => 31,
             'Symfony\\Bundle\\WebProfilerBundle\\' => 33,
             'Symfony\\Bundle\\TwigBundle\\' => 26,
-            'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
             'Symfony\\Bundle\\SecurityBundle\\' => 30,
             'Symfony\\Bundle\\MonologBundle\\' => 29,
             'Symfony\\Bundle\\MakerBundle\\' => 27,
@@ -128,11 +125,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         'L' => 
         array (
             'Laminas\\Code\\' => 13,
-        ),
-        'K' => 
-        array (
-            'Knp\\Component\\' => 14,
-            'Knp\\Bundle\\PaginatorBundle\\' => 27,
         ),
         'E' => 
         array (
@@ -315,10 +307,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
         ),
-        'Symfony\\Component\\Mailer\\Bridge\\Sendgrid\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/sendgrid-mailer',
-        ),
         'Symfony\\Component\\Mailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mailer',
@@ -419,10 +407,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bundle',
         ),
-        'Symfony\\Bundle\\SwiftmailerBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/swiftmailer-bundle',
-        ),
         'Symfony\\Bundle\\SecurityBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/security-bundle',
@@ -463,10 +447,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
-        'SymfonyCasts\\Bundle\\VerifyEmail\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src',
-        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -506,14 +486,6 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
-        ),
-        'Knp\\Component\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/knplabs/knp-components/src/Knp/Component',
-        ),
-        'Knp\\Bundle\\PaginatorBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -1240,9 +1212,9 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit681042c059541be478c15e1fbdb6ed0c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit681042c059541be478c15e1fbdb6ed0c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit681042c059541be478c15e1fbdb6ed0c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9010973bbe6c301b372092984369a1df::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9010973bbe6c301b372092984369a1df::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9010973bbe6c301b372092984369a1df::$classMap;
 
         }, null, ClassLoader::class);
     }

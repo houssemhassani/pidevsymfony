@@ -73,11 +73,11 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $this->displayBlock('header', $context, $blocks);
         // line 263
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 506
+        // line 432
         $this->displayBlock('body', $context, $blocks);
-        // line 507
+        // line 433
         $this->displayBlock('footer', $context, $blocks);
-        // line 521
+        // line 447
         echo "</body>
 </html>
 ";
@@ -123,37 +123,37 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
             <link href=\"";
         // line 11
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
         // line 12
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap-icons/bootstrap-icons.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/bootstrap-icons/bootstrap-icons.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
         // line 13
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/boxicons/css/boxicons.min.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/boxicons/css/boxicons.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
         // line 14
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/quill/quill.snow.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/quill/quill.snow.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
         // line 15
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/quill/quill.bubble.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/quill/quill.bubble.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
         // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/remixicon/remixicon.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/remixicon/remixicon.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/simple-datatables/style.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/simple-datatables/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
 
             <!-- Template Main CSS File -->
             <link href=\"";
         // line 20
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/style.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
         ";
         
@@ -178,39 +178,39 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         echo "            <!-- Vendor JS Files -->
             <script src=\"";
         // line 25
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/apexcharts/apexcharts.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/apexcharts/apexcharts.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 26
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 27
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/chart.js/chart.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/chart.js/chart.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 28
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/echarts/echarts.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/echarts/echarts.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 29
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/quill/quill.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/quill/quill.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 30
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/simple-datatables/simple-datatables.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/simple-datatables/simple-datatables.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 31
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/tinymce/tinymce.min.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/tinymce/tinymce.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 32
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/php-email-form/validate.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
         // line 33
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/js/main.js"), "html", null, true);
         echo "\"></script>
         ";
         
@@ -238,7 +238,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
       <a href=\"index.html\" class=\"logo d-flex align-items-center\">
         <img src=\"";
         // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/admin.png"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/admin.png"), "html", null, true);
         echo "\" alt=\"\">
         <span class=\"d-none d-lg-block\">Administrateur</span>
       </a>
@@ -352,7 +352,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
               <a href=\"#\">
                 <img src=\"";
         // line 154
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/messages-1.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/messages-1.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                 <div>
                   <h4>Maria Hudson</h4>
@@ -369,7 +369,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
               <a href=\"#\">
                 <img src=\"";
         // line 168
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/messages-2.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/messages-2.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                 <div>
                   <h4>Anna Nelson</h4>
@@ -386,7 +386,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
               <a href=\"#\">
                 <img src=\"";
         // line 182
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/messages-3.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/messages-3.jpg"), "html", null, true);
         echo "\" alt=\"\" class=\"rounded-circle\">
                 <div>
                   <h4>David Muldon</h4>
@@ -412,7 +412,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
             <img src=\"";
         // line 205
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/profile-img.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/profile-img.jpg"), "html", null, true);
         echo "\" alt=\"Profile\" class=\"rounded-circle\">
             <span class=\"d-none d-md-block dropdown-toggle ps-2\">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
@@ -495,143 +495,85 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
     <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
 
       <li class=\"nav-item\">
-        <a class=\"nav-link \" href=\"";
-        // line 269
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_employee_index");
-        echo "\">
+        <a class=\"nav-link \" href=\"\">
           <i class=\"bi bi-grid\"></i>
-          <span>Gestion Employee</span>
+          <span>Acceuil</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      <li class=\"nav-item\">
-              <a class=\"nav-link collapsed\" href=\"";
-        // line 275
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_responsable_index");
-        echo "\">
-                <i class=\"bi bi-grid\"></i>
-                <span>Gestion Responsable</span>
-              </a>
-            </li><!-- End Dashboard Nav -->
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-menu-button-wide\"></i><span>Components</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Employee</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
-            <a href=\"components-alerts.html\">
-              <i class=\"bi bi-circle\"></i><span>Alerts</span>
+            <a href=\"";
+        // line 281
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_index");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Liste des Employées</span>
             </a>
           </li>
           <li>
-            <a href=\"components-accordion.html\">
-              <i class=\"bi bi-circle\"></i><span>Accordion</span>
+            <a  href=\"";
+        // line 286
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter nouveau Employée</span>
             </a>
           </li>
-          <li>
-            <a href=\"components-badges.html\">
-              <i class=\"bi bi-circle\"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-breadcrumbs.html\">
-              <i class=\"bi bi-circle\"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-buttons.html\">
-              <i class=\"bi bi-circle\"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-cards.html\">
-              <i class=\"bi bi-circle\"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-carousel.html\">
-              <i class=\"bi bi-circle\"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-list-group.html\">
-              <i class=\"bi bi-circle\"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-modal.html\">
-              <i class=\"bi bi-circle\"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tabs.html\">
-              <i class=\"bi bi-circle\"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-pagination.html\">
-              <i class=\"bi bi-circle\"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-progress.html\">
-              <i class=\"bi bi-circle\"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-spinners.html\">
-              <i class=\"bi bi-circle\"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tooltips.html\">
-              <i class=\"bi bi-circle\"></i><span>Tooltips</span>
-            </a>
-          </li>
+
+
         </ul>
+
       </li><!-- End Components Nav -->
+
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-journal-text\"></i><span>Forms</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-journal-text\"></i><span>Gestion Responsable</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
           <li>
-            <a href=\"forms-elements.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Elements</span>
+            <a href=\"";
+        // line 304
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_index");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Liste des Responsable</span>
             </a>
           </li>
           <li>
-            <a href=\"forms-layouts.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
+            <a href=\"";
+        // line 309
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_new");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Responsable</span>
             </a>
           </li>
-          <li>
-            <a href=\"forms-editors.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-validation.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Validation</span>
-            </a>
-          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-layout-text-window-reverse\"></i><span>Tables</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-layout-text-window-reverse\"></i><span>Gestion des Citoyens</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
-            <a href=\"tables-general.html\">
-              <i class=\"bi bi-circle\"></i><span>General Tables</span>
+            <a href=\"";
+        // line 323
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_index");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Liste de citoyen</span>
             </a>
           </li>
           <li>
-            <a href=\"tables-data.html\">
-              <i class=\"bi bi-circle\"></i><span>Data Tables</span>
+            <a href=\"";
+        // line 328
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_new");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Citoyen</span>
             </a>
           </li>
         </ul>
@@ -639,26 +581,28 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#charts-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-bar-chart\"></i><span>Charts</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-bar-chart\"></i><span>Gestion  Administrateur</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"charts-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
-            <a href=\"charts-chartjs.html\">
-              <i class=\"bi bi-circle\"></i><span>Chart.js</span>
+            <a href=\"";
+        // line 341
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_index");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Liste Des Administrteurs</span>
             </a>
           </li>
           <li>
-            <a href=\"charts-apexcharts.html\">
-              <i class=\"bi bi-circle\"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"charts-echarts.html\">
-              <i class=\"bi bi-circle\"></i><span>ECharts</span>
+            <a href=\"";
+        // line 346
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_new");
+        echo "\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Administrateur</span>
             </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->
+
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
@@ -746,7 +690,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 506
+    // line 432
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -764,7 +708,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 507
+    // line 433
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -803,7 +747,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     public function getDebugInfo()
     {
-        return array (  768 => 507,  750 => 506,  509 => 275,  500 => 269,  493 => 264,  483 => 263,  415 => 205,  389 => 182,  372 => 168,  355 => 154,  241 => 43,  235 => 39,  225 => 38,  213 => 33,  209 => 32,  205 => 31,  201 => 30,  197 => 29,  193 => 28,  189 => 27,  185 => 26,  181 => 25,  178 => 24,  168 => 23,  156 => 20,  150 => 17,  146 => 16,  142 => 15,  138 => 14,  134 => 13,  130 => 12,  126 => 11,  122 => 9,  112 => 8,  93 => 5,  81 => 521,  79 => 507,  77 => 506,  75 => 263,  73 => 38,  68 => 35,  66 => 23,  63 => 22,  60 => 8,  56 => 5,  50 => 1,);
+        return array (  712 => 433,  694 => 432,  598 => 346,  590 => 341,  574 => 328,  566 => 323,  549 => 309,  541 => 304,  520 => 286,  512 => 281,  493 => 264,  483 => 263,  415 => 205,  389 => 182,  372 => 168,  355 => 154,  241 => 43,  235 => 39,  225 => 38,  213 => 33,  209 => 32,  205 => 31,  201 => 30,  197 => 29,  193 => 28,  189 => 27,  185 => 26,  181 => 25,  178 => 24,  168 => 23,  156 => 20,  150 => 17,  146 => 16,  142 => 15,  138 => 14,  134 => 13,  130 => 12,  126 => 11,  122 => 9,  112 => 8,  93 => 5,  81 => 447,  79 => 433,  77 => 432,  75 => 263,  73 => 38,  68 => 35,  66 => 23,  63 => 22,  60 => 8,  56 => 5,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -818,29 +762,29 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         {% block stylesheets %}
             <link href=\"https://fonts.gstatic.com\" rel=\"preconnect\">
             <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/quill/quill.snow.css') }}\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/quill/quill.bubble.css') }}\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/remixicon/remixicon.css') }}\" rel=\"stylesheet\">
-            <link href=\"{{ asset('assets/vendor/simple-datatables/style.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/bootstrap-icons/bootstrap-icons.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/boxicons/css/boxicons.min.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/quill/quill.snow.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/quill/quill.bubble.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/remixicon/remixicon.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/vendor/simple-datatables/style.css') }}\" rel=\"stylesheet\">
 
             <!-- Template Main CSS File -->
-            <link href=\"{{ asset('assets/css/style.css') }}\" rel=\"stylesheet\">
+            <link href=\"{{ asset('admin/css/style.css') }}\" rel=\"stylesheet\">
         {% endblock %}
 
         {% block javascripts %}
             <!-- Vendor JS Files -->
-            <script src=\"{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/chart.js/chart.min.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/echarts/echarts.min.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/quill/quill.min.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/simple-datatables/simple-datatables.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/tinymce/tinymce.min.js') }}\"></script>
-            <script src=\"{{ asset('assets/vendor/php-email-form/validate.js') }}\"></script>
-            <script src=\"{{ asset('assets/js/main.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/apexcharts/apexcharts.min.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/chart.js/chart.min.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/echarts/echarts.min.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/quill/quill.min.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/simple-datatables/simple-datatables.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/tinymce/tinymce.min.js') }}\"></script>
+            <script src=\"{{ asset('admin/vendor/php-email-form/validate.js') }}\"></script>
+            <script src=\"{{ asset('admin/js/main.js') }}\"></script>
         {% endblock %}
     </head>
     <body>
@@ -850,7 +794,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     <div class=\"d-flex align-items-center justify-content-between\">
       <a href=\"index.html\" class=\"logo d-flex align-items-center\">
-        <img src=\"{{asset('assets/img/admin.png') }}\" alt=\"\">
+        <img src=\"{{asset('admin/img/admin.png') }}\" alt=\"\">
         <span class=\"d-none d-lg-block\">Administrateur</span>
       </a>
       <i class=\"bi bi-list toggle-sidebar-btn\"></i>
@@ -961,7 +905,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
             <li class=\"message-item\">
               <a href=\"#\">
-                <img src=\"{{ asset('assets/img/messages-1.jpg') }}\" alt=\"\" class=\"rounded-circle\">
+                <img src=\"{{ asset('admin/img/messages-1.jpg') }}\" alt=\"\" class=\"rounded-circle\">
                 <div>
                   <h4>Maria Hudson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -975,7 +919,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
             <li class=\"message-item\">
               <a href=\"#\">
-                <img src=\"{{ asset('assets/img/messages-2.jpg') }}\" alt=\"\" class=\"rounded-circle\">
+                <img src=\"{{ asset('admin/img/messages-2.jpg') }}\" alt=\"\" class=\"rounded-circle\">
                 <div>
                   <h4>Anna Nelson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -989,7 +933,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
             <li class=\"message-item\">
               <a href=\"#\">
-                <img src=\"{{ asset('assets/img/messages-3.jpg') }}\" alt=\"\" class=\"rounded-circle\">
+                <img src=\"{{ asset('admin/img/messages-3.jpg') }}\" alt=\"\" class=\"rounded-circle\">
                 <div>
                   <h4>David Muldon</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -1012,7 +956,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         <li class=\"nav-item dropdown pe-3\">
 
           <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
-            <img src=\"{{ asset('assets/img/profile-img.jpg') }}\" alt=\"Profile\" class=\"rounded-circle\">
+            <img src=\"{{ asset('admin/img/profile-img.jpg') }}\" alt=\"Profile\" class=\"rounded-circle\">
             <span class=\"d-none d-md-block dropdown-toggle ps-2\">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -1076,137 +1020,67 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
     <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
 
       <li class=\"nav-item\">
-        <a class=\"nav-link \" href=\"{{ path('app_employee_index') }}\">
+        <a class=\"nav-link \" href=\"\">
           <i class=\"bi bi-grid\"></i>
-          <span>Gestion Employee</span>
+          <span>Acceuil</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      <li class=\"nav-item\">
-              <a class=\"nav-link collapsed\" href=\"{{ path('app_responsable_index') }}\">
-                <i class=\"bi bi-grid\"></i>
-                <span>Gestion Responsable</span>
-              </a>
-            </li><!-- End Dashboard Nav -->
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-menu-button-wide\"></i><span>Components</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Employee</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
-            <a href=\"components-alerts.html\">
-              <i class=\"bi bi-circle\"></i><span>Alerts</span>
+            <a href=\"{{ path('app_gestion_employee_index') }}\">
+              <i class=\"bi bi-circle\"></i><span>Liste des Employées</span>
             </a>
           </li>
           <li>
-            <a href=\"components-accordion.html\">
-              <i class=\"bi bi-circle\"></i><span>Accordion</span>
+            <a  href=\"{{ path('app_gestion_employee_new') }}\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter nouveau Employée</span>
             </a>
           </li>
-          <li>
-            <a href=\"components-badges.html\">
-              <i class=\"bi bi-circle\"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-breadcrumbs.html\">
-              <i class=\"bi bi-circle\"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-buttons.html\">
-              <i class=\"bi bi-circle\"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-cards.html\">
-              <i class=\"bi bi-circle\"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-carousel.html\">
-              <i class=\"bi bi-circle\"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-list-group.html\">
-              <i class=\"bi bi-circle\"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-modal.html\">
-              <i class=\"bi bi-circle\"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tabs.html\">
-              <i class=\"bi bi-circle\"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-pagination.html\">
-              <i class=\"bi bi-circle\"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-progress.html\">
-              <i class=\"bi bi-circle\"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-spinners.html\">
-              <i class=\"bi bi-circle\"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"components-tooltips.html\">
-              <i class=\"bi bi-circle\"></i><span>Tooltips</span>
-            </a>
-          </li>
+
+
         </ul>
+
       </li><!-- End Components Nav -->
+
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-journal-text\"></i><span>Forms</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-journal-text\"></i><span>Gestion Responsable</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
           <li>
-            <a href=\"forms-elements.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Elements</span>
+            <a href=\"{{ path('app_gestion_responsable_index') }}\">
+              <i class=\"bi bi-circle\"></i><span>Liste des Responsable</span>
             </a>
           </li>
           <li>
-            <a href=\"forms-layouts.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
+            <a href=\"{{ path('app_gestion_responsable_new') }}\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Responsable</span>
             </a>
           </li>
-          <li>
-            <a href=\"forms-editors.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"forms-validation.html\">
-              <i class=\"bi bi-circle\"></i><span>Form Validation</span>
-            </a>
-          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-layout-text-window-reverse\"></i><span>Tables</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-layout-text-window-reverse\"></i><span>Gestion des Citoyens</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
-            <a href=\"tables-general.html\">
-              <i class=\"bi bi-circle\"></i><span>General Tables</span>
+            <a href=\"{{ path('app_gestio_citoyen_index') }}\">
+              <i class=\"bi bi-circle\"></i><span>Liste de citoyen</span>
             </a>
           </li>
           <li>
-            <a href=\"tables-data.html\">
-              <i class=\"bi bi-circle\"></i><span>Data Tables</span>
+            <a href=\"{{ path('app_gestio_citoyen_new') }}\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Citoyen</span>
             </a>
           </li>
         </ul>
@@ -1214,26 +1088,22 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#charts-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-bar-chart\"></i><span>Charts</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          <i class=\"bi bi-bar-chart\"></i><span>Gestion  Administrateur</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"charts-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
-            <a href=\"charts-chartjs.html\">
-              <i class=\"bi bi-circle\"></i><span>Chart.js</span>
+            <a href=\"{{ path('app_gestion_admin_index') }}\">
+              <i class=\"bi bi-circle\"></i><span>Liste Des Administrteurs</span>
             </a>
           </li>
           <li>
-            <a href=\"charts-apexcharts.html\">
-              <i class=\"bi bi-circle\"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"charts-echarts.html\">
-              <i class=\"bi bi-circle\"></i><span>ECharts</span>
+            <a href=\"{{ path('app_gestion_admin_new') }}\">
+              <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Administrateur</span>
             </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->
+
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
@@ -1330,6 +1200,6 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 {% endblock %}
 </body>
 </html>
-", "base.html.twig", "C:\\xampp\\htdocs\\Pidev\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\base.html.twig");
     }
 }

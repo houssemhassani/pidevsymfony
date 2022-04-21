@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Employee;
 use App\Form\EmployeeType;
 use Doctrine\ORM\EntityManagerInterface;
-use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -24,17 +23,15 @@ class GestionEmployeeController extends AbstractController
      * @Route("/", name="app_gestion_employee_index", methods={"GET"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function index(Request $request,EntityManagerInterface $entityManager,PaginatorInterface $paginator): Response
+    public function index(Request $request,EntityManagerInterface $entityManager): Response
     {
         $user=new Employee();
         $this->get('security.token_storage')->getToken()->getUser();
         $donnee=$this->getDoctrine()->getRepository(Employee::class)->findAll();
-        $employees =$paginator->paginate($donnee,
-            $request->query->getInt('page', 3)) ;
 
         //$user=$this->get('security.context')->getToken()->getUser();
         return $this->render('gestion_employee/index.html.twig', [
-            'employees' => $employees,
+            'employees' => $donnee,
             'user'=>$user
         ]);
     }

@@ -65,7 +65,7 @@ class __TwigTemplate_454ae383cf8926ea16fd9b443e0c285ab5bce7eff98d52861efeb09bb13
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Modifier Responsable";
+        echo "Modification Responsable";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -223,7 +223,7 @@ class __TwigTemplate_454ae383cf8926ea16fd9b443e0c285ab5bce7eff98d52861efeb09bb13
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Modifier Responsable{% endblock %}
+{% block title %}Modification Responsable{% endblock %}
 
 {% block body %}
     <div class=\"row\">
