@@ -46,7 +46,7 @@ class ResponsableController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $employee->setRoles(1);
+            $employee->setRole(1);
             $hash = $encoder->encodePassword($employee, $employee->getPassword());
             $employee->setPassword($hash);
             

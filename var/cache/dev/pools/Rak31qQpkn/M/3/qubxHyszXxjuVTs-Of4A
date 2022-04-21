@@ -7,6 +7,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Doctrine\\ORM\\Mapping\\Index'],
         clone ($p['Doctrine\\ORM\\Mapping\\UniqueConstraint'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\UniqueConstraint')),
         clone ($p['Doctrine\\ORM\\Mapping\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Entity')),
+        clone ($p['Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntity')),
     ],
     null,
     [
@@ -39,11 +40,25 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'cin',
                 ],
             ],
+            'message' => [
+                5 => 'There is already an account with this cin',
+            ],
+            'fields' => [
+                5 => [
+                    'cin',
+                ],
+            ],
+            'groups' => [
+                5 => [
+                    'Default',
+                ],
+            ],
         ],
     ],
     [
         $o[0],
         $o[4],
+        $o[5],
     ],
     []
 ); }];

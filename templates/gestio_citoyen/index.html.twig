@@ -32,8 +32,9 @@
                                         <td>{{ employee.email }}</td>
                                         <td>{{ employee.cin }}</td>
                                         <td>
-                                            <a href="{{ path('app_gestio_citoyen_show', {'id': employee.id}) }}">Supprimer</a>
-                                            <a href="{{ path('app_gestio_citoyen_edit', {'id': employee.id}) }}">Modifier</a>
+                                            <a href="{{ path('app_gestio_citoyen_show', {'id': employee.id}) }}">Détail</a>
+                                            <a href="{{ path('app_gestion_citoyen_refuser', {'id': employee.id}) }}">Refuser</a>
+                                            <a href="{{ path('app_gestion_citoyen_accepter',{'id':employee.id}) }}">Accepter</a>
                                         </td>
                                     </tr>
                                 {% endfor %}

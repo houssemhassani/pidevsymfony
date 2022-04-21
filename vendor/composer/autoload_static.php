@@ -157,6 +157,10 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
             'DeepCopy\\' => 9,
         ),
+        'C' => 
+        array (
+            'Captcha\\Bundle\\CaptchaBundle\\' => 29,
+        ),
         'A' => 
         array (
             'App\\Tests\\' => 10,
@@ -459,6 +463,10 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
         ),
+        'SymfonyCasts\\Bundle\\VerifyEmail\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfonycasts/verify-email-bundle/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -576,6 +584,10 @@ class ComposerStaticInit681042c059541be478c15e1fbdb6ed0c
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Captcha\\Bundle\\CaptchaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/captcha-com/symfony-captcha-bundle',
         ),
         'App\\Tests\\' => 
         array (

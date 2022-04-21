@@ -29,7 +29,6 @@ security:
             guard:
                 authenticators:
                     - App\Security\EmployeeAuthenticator
-                    - App\Security\CitoyenAuthenticator
                 entry_point: App\Security\EmployeeAuthenticator
 
             logout:

@@ -22,7 +22,7 @@ class GestionEmployeeController extends AbstractController
 {
     /**
      * @Route("/", name="app_gestion_employee_index", methods={"GET"})
-     * @IsGranted("ROLE_EMPLOYEE")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(Request $request,EntityManagerInterface $entityManager,PaginatorInterface $paginator): Response
     {

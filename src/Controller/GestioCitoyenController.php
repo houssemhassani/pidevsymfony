@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Citoyen;
 use App\Entity\Employee;
 use App\Form\CitoyenType;
+use App\Repository\CitoyenRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,16 +23,16 @@ class GestioCitoyenController extends AbstractController
     /**
      * @Route("/", name="app_gestio_citoyen_index", methods={"GET"})
      */
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager,CitoyenRepository $citoyenRepository): Response
     {
-        $citoyens = $entityManager
-            ->getRepository(Citoyen::class)
-            ->findAll();
+        $citoyens=$citoyenRepository->findOneBySomeField(false);
 
         return $this->render('gestio_citoyen/index.html.twig', [
             'citoyens' => $citoyens,
         ]);
     }
+
+
 
     /**
      * @Route("/new", name="app_gestio_citoyen_new", methods={"GET", "POST"})
@@ -81,6 +83,41 @@ class GestioCitoyenController extends AbstractController
         return $this->render('gestio_citoyen/show.html.twig', [
             'citoyen' => $citoyen,
         ]);
+    }
+
+    /**
+     * @Route("/{id}/accept",name="app_gestion_citoyen_accepter",methods={"GET","POST"})
+     */
+    public function accepter(Request $request,Citoyen $citoyen,EntityManagerInterface $entityManager,CitoyenRepository $citoyenRepository): Response
+    {
+        $citoyen=$citoyenRepository->find($citoyen->getId());
+        $citoyen->setEmailConfirmed(true);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_gestio_citoyen_index',[],Response::HTTP_SEE_OTHER);
+    }
+    /**
+     * @Route("/{id}/refuser",name="app_gestion_citoyen_refuser",methods={"GET"})
+     */
+    public function refuser(Request $request,Citoyen $citoyen,EntityManagerInterface $entityManager,CitoyenRepository $citoyenRepository)
+    {
+
+        $citoyen=$citoyenRepository->find($citoyen->getId());
+
+        $qb = $entityManager->createQueryBuilder();
+        $qb->delete('App\Entity\Employee', 's');
+        $qb->where('s.cin = :project');
+        $qb->setParameter('project', $citoyen->getCin());
+        $qb->getQuery()->execute();
+
+
+        $entityManager->remove($citoyen);
+
+        $entityManager->flush();
+
+
+
+        return $this->redirectToRoute('app_gestio_citoyen_index',[],Response::HTTP_SEE_OTHER);
     }
 
     /**

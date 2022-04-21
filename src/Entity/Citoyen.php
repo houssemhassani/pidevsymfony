@@ -10,7 +10,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Citoyen
  *
  * @ORM\Table(name="citoyen", uniqueConstraints={@ORM\UniqueConstraint(name="cin", columns={"cin"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CitoyenRepository")
+ *
  */
 class Citoyen implements UserInterface
 {
@@ -298,5 +299,10 @@ class Citoyen implements UserInterface
     public function getUserIdentifier(): string
     {
         return (string) $this->cin;
+    }
+
+    public function getEmailConfirmed(): ?bool
+    {
+        return $this->emailConfirmed;
     }
 }

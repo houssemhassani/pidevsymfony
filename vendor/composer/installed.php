@@ -19,6 +19,24 @@
             'reference' => NULL,
             'dev_requirement' => false,
         ),
+        'captcha-com/captcha' => array(
+            'pretty_version' => '4.2.5',
+            'version' => '4.2.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../captcha-com/captcha',
+            'aliases' => array(),
+            'reference' => '4b8b642509bfc63d2f295dccf1c1b4d0e2266a15',
+            'dev_requirement' => false,
+        ),
+        'captcha-com/symfony-captcha-bundle' => array(
+            'pretty_version' => '4.2.12',
+            'version' => '4.2.12.0',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../captcha-com/symfony-captcha-bundle',
+            'aliases' => array(),
+            'reference' => 'fd071c3f36d646ff87b591ddb3ea531c5f3678c2',
+            'dev_requirement' => false,
+        ),
         'doctrine/annotations' => array(
             'pretty_version' => '1.13.2',
             'version' => '1.13.2.0',
@@ -137,12 +155,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/orm' => array(
-            'pretty_version' => '2.11.2',
-            'version' => '2.11.2.0',
+            'pretty_version' => '2.12.0',
+            'version' => '2.12.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/orm',
             'aliases' => array(),
-            'reference' => '9c351e044478135aec1755e2c0c0493a4b6309db',
+            'reference' => 'd5503644314ed825fe4b276a588458a033fa3e7c',
             'dev_requirement' => false,
         ),
         'doctrine/persistence' => array(
@@ -675,7 +693,7 @@
             'install_path' => __DIR__ . '/../symfony/css-selector',
             'aliases' => array(),
             'reference' => '0628e6c6d7c92f1a7bae543959bdc17347be2436',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'symfony/debug' => array(
             'pretty_version' => 'v4.4.37',
@@ -895,6 +913,7 @@
             'aliases' => array(),
             'reference' => 'e3304841fd41e1e59225919ed1a7e50986a4cb6f',
             'dev_requirement' => false,
+        ),
         ),
         'symfony/maker-bundle' => array(
             'pretty_version' => 'v1.38.0',
@@ -1298,6 +1317,15 @@
             'reference' => 'd7f637cc0f0cc14beb0984f2bb50da560b271311',
             'dev_requirement' => false,
         ),
+        'symfonycasts/verify-email-bundle' => array(
+            'pretty_version' => 'v1.10.0',
+            'version' => '1.10.0.0',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../symfonycasts/verify-email-bundle',
+            'aliases' => array(),
+            'reference' => '7b9b1f59093dd260afa91eb6b3a220906a0fe0e2',
+            'dev_requirement' => false,
+        ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',
             'version' => '1.2.1.0',
@@ -1307,6 +1335,7 @@
             'reference' => '34a41e998c2183e22995f158c581e7b5e755ab9e',
             'dev_requirement' => true,
         ),
+        
         'twig/extra-bundle' => array(
             'pretty_version' => 'v3.3.8',
             'version' => '3.3.8.0',

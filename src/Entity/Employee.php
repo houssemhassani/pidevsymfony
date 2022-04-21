@@ -47,6 +47,9 @@ class Employee implements UserInterface
      * @Assert\Length(min=3,minMessage="Votre Prenom doit être supèrieur à 3 caractéres")
      */
     private $prenom;
+    /**
+     * @var string[]
+     */
     private $roles;
 
     /**
@@ -99,6 +102,24 @@ class Employee implements UserInterface
      */
 
     private $motDePasse;
+    protected $captchaCode;
+
+    /**
+     * @return mixed
+     */
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+
+    /**
+     * @param mixed $captchaCode
+     */
+    public function setCaptchaCode($captchaCode): void
+    {
+        $this->captchaCode = $captchaCode;
+    }
+
 
     /**
      * @var \Equipe
@@ -168,6 +189,11 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     }
     public $nomService;
     public $nomEquipe;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
     public function getEquipe()
     {
         return $this->equipe;
@@ -212,8 +238,16 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     public function getRoles(): array
     {
         $roles = $this->roles;
+        if($this->getRole()==0)
+            $roles=["ROLE_ADMIN"];
+        if($this->getRole()==1)
+            $roles=["ROLE_RESPONSABLE"];
+        if($this->getRole()==2)
+            $roles=["ROLE_EMPLOYEE"];
+        if($this->getRole()==3)
+            $roles=["ROLE_CITOYEN"];
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_EMPLOYEE';
+
 
         return array_unique($roles);
     }
@@ -322,5 +356,17 @@ public function setConfirmMotDePasse($confirmmotdepasse)
     public function getUserIdentifier(): string
     {
         return (string) $this->cin;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
     }
 }
