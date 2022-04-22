@@ -26,6 +26,13 @@
 
                    <h5 class="card-title">listes des demandes</h5>
 
+                   {% for message in app.flashes('info') %}
+                   <div class="alert alert-success">
+                   {{ message }}
+
+                   </div>
+                     {% endfor %}
+
                    <!-- Table with stripped rows -->
                    <table class="table table-striped">
                        <thead>
@@ -47,8 +54,10 @@
                                <td>{{ demande.dateDemande | date }}</td>
                                <td>{{ demande.etat }}</td>
                                <td>
-                                   <a  class="btn btn-success"  href="{{ path('app_demande_delete', {'id': demande.id}) }}">delete</a>
-                                   <a class="btn btn-danger"   href="{{ path('app_demande_edit', {'id': demande.id}) }}">traité</a>
+
+                                   <a class="btn btn-success"  href="{{ path('app_demande_delete', {'id': demande.id}) }}" > delete</a>
+
+                                   <a id="hamza" class="btn btn-danger"   href="{{ path('app_demande_edit', {'id': demande.id}) }}" >traité</a>
                                    <a class="btn btn-primary"   href="{{ path('app_notification_new',{'id': demande.id})}}">notifier</a>
                                </td>
                            </tr>
@@ -66,3 +75,18 @@
    </div>
 
 {% endblock %}
+
+{% block javascript %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function(){
+    $("hamza").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+{% endblock %}
+
+

@@ -10,6 +10,7 @@ use App\Repository\CitoyenRepository;
 use App\Repository\DemandeRepository;
 use App\Repository\ServiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,6 +72,12 @@ class DemandeController extends AbstractController
             $demande-> setEtat('en cours');
             $entityManager->persist($demande);
             $entityManager->flush();
+            $this->addFlash(
+                'info',
+                'welcome'
+
+            );
+
 
             return $this->redirectToRoute('app_demande_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -101,8 +108,15 @@ class DemandeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash(
+                'info',
+                'updated successfully'
+
+            );
+
 
             $entityManager->flush();
+
 
             return $this->redirectToRoute('app_demande_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -141,6 +155,7 @@ class DemandeController extends AbstractController
        // $demande = $em->getRepository($repository)->findAll();
             $data = $request->get('search');
             $demande = $repository->findBy (['typeDemande'=>$data],array('numDemande'=>'ASC'));
+
 
         return $this->render('demande/index.html.twig', [
             'demandes'=>$demande

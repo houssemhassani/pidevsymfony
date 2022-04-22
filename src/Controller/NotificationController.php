@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Notifier\Message\SmsMessage;
 use Symfony\Component\Notifier\TexterInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+
+
+
 
 
 
@@ -41,7 +46,7 @@ class NotificationController extends AbstractController
     /**
      * @Route("/{id}/new", name="app_notification_new", methods={"GET", "POST"})
      */
-    public function new(Request $request,Demande $demande , EntityManagerInterface $entityManager,DemandeRepository $repository): Response
+    public function new(Request $request,Demande $demande , EntityManagerInterface $entityManager,DemandeRepository $repository,MailerInterface $mailer): Response
     {
 
         $notification = new Notification();
@@ -55,6 +60,19 @@ class NotificationController extends AbstractController
 
             $entityManager->persist($notification);
             $entityManager->flush();
+            $this->addFlash("success","votre reclamation a ete ajouter");
+            $e=$form["emailNotification"]->getData();
+
+            $email = (new Email())
+                ->from('hamza.abda@esprit.tn')
+                ->to($e)
+
+
+                ->subject('🥳 votre demande à eté traité 🥳ForU🥳')
+
+                ->text('sending ');
+
+            $mailer->send($email);
 
             return $this->redirectToRoute('app_notification_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -107,4 +125,6 @@ class NotificationController extends AbstractController
 
         return $this->redirectToRoute('app_notification_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 }
