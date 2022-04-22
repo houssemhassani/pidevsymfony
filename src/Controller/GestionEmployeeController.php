@@ -7,6 +7,8 @@ use App\Form\EmployeeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -21,7 +23,6 @@ class GestionEmployeeController extends AbstractController
 {
     /**
      * @Route("/", name="app_gestion_employee_index", methods={"GET"})
-     * @IsGranted("ROLE_ADMIN")
      */
     public function index(Request $request,EntityManagerInterface $entityManager): Response
     {
@@ -39,7 +40,7 @@ class GestionEmployeeController extends AbstractController
     /**
      * @Route("/new", name="app_gestion_employee_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, UserPasswordEncoderInterface $encoder,MailerInterface $mailer, EntityManagerInterface $entityManager): Response
     {
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
@@ -51,12 +52,17 @@ class GestionEmployeeController extends AbstractController
                 $employee->setEquipe(null);
                 $hash = $encoder->encodePassword($employee, $employee->getPassword());
                 $employee->setPassword($hash);
+                $e=$form["email"]->getData();
                 $entityManager->persist($employee);
+
                 $entityManager->flush();
 
 
-    
-                return $this->redirectToRoute('app_gestion_employee_index', Response::HTTP_SEE_OTHER);
+
+
+
+
+                return $this->redirectToRoute('app_gestion_employee_index', [], Response::HTTP_SEE_OTHER);
 
         }
         return $this->render('gestion_employee/new.html.twig', [

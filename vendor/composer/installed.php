@@ -818,6 +818,15 @@
             'reference' => '3e7b74688a8d604f6355452cb5f8bc7eba744b56',
             'dev_requirement' => false,
         ),
+        'symfony/google-mailer' => array(
+            'pretty_version' => 'v4.4.37',
+            'version' => '4.4.37.0',
+            'type' => 'symfony-bridge',
+            'install_path' => __DIR__ . '/../symfony/google-mailer',
+            'aliases' => array(),
+            'reference' => '04b82f048c9c84024f937ca3d4e11cb6269e9034',
+            'dev_requirement' => false,
+        ),
         'symfony/http-client' => array(
             'pretty_version' => 'v4.4.40',
             'version' => '4.4.40.0',

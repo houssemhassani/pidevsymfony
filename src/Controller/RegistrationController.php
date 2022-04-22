@@ -6,6 +6,8 @@ use App\Entity\Citoyen;
 use App\Entity\Employee;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +23,7 @@ class RegistrationController extends AbstractController
      *
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, EntityManagerInterface $entityManager,MailerInterface $mailer): Response
     {
         $user = new Employee();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -49,10 +51,22 @@ class RegistrationController extends AbstractController
             $citoyen->setEmailConfirmed(false);
             $citoyen->setNumTel(0);
             $citoyen->setMotDePasse($userPasswordEncoder->encodePassword($user,$form->get('motDePasse')->getData()));
+            $this->addFlash("success","votre reclamation a ete ajouter");
+            $e=$form["email"]->getData();
 
+            $email = (new Email())
+                ->from('houssemhassanii@gmail.com')
+                ->to($e)
+                ->subject('🥳 Une nouvelle reclamation est organisé à 🥳ForU🥳')
+
+                ->text('yar7am bayek haw 5edmet ');
+
+            $mailer->send($email);
             $entityManager->persist($citoyen);
             $entityManager->persist($user);
             $entityManager->flush();
+
+
            /* $email=(new Email())
             ->from('houssem.hassani@esprit.tn')
                 ->to('houssemhassanii@gmail.com')

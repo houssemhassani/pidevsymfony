@@ -1426,6 +1426,12 @@
       <argument type="service" id=".debug.http_client" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger" on-invalid="ignore"/>
     </service>
+    <service id="mailer.transport_factory.gmail" class="Symfony\Component\Mailer\Bridge\Google\Transport\GmailTransportFactory">
+      <tag name="mailer.transport_factory"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id=".debug.http_client" on-invalid="ignore"/>
+      <argument type="service" id="monolog.logger" on-invalid="ignore"/>
+    </service>
     <service id="mailer.transport_factory.null" class="Symfony\Component\Mailer\Transport\NullTransportFactory">
       <tag name="mailer.transport_factory"/>
       <argument type="service" id="debug.event_dispatcher"/>
@@ -5725,6 +5731,14 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.nA9mdoY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="encoder" type="service_closure" id="security.user_password_encoder.generic"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="mailer" type="service_closure" id="mailer.mailer"/>
+      </argument>
+    </service>
     <service id=".service_locator.Zc7smpv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5739,10 +5753,11 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.CoC3nYr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.mLd7rT3" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="mailer" type="service_closure" id="mailer.mailer"/>
         <argument key="userPasswordEncoder" type="service_closure" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
@@ -5759,7 +5774,7 @@
         <argument key="service" type="service_closure" id=".errored..service_locator..gcCqtT.App\Entity\Service"/>
       </argument>
     </service>
-    <service id=".service_locator.uWzTmpu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.nJJQlT0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CitoyenController::delete" type="service_closure" id=".service_locator.1W7puNn"/>
@@ -5792,7 +5807,7 @@
         <argument key="App\Controller\GestionEmployeeController::delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\GestionEmployeeController::edit" type="service_closure" id=".service_locator.Zc7smpv"/>
         <argument key="App\Controller\GestionEmployeeController::index" type="service_closure" id=".service_locator.x8FmIZ0"/>
-        <argument key="App\Controller\GestionEmployeeController::new" type="service_closure" id=".service_locator.RgXJwXu"/>
+        <argument key="App\Controller\GestionEmployeeController::new" type="service_closure" id=".service_locator.nA9mdoY"/>
         <argument key="App\Controller\GestionEmployeeController::show" type="service_closure" id=".service_locator.F5Wekn9"/>
         <argument key="App\Controller\GestionResponsableController::delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\GestionResponsableController::edit" type="service_closure" id=".service_locator.ZL3QEBN"/>
@@ -5801,7 +5816,7 @@
         <argument key="App\Controller\GestionResponsableController::show" type="service_closure" id=".service_locator.F5Wekn9"/>
         <argument key="App\Controller\LoginCitoyenController::login" type="service_closure" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\LoginEmployeeController::login" type="service_closure" id=".service_locator.g.xob4v"/>
-        <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.CoC3nYr"/>
+        <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.mLd7rT3"/>
         <argument key="App\Controller\ResponsableController::delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController::edit" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController::index" type="service_closure" id=".service_locator.x8FmIZ0"/>
@@ -5843,7 +5858,7 @@
         <argument key="App\Controller\GestionEmployeeController:delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\GestionEmployeeController:edit" type="service_closure" id=".service_locator.Zc7smpv"/>
         <argument key="App\Controller\GestionEmployeeController:index" type="service_closure" id=".service_locator.x8FmIZ0"/>
-        <argument key="App\Controller\GestionEmployeeController:new" type="service_closure" id=".service_locator.RgXJwXu"/>
+        <argument key="App\Controller\GestionEmployeeController:new" type="service_closure" id=".service_locator.nA9mdoY"/>
         <argument key="App\Controller\GestionEmployeeController:show" type="service_closure" id=".service_locator.F5Wekn9"/>
         <argument key="App\Controller\GestionResponsableController:delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\GestionResponsableController:edit" type="service_closure" id=".service_locator.ZL3QEBN"/>
@@ -5852,7 +5867,7 @@
         <argument key="App\Controller\GestionResponsableController:show" type="service_closure" id=".service_locator.F5Wekn9"/>
         <argument key="App\Controller\LoginCitoyenController:login" type="service_closure" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\LoginEmployeeController:login" type="service_closure" id=".service_locator.g.xob4v"/>
-        <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.CoC3nYr"/>
+        <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.mLd7rT3"/>
         <argument key="App\Controller\ResponsableController:delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController:edit" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController:index" type="service_closure" id=".service_locator.x8FmIZ0"/>
@@ -6396,12 +6411,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.uWzTmpu"/>
+      <argument type="service" id=".service_locator.nJJQlT0"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.uWzTmpu"/>
+      <argument type="service" id=".service_locator.nJJQlT0"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6813,7 +6828,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.uWzTmpu"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.nJJQlT0"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
