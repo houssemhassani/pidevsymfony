@@ -48,39 +48,44 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
         // line 1
         echo "<!DOCTYPE html>
-<html>
+";
+        // line 2
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 2, $this->source); })()), "user", [], "any", false, false, false, 2)) {
+            // line 3
+            echo "<html>
     <head>
         <meta charset=\"UTF-8\">
         <title>";
-        // line 5
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
+            // line 6
+            $this->displayBlock('title', $context, $blocks);
+            echo "</title>
         ";
-        // line 8
-        echo "        ";
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 22
-        echo "
+            // line 9
+            echo "        ";
+            $this->displayBlock('stylesheets', $context, $blocks);
+            // line 23
+            echo "
         ";
-        // line 23
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
-        echo "    </head>
+            // line 24
+            $this->displayBlock('javascripts', $context, $blocks);
+            // line 36
+            echo "    </head>
     <body>
         
             ";
-        // line 38
-        $this->displayBlock('header', $context, $blocks);
-        // line 263
-        $this->displayBlock('sidebar', $context, $blocks);
-        // line 432
-        $this->displayBlock('body', $context, $blocks);
-        // line 433
-        $this->displayBlock('footer', $context, $blocks);
-        // line 447
-        echo "</body>
+            // line 39
+            $this->displayBlock('header', $context, $blocks);
+            // line 153
+            $this->displayBlock('sidebar', $context, $blocks);
+            // line 257
+            $this->displayBlock('body', $context, $blocks);
+            // line 258
+            $this->displayBlock('footer', $context, $blocks);
+            // line 269
+            echo "</body>
 </html>
 ";
+        }
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -89,7 +94,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 5
+    // line 6
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -99,7 +104,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "Bienvenue!";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -108,7 +113,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 8
+    // line 9
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -118,41 +123,41 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 9
+        // line 10
         echo "            <link href=\"https://fonts.gstatic.com\" rel=\"preconnect\">
             <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
             <link href=\"";
-        // line 11
+        // line 12
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
-        // line 12
+        // line 13
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/bootstrap-icons/bootstrap-icons.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
-        // line 13
+        // line 14
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/boxicons/css/boxicons.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
-        // line 14
+        // line 15
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/quill/quill.snow.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
-        // line 15
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/quill/quill.bubble.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
-        // line 16
+        // line 17
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/remixicon/remixicon.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
             <link href=\"";
-        // line 17
+        // line 18
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/simple-datatables/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
 
             <!-- Template Main CSS File -->
             <link href=\"";
-        // line 20
+        // line 21
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
         ";
@@ -164,7 +169,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 23
+    // line 24
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -174,42 +179,42 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 24
+        // line 25
         echo "            <!-- Vendor JS Files -->
             <script src=\"";
-        // line 25
+        // line 26
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/apexcharts/apexcharts.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 27
+        // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/chart.js/chart.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 28
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/echarts/echarts.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 29
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/quill/quill.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 30
+        // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/simple-datatables/simple-datatables.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/tinymce/tinymce.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 32
+        // line 33
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 33
+        // line 34
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/js/main.js"), "html", null, true);
         echo "\"></script>
         ";
@@ -221,7 +226,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 38
+    // line 39
     public function block_header($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -231,13 +236,13 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
-        // line 39
+        // line 40
         echo "<header id=\"header\" class=\"header fixed-top d-flex align-items-center\">
 
     <div class=\"d-flex align-items-center justify-content-between\">
       <a href=\"index.html\" class=\"logo d-flex align-items-center\">
         <img src=\"";
-        // line 43
+        // line 44
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/admin.png"), "html", null, true);
         echo "\" alt=\"\">
         <span class=\"d-none d-lg-block\">Administrateur</span>
@@ -269,65 +274,9 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           </a><!-- End Notification Icon -->
 
           <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications\">
-            <li class=\"dropdown-header\">
-              You have 4 new notifications
-              <a href=\"#\"><span class=\"badge rounded-pill bg-primary p-2 ms-2\">View all</span></a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-exclamation-circle text-warning\"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-x-circle text-danger\"></i>
-
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-check-circle text-success\"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-info-circle text-primary\"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
             <li class=\"dropdown-footer\">
               <a href=\"#\">Show all notifications</a>
             </li>
-
           </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
@@ -336,73 +285,12 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
           <a class=\"nav-link nav-icon\" href=\"#\" data-bs-toggle=\"dropdown\">
             <i class=\"bi bi-chat-left-text\"></i>
-            <span class=\"badge bg-success badge-number\">3</span>
+            <span class=\"badge bg-success badge-number\">0</span>
           </a><!-- End Messages Icon -->
-
           <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow messages\">
-            <li class=\"dropdown-header\">
-              You have 3 new messages
-              <a href=\"#\"><span class=\"badge rounded-pill bg-primary p-2 ms-2\">View all</span></a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"message-item\">
-              <a href=\"#\">
-                <img src=\"";
-        // line 154
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/messages-1.jpg"), "html", null, true);
-        echo "\" alt=\"\" class=\"rounded-circle\">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"message-item\">
-              <a href=\"#\">
-                <img src=\"";
-        // line 168
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/messages-2.jpg"), "html", null, true);
-        echo "\" alt=\"\" class=\"rounded-circle\">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"message-item\">
-              <a href=\"#\">
-                <img src=\"";
-        // line 182
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/messages-3.jpg"), "html", null, true);
-        echo "\" alt=\"\" class=\"rounded-circle\">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
             <li class=\"dropdown-footer\">
               <a href=\"#\">Show all messages</a>
             </li>
-
           </ul><!-- End Messages Dropdown Items -->
 
         </li><!-- End Messages Nav -->
@@ -411,25 +299,51 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
           <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
             <img src=\"";
-        // line 205
+        // line 98
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("admin/img/profile-img.jpg"), "html", null, true);
         echo "\" alt=\"Profile\" class=\"rounded-circle\">
-            <span class=\"d-none d-md-block dropdown-toggle ps-2\">K. Anderson</span>
+            <span class=\"d-none d-md-block dropdown-toggle ps-2\">";
+        // line 99
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 99, $this->source); })()), "user", [], "any", false, false, false, 99), "username", [], "any", false, false, false, 99), "html", null, true);
+        echo "</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow profile\">
             <li class=\"dropdown-header\">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
+              <h6>";
+        // line 104
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 104, $this->source); })()), "user", [], "any", false, false, false, 104), "username", [], "any", false, false, false, 104), "html", null, true);
+        echo " </h6>
+              ";
+        // line 105
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 105, $this->source); })()), "user", [], "any", false, false, false, 105), "role", [], "any", false, false, false, 105), 0))) {
+            echo " <span>Admin</span>";
+        }
+        // line 106
+        echo "              ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 106, $this->source); })()), "user", [], "any", false, false, false, 106), "role", [], "any", false, false, false, 106), 1))) {
+            echo " <span>Responsable</span>";
+        }
+        // line 107
+        echo "              ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 107, $this->source); })()), "user", [], "any", false, false, false, 107), "role", [], "any", false, false, false, 107), 2))) {
+            echo " <span>Employee</span>";
+        }
+        // line 108
+        echo "              ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 108, $this->source); })()), "user", [], "any", false, false, false, 108), "role", [], "any", false, false, false, 108), 3))) {
+            echo " <span>Citoyen</span>";
+        }
+        // line 109
+        echo "            </li>
             <li>
               <hr class=\"dropdown-divider\">
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
                 <i class=\"bi bi-person\"></i>
-                <span>My Profile</span>
+                <span>Mon Profil</span>
               </a>
             </li>
             <li>
@@ -437,9 +351,12 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"";
+        // line 125
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_profil");
+        echo "\">
                 <i class=\"bi bi-gear\"></i>
-                <span>Account Settings</span>
+                <span>Paramètres du compte</span>
               </a>
             </li>
             <li>
@@ -447,19 +364,16 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"pages-faq.html\">
-                <i class=\"bi bi-question-circle\"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
               <hr class=\"dropdown-divider\">
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"#\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"";
+        // line 139
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+        echo "\">
                 <i class=\"bi bi-box-arrow-right\"></i>
-                <span>Sign Out</span>
+                <span>Déconnecter</span>
               </a>
             </li>
 
@@ -479,7 +393,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 263
+    // line 153
     public function block_sidebar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -489,7 +403,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 264
+        // line 154
         echo "<aside id=\"sidebar\" class=\"sidebar\">
 
     <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
@@ -500,25 +414,28 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           <span>Acceuil</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      <li class=\"nav-item\">
+";
+        // line 164
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 164, $this->source); })()), "user", [], "any", false, false, false, 164), "role", [], "any", false, false, false, 164), 0))) {
+            // line 165
+            echo "      <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
           <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Employee</span><i class=\"bi bi-chevron-down ms-auto\"></i>
         </a>
         <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
             <a href=\"";
-        // line 281
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_index");
-        echo "\">
+            // line 171
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_index");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste des Employées</span>
             </a>
           </li>
           <li>
             <a  href=\"";
-        // line 286
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
-        echo "\">
+            // line 176
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter nouveau Employée</span>
             </a>
           </li>
@@ -537,17 +454,17 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
           <li>
             <a href=\"";
-        // line 304
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_index");
-        echo "\">
+            // line 194
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_index");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste des Responsable</span>
             </a>
           </li>
           <li>
             <a href=\"";
-        // line 309
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_new");
-        echo "\">
+            // line 199
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_new");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Responsable</span>
             </a>
           </li>
@@ -562,17 +479,17 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
             <a href=\"";
-        // line 323
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_index");
-        echo "\">
+            // line 213
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_index");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste de citoyen</span>
             </a>
           </li>
           <li>
             <a href=\"";
-        // line 328
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_new");
-        echo "\">
+            // line 218
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_new");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Citoyen</span>
             </a>
           </li>
@@ -586,98 +503,38 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         <ul id=\"charts-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
             <a href=\"";
-        // line 341
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_index");
-        echo "\">
+            // line 231
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_index");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste Des Administrteurs</span>
             </a>
           </li>
           <li>
             <a href=\"";
-        // line 346
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_new");
-        echo "\">
+            // line 236
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_new");
+            echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Administrateur</span>
             </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->
 
+";
+        }
+        // line 244
+        echo "
+
 
       <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-gem\"></i><span>Icons</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"icons-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"icons-bootstrap.html\">
-              <i class=\"bi bi-circle\"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-remix.html\">
-              <i class=\"bi bi-circle\"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-boxicons.html\">
-              <i class=\"bi bi-circle\"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class=\"nav-heading\">Pages</li>
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"users-profile.html\">
+        <a class=\"nav-link collapsed\" href=\"";
+        // line 248
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_profil");
+        echo "\">
           <i class=\"bi bi-person\"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-faq.html\">
-          <i class=\"bi bi-question-circle\"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-contact.html\">
-          <i class=\"bi bi-envelope\"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-register.html\">
-          <i class=\"bi bi-card-list\"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-login.html\">
-          <i class=\"bi bi-box-arrow-in-right\"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-error-404.html\">
-          <i class=\"bi bi-dash-circle\"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-blank.html\">
-          <i class=\"bi bi-file-earmark\"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
     </ul>
 
  </aside><!-- End Sidebar-->
@@ -690,7 +547,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 432
+    // line 257
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -708,7 +565,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 433
+    // line 258
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -721,15 +578,29 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         echo " 
 <footer id=\"footer\" class=\"footer\">
     <div class=\"copyright\">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy;  <strong> ";
+        // line 261
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 261, $this->source); })()), "user", [], "any", false, false, false, 261), "role", [], "any", false, false, false, 261), 0))) {
+            echo " <span>Admin</span>";
+        }
+        // line 262
+        echo "        ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 262, $this->source); })()), "user", [], "any", false, false, false, 262), "role", [], "any", false, false, false, 262), 1))) {
+            echo " <span>Responsable</span>";
+        }
+        // line 263
+        echo "        ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 263, $this->source); })()), "user", [], "any", false, false, false, 263), "role", [], "any", false, false, false, 263), 2))) {
+            echo " <span>Employee</span>";
+        }
+        // line 264
+        echo "        ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 264, $this->source); })()), "user", [], "any", false, false, false, 264), "role", [], "any", false, false, false, 264), 3))) {
+            echo " <span>Citoyen</span>";
+        }
+        echo "</strong>
     </div>
-    <div class=\"credits\">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
-    </div>
+
   </footer>
 ";
         
@@ -745,18 +616,24 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  712 => 433,  694 => 432,  598 => 346,  590 => 341,  574 => 328,  566 => 323,  549 => 309,  541 => 304,  520 => 286,  512 => 281,  493 => 264,  483 => 263,  415 => 205,  389 => 182,  372 => 168,  355 => 154,  241 => 43,  235 => 39,  225 => 38,  213 => 33,  209 => 32,  205 => 31,  201 => 30,  197 => 29,  193 => 28,  189 => 27,  185 => 26,  181 => 25,  178 => 24,  168 => 23,  156 => 20,  150 => 17,  146 => 16,  142 => 15,  138 => 14,  134 => 13,  130 => 12,  126 => 11,  122 => 9,  112 => 8,  93 => 5,  81 => 447,  79 => 433,  77 => 432,  75 => 263,  73 => 38,  68 => 35,  66 => 23,  63 => 22,  60 => 8,  56 => 5,  50 => 1,);
+        return array (  597 => 264,  592 => 263,  587 => 262,  583 => 261,  569 => 258,  551 => 257,  532 => 248,  526 => 244,  515 => 236,  507 => 231,  491 => 218,  483 => 213,  466 => 199,  458 => 194,  437 => 176,  429 => 171,  421 => 165,  419 => 164,  407 => 154,  397 => 153,  373 => 139,  356 => 125,  338 => 109,  333 => 108,  328 => 107,  323 => 106,  319 => 105,  315 => 104,  307 => 99,  303 => 98,  246 => 44,  240 => 40,  230 => 39,  218 => 34,  214 => 33,  210 => 32,  206 => 31,  202 => 30,  198 => 29,  194 => 28,  190 => 27,  186 => 26,  183 => 25,  173 => 24,  161 => 21,  155 => 18,  151 => 17,  147 => 16,  143 => 15,  139 => 14,  135 => 13,  131 => 12,  127 => 10,  117 => 9,  98 => 6,  85 => 269,  83 => 258,  81 => 257,  79 => 153,  77 => 39,  72 => 36,  70 => 24,  67 => 23,  64 => 9,  60 => 6,  55 => 3,  53 => 2,  50 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
+{% if app.user %}
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Bienvenue!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -824,65 +701,9 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           </a><!-- End Notification Icon -->
 
           <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications\">
-            <li class=\"dropdown-header\">
-              You have 4 new notifications
-              <a href=\"#\"><span class=\"badge rounded-pill bg-primary p-2 ms-2\">View all</span></a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-exclamation-circle text-warning\"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-x-circle text-danger\"></i>
-
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-check-circle text-success\"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"notification-item\">
-              <i class=\"bi bi-info-circle text-primary\"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
             <li class=\"dropdown-footer\">
               <a href=\"#\">Show all notifications</a>
             </li>
-
           </ul><!-- End Notification Dropdown Items -->
 
         </li><!-- End Notification Nav -->
@@ -891,64 +712,12 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
           <a class=\"nav-link nav-icon\" href=\"#\" data-bs-toggle=\"dropdown\">
             <i class=\"bi bi-chat-left-text\"></i>
-            <span class=\"badge bg-success badge-number\">3</span>
+            <span class=\"badge bg-success badge-number\">0</span>
           </a><!-- End Messages Icon -->
-
           <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow messages\">
-            <li class=\"dropdown-header\">
-              You have 3 new messages
-              <a href=\"#\"><span class=\"badge rounded-pill bg-primary p-2 ms-2\">View all</span></a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"message-item\">
-              <a href=\"#\">
-                <img src=\"{{ asset('admin/img/messages-1.jpg') }}\" alt=\"\" class=\"rounded-circle\">
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"message-item\">
-              <a href=\"#\">
-                <img src=\"{{ asset('admin/img/messages-2.jpg') }}\" alt=\"\" class=\"rounded-circle\">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
-            <li class=\"message-item\">
-              <a href=\"#\">
-                <img src=\"{{ asset('admin/img/messages-3.jpg') }}\" alt=\"\" class=\"rounded-circle\">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class=\"dropdown-divider\">
-            </li>
-
             <li class=\"dropdown-footer\">
               <a href=\"#\">Show all messages</a>
             </li>
-
           </ul><!-- End Messages Dropdown Items -->
 
         </li><!-- End Messages Nav -->
@@ -957,22 +726,25 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
           <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
             <img src=\"{{ asset('admin/img/profile-img.jpg') }}\" alt=\"Profile\" class=\"rounded-circle\">
-            <span class=\"d-none d-md-block dropdown-toggle ps-2\">K. Anderson</span>
+            <span class=\"d-none d-md-block dropdown-toggle ps-2\">{{app.user.username}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class=\"dropdown-menu dropdown-menu-end dropdown-menu-arrow profile\">
             <li class=\"dropdown-header\">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>{{app.user.username}} </h6>
+              {% if app.user.role ==0 %} <span>Admin</span>{% endif %}
+              {% if app.user.role ==1 %} <span>Responsable</span>{% endif %}
+              {% if app.user.role ==2 %} <span>Employee</span>{% endif %}
+              {% if app.user.role ==3 %} <span>Citoyen</span>{% endif %}
             </li>
             <li>
               <hr class=\"dropdown-divider\">
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
                 <i class=\"bi bi-person\"></i>
-                <span>My Profile</span>
+                <span>Mon Profil</span>
               </a>
             </li>
             <li>
@@ -980,9 +752,9 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"users-profile.html\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"{{ path('app_gestion_profil') }}\">
                 <i class=\"bi bi-gear\"></i>
-                <span>Account Settings</span>
+                <span>Paramètres du compte</span>
               </a>
             </li>
             <li>
@@ -990,19 +762,13 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"pages-faq.html\">
-                <i class=\"bi bi-question-circle\"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
               <hr class=\"dropdown-divider\">
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"#\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"{{path('app_logout')}}\">
                 <i class=\"bi bi-box-arrow-right\"></i>
-                <span>Sign Out</span>
+                <span>Déconnecter</span>
               </a>
             </li>
 
@@ -1025,7 +791,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           <span>Acceuil</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
+{% if app.user.role == 0 %}
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
           <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Employee</span><i class=\"bi bi-chevron-down ms-auto\"></i>
@@ -1104,81 +870,16 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         </ul>
       </li><!-- End Charts Nav -->
 
+{% endif %}
+
+
 
       <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-          <i class=\"bi bi-gem\"></i><span>Icons</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-        </a>
-        <ul id=\"icons-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-          <li>
-            <a href=\"icons-bootstrap.html\">
-              <i class=\"bi bi-circle\"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-remix.html\">
-              <i class=\"bi bi-circle\"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href=\"icons-boxicons.html\">
-              <i class=\"bi bi-circle\"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class=\"nav-heading\">Pages</li>
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"users-profile.html\">
+        <a class=\"nav-link collapsed\" href=\"{{ path('app_gestion_profil') }}\">
           <i class=\"bi bi-person\"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-faq.html\">
-          <i class=\"bi bi-question-circle\"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-contact.html\">
-          <i class=\"bi bi-envelope\"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-register.html\">
-          <i class=\"bi bi-card-list\"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-login.html\">
-          <i class=\"bi bi-box-arrow-in-right\"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-error-404.html\">
-          <i class=\"bi bi-dash-circle\"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class=\"nav-item\">
-        <a class=\"nav-link collapsed\" href=\"pages-blank.html\">
-          <i class=\"bi bi-file-earmark\"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
     </ul>
 
  </aside><!-- End Sidebar-->
@@ -1187,19 +888,17 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 {% block footer %} 
 <footer id=\"footer\" class=\"footer\">
     <div class=\"copyright\">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy;  <strong> {% if app.user.role ==0 %} <span>Admin</span>{% endif %}
+        {% if app.user.role ==1 %} <span>Responsable</span>{% endif %}
+        {% if app.user.role ==2 %} <span>Employee</span>{% endif %}
+        {% if app.user.role ==3 %} <span>Citoyen</span>{% endif %}</strong>
     </div>
-    <div class=\"credits\">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
-    </div>
+
   </footer>
 {% endblock %}
 </body>
 </html>
+{% endif %}
 ", "base.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\base.html.twig");
     }
 }

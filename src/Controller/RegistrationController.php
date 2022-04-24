@@ -59,7 +59,7 @@ class RegistrationController extends AbstractController
                 ->to($e)
                 ->subject('🥳 Une nouvelle reclamation est organisé à 🥳ForU🥳')
 
-                ->text('yar7am bayek haw 5edmet ');
+                ->text('Bien Inscrit . Vous voulez attendre une email de la part de ladmin');
 
             $mailer->send($email);
             $entityManager->persist($citoyen);

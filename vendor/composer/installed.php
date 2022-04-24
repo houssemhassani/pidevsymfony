@@ -1280,6 +1280,15 @@
             'reference' => 'd7f637cc0f0cc14beb0984f2bb50da560b271311',
             'dev_requirement' => false,
         ),
+        'symfonycasts/reset-password-bundle' => array(
+            'pretty_version' => 'v1.13.0',
+            'version' => '1.13.0.0',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../symfonycasts/reset-password-bundle',
+            'aliases' => array(),
+            'reference' => '6e926da7fb2031ef38a385a994ea3a52b436dc8c',
+            'dev_requirement' => false,
+        ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',
             'version' => '1.2.1.0',

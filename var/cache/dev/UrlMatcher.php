@@ -25,10 +25,13 @@ return [
         '/gesadmin/new' => [[['_route' => 'app_gestion_admin_new', '_controller' => 'App\\Controller\\GestionAdminController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/gesemployee' => [[['_route' => 'app_gestion_employee_index', '_controller' => 'App\\Controller\\GestionEmployeeController::index'], null, ['GET' => 0], null, true, false, null]],
         '/gesemployee/new' => [[['_route' => 'app_gestion_employee_new', '_controller' => 'App\\Controller\\GestionEmployeeController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/gestionprofil' => [[['_route' => 'app_gestion_profil', '_controller' => 'App\\Controller\\GestionProfilController::index'], null, null, null, false, false, null]],
         '/gesresponsable' => [[['_route' => 'app_gestion_responsable_index', '_controller' => 'App\\Controller\\GestionResponsableController::index'], null, ['GET' => 0], null, true, false, null]],
         '/gesresponsable/new' => [[['_route' => 'app_gestion_responsable_new', '_controller' => 'App\\Controller\\GestionResponsableController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/loginemployee' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginEmployeeController::login'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
+        '/reset-password' => [[['_route' => 'app_forgot_password_request', '_controller' => 'App\\Controller\\ResetPasswordController::request'], null, null, null, false, false, null]],
+        '/reset-password/check-email' => [[['_route' => 'app_check_email', '_controller' => 'App\\Controller\\ResetPasswordController::checkEmail'], null, null, null, false, false, null]],
         '/responsable' => [[['_route' => 'app_responsable_index', '_controller' => 'App\\Controller\\ResponsableController::index'], null, ['GET' => 0], null, true, false, null]],
         '/responsable/new' => [[['_route' => 'app_responsable_new', '_controller' => 'App\\Controller\\ResponsableController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/login' => [[['_route' => 'app_login_', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
@@ -99,15 +102,18 @@ return [
                         .'|(*:551)'
                     .')'
                 .')'
-                .'|/responsable/([^/]++)(?'
-                    .'|(*:585)'
-                    .'|/edit(*:598)'
-                    .'|(*:606)'
+                .'|/res(?'
+                    .'|et\\-password/reset(?:/([^/]++))?(*:600)'
+                    .'|ponsable/([^/]++)(?'
+                        .'|(*:628)'
+                        .'|/edit(*:641)'
+                        .'|(*:649)'
+                    .')'
                 .')'
                 .'|/service/([^/]++)(?'
-                    .'|(*:635)'
-                    .'|/edit(*:648)'
-                    .'|(*:656)'
+                    .'|(*:679)'
+                    .'|/edit(*:692)'
+                    .'|(*:700)'
                 .')'
             .')/?$}sD',
     ],
@@ -142,12 +148,13 @@ return [
         530 => [[['_route' => 'app_gestion_responsable_show', '_controller' => 'App\\Controller\\GestionResponsableController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         543 => [[['_route' => 'app_gestion_responsable_edit', '_controller' => 'App\\Controller\\GestionResponsableController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         551 => [[['_route' => 'app_gestion_responsable_delete', '_controller' => 'App\\Controller\\GestionResponsableController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        585 => [[['_route' => 'app_responsable_show', '_controller' => 'App\\Controller\\ResponsableController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        598 => [[['_route' => 'app_responsable_edit', '_controller' => 'App\\Controller\\ResponsableController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        606 => [[['_route' => 'app_responsable_delete', '_controller' => 'App\\Controller\\ResponsableController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        635 => [[['_route' => 'app_service_show', '_controller' => 'App\\Controller\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        648 => [[['_route' => 'app_service_edit', '_controller' => 'App\\Controller\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        656 => [
+        600 => [[['_route' => 'app_reset_password', 'token' => null, '_controller' => 'App\\Controller\\ResetPasswordController::reset'], ['token'], null, null, false, true, null]],
+        628 => [[['_route' => 'app_responsable_show', '_controller' => 'App\\Controller\\ResponsableController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        641 => [[['_route' => 'app_responsable_edit', '_controller' => 'App\\Controller\\ResponsableController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        649 => [[['_route' => 'app_responsable_delete', '_controller' => 'App\\Controller\\ResponsableController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        679 => [[['_route' => 'app_service_show', '_controller' => 'App\\Controller\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        692 => [[['_route' => 'app_service_edit', '_controller' => 'App\\Controller\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        700 => [
             [['_route' => 'app_service_delete', '_controller' => 'App\\Controller\\ServiceController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

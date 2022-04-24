@@ -22,6 +22,7 @@
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="CaptchaBundle">Captcha\Bundle\CaptchaBundle\CaptchaBundle</parameter>
+      <parameter key="SymfonyCastsResetPasswordBundle">SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -75,6 +76,10 @@
       <parameter key="CaptchaBundle" type="collection">
         <parameter key="path">C:\xampp\htdocs\PidevSymfony\vendor\captcha-com\symfony-captcha-bundle</parameter>
         <parameter key="namespace">Captcha\Bundle\CaptchaBundle</parameter>
+      </parameter>
+      <parameter key="SymfonyCastsResetPasswordBundle" type="collection">
+        <parameter key="path">C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src</parameter>
+        <parameter key="namespace">SymfonyCasts\Bundle\ResetPassword</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -402,18 +407,18 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GestionEmployeeController"/>
       </call>
     </service>
+    <service id="App\Controller\GestionProfilController" class="App\Controller\GestionProfilController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GestionProfilController"/>
+      </call>
+    </service>
     <service id="App\Controller\GestionResponsableController" class="App\Controller\GestionResponsableController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GestionResponsableController"/>
-      </call>
-    </service>
-    <service id="App\Controller\LoginCitoyenController" class="App\Controller\LoginCitoyenController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\LoginCitoyenController"/>
       </call>
     </service>
     <service id="App\Controller\LoginEmployeeController" class="App\Controller\LoginEmployeeController" public="true" autowire="true" autoconfigure="true">
@@ -428,6 +433,15 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\RegistrationController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="symfonycasts.reset_password.helper"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ResetPasswordController"/>
       </call>
     </service>
     <service id="App\Controller\ResponsableController" class="App\Controller\ResponsableController" public="true" autowire="true" autoconfigure="true">
@@ -461,6 +475,9 @@
     <service id="App\Form\AdminType" class="App\Form\AdminType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\CitoyenType" class="App\Form\CitoyenType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -476,10 +493,17 @@
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\CitoyenRepository" class="App\Repository\CitoyenRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -928,11 +952,13 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AdminType</argument>
+        <argument>App\Form\ChangePasswordFormType</argument>
         <argument>App\Form\CitoyenType</argument>
         <argument>App\Form\Employee1Type</argument>
         <argument>App\Form\EmployeeType</argument>
         <argument>App\Form\EquipeType</argument>
         <argument>App\Form\RegistrationFormType</argument>
+        <argument>App\Form\ResetPasswordRequestFormType</argument>
         <argument>App\Form\ServiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1269,7 +1295,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.aASXWu9"/>
+      <argument type="service" id=".service_locator.JUhgEdM"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1581,6 +1607,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
@@ -1611,6 +1638,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
@@ -1624,6 +1652,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
@@ -1634,11 +1663,13 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
@@ -1659,11 +1690,13 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
@@ -1684,6 +1717,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
@@ -1699,11 +1733,13 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.ja.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
@@ -1739,6 +1775,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle+intl-icu.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
@@ -1754,11 +1791,13 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
@@ -1774,11 +1813,13 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.sk.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
@@ -1819,11 +1860,13 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.uk.xlf</argument>
           </argument>
           <argument key="uz" type="collection">
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations\validators.uz.xlf</argument>
@@ -1845,11 +1888,15 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
           </argument>
+          <argument key="sr" type="collection">
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations\ResetPasswordBundle.sr.xlf</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\framework-bundle/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/FrameworkBundle/translations</argument>
@@ -1877,6 +1924,7 @@
           <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/WebServerBundle/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\vendor\captcha-com\symfony-captcha-bundle/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/CaptchaBundle/translations</argument>
+          <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/SymfonyCastsResetPasswordBundle/translations</argument>
           <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -1884,6 +1932,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\validator/Resources/translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\form/Resources/translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfonycasts\reset-password-bundle\src/Resources/translations</argument>
             <argument>translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\symfony\framework-bundle/translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/FrameworkBundle/translations</argument>
@@ -1911,6 +1960,7 @@
             <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/WebServerBundle/translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\vendor\captcha-com\symfony-captcha-bundle/translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/CaptchaBundle/translations</argument>
+            <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/SymfonyCastsResetPasswordBundle/translations</argument>
             <argument>C:\xampp\htdocs\PidevSymfony\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -4106,7 +4156,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.bzfAax8"/>
+      <argument type="service" id=".service_locator.wDNiYT7"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5308,6 +5358,30 @@
       <tag name="validator.constraint_validator" alias="valid_simple_captcha"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id="symfonycasts.reset_password.fake_request_repository" class="SymfonyCasts\Bundle\ResetPassword\Persistence\Fake\FakeResetPasswordInternalRepository" public="false"/>
+    <service id="symfonycasts.reset_password.cleaner" class="SymfonyCasts\Bundle\ResetPassword\Util\ResetPasswordCleaner" public="false">
+      <argument type="service" id="App\Repository\ResetPasswordRequestRepository"/>
+      <argument>true</argument>
+    </service>
+    <service id="SymfonyCasts\Bundle\ResetPassword\Command\ResetPasswordRemoveExpiredCommand" class="SymfonyCasts\Bundle\ResetPassword\Command\ResetPasswordRemoveExpiredCommand">
+      <tag name="console.command" command="reset-password:remove-expired"/>
+      <argument type="service" id="symfonycasts.reset_password.cleaner"/>
+      <call method="setName">
+        <argument>reset-password:remove-expired</argument>
+      </call>
+    </service>
+    <service id="symfonycasts.reset_password.random_generator" class="SymfonyCasts\Bundle\ResetPassword\Generator\ResetPasswordRandomGenerator" public="false"/>
+    <service id="symfonycasts.reset_password.token_generator" class="SymfonyCasts\Bundle\ResetPassword\Generator\ResetPasswordTokenGenerator" public="false">
+      <argument>%env(APP_SECRET)%</argument>
+      <argument type="service" id="symfonycasts.reset_password.random_generator"/>
+    </service>
+    <service id="symfonycasts.reset_password.helper" class="SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelper">
+      <argument type="service" id="symfonycasts.reset_password.token_generator"/>
+      <argument type="service" id="symfonycasts.reset_password.cleaner"/>
+      <argument type="service" id="App\Repository\ResetPasswordRequestRepository"/>
+      <argument>3600</argument>
+      <argument>3600</argument>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CitoyenController" class="App\Controller\CitoyenController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CitoyenController" class="App\Controller\CitoyenController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CitoyenController" class="App\Controller\CitoyenController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5326,18 +5400,21 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GestionEmployeeController" class="App\Controller\GestionEmployeeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GestionEmployeeController" class="App\Controller\GestionEmployeeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GestionEmployeeController" class="App\Controller\GestionEmployeeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GestionProfilController" class="App\Controller\GestionProfilController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GestionProfilController" class="App\Controller\GestionProfilController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\GestionProfilController" class="App\Controller\GestionProfilController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GestionResponsableController" class="App\Controller\GestionResponsableController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GestionResponsableController" class="App\Controller\GestionResponsableController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GestionResponsableController" class="App\Controller\GestionResponsableController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LoginCitoyenController" class="App\Controller\LoginCitoyenController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginCitoyenController" class="App\Controller\LoginCitoyenController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\LoginCitoyenController" class="App\Controller\LoginCitoyenController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LoginEmployeeController" class="App\Controller\LoginEmployeeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LoginEmployeeController" class="App\Controller\LoginEmployeeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LoginEmployeeController" class="App\Controller\LoginEmployeeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ResponsableController" class="App\Controller\ResponsableController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ResponsableController" class="App\Controller\ResponsableController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ResponsableController" class="App\Controller\ResponsableController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5352,6 +5429,8 @@
     <service id=".abstract.instanceof.App\Controller\TestController" class="App\Controller\TestController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminType" class="App\Form\AdminType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AdminType" class="App\Form\AdminType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CitoyenType" class="App\Form\CitoyenType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CitoyenType" class="App\Form\CitoyenType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\Employee1Type" class="App\Form\Employee1Type" autowire="true" abstract="true"/>
@@ -5362,10 +5441,14 @@
     <service id=".abstract.instanceof.App\Form\EquipeType" class="App\Form\EquipeType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CitoyenRepository" class="App\Repository\CitoyenRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CitoyenRepository" class="App\Repository\CitoyenRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ResetPasswordRequestRepository" class="App\Repository\ResetPasswordRequestRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UtilisateurRepository" class="App\Repository\UtilisateurRepository" autowire="true" abstract="true"/>
@@ -5761,6 +5844,20 @@
         <argument key="userPasswordEncoder" type="service_closure" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
+    <service id=".service_locator.tejTvi1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mailer" type="service_closure" id="mailer.mailer"/>
+        <argument key="translator" type="service_closure" id="translator.data_collector"/>
+      </argument>
+    </service>
+    <service id=".service_locator.IHMIEEW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="translator" type="service_closure" id="translator.data_collector"/>
+        <argument key="userPasswordEncoder" type="service_closure" id="security.user_password_encoder.generic"/>
+      </argument>
+    </service>
     <service id=".service_locator._6fPF7O" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5774,7 +5871,7 @@
         <argument key="service" type="service_closure" id=".errored..service_locator..gcCqtT.App\Entity\Service"/>
       </argument>
     </service>
-    <service id=".service_locator.nJJQlT0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.z_AAeck" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CitoyenController::delete" type="service_closure" id=".service_locator.1W7puNn"/>
@@ -5814,9 +5911,10 @@
         <argument key="App\Controller\GestionResponsableController::index" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\GestionResponsableController::new" type="service_closure" id=".service_locator.RgXJwXu"/>
         <argument key="App\Controller\GestionResponsableController::show" type="service_closure" id=".service_locator.F5Wekn9"/>
-        <argument key="App\Controller\LoginCitoyenController::login" type="service_closure" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\LoginEmployeeController::login" type="service_closure" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.mLd7rT3"/>
+        <argument key="App\Controller\ResetPasswordController::request" type="service_closure" id=".service_locator.tejTvi1"/>
+        <argument key="App\Controller\ResetPasswordController::reset" type="service_closure" id=".service_locator.IHMIEEW"/>
         <argument key="App\Controller\ResponsableController::delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController::edit" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController::index" type="service_closure" id=".service_locator.x8FmIZ0"/>
@@ -5865,9 +5963,10 @@
         <argument key="App\Controller\GestionResponsableController:index" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\GestionResponsableController:new" type="service_closure" id=".service_locator.RgXJwXu"/>
         <argument key="App\Controller\GestionResponsableController:show" type="service_closure" id=".service_locator.F5Wekn9"/>
-        <argument key="App\Controller\LoginCitoyenController:login" type="service_closure" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\LoginEmployeeController:login" type="service_closure" id=".service_locator.g.xob4v"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.mLd7rT3"/>
+        <argument key="App\Controller\ResetPasswordController:request" type="service_closure" id=".service_locator.tejTvi1"/>
+        <argument key="App\Controller\ResetPasswordController:reset" type="service_closure" id=".service_locator.IHMIEEW"/>
         <argument key="App\Controller\ResponsableController:delete" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController:edit" type="service_closure" id=".service_locator.ZL3QEBN"/>
         <argument key="App\Controller\ResponsableController:index" type="service_closure" id=".service_locator.x8FmIZ0"/>
@@ -5944,15 +6043,17 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.aASXWu9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.JUhgEdM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AdminType" type="service_closure" id="App\Form\AdminType"/>
+        <argument key="App\Form\ChangePasswordFormType" type="service_closure" id="App\Form\ChangePasswordFormType"/>
         <argument key="App\Form\CitoyenType" type="service_closure" id="App\Form\CitoyenType"/>
         <argument key="App\Form\Employee1Type" type="service_closure" id="App\Form\Employee1Type"/>
         <argument key="App\Form\EmployeeType" type="service_closure" id="App\Form\EmployeeType"/>
         <argument key="App\Form\EquipeType" type="service_closure" id="App\Form\EquipeType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
+        <argument key="App\Form\ResetPasswordRequestFormType" type="service_closure" id="App\Form\ResetPasswordRequestFormType"/>
         <argument key="App\Form\ServiceType" type="service_closure" id="App\Form\ServiceType"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType" type="service_closure" id="captcha.form.type"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType" type="service_closure" id="simple_captcha.form.type"/>
@@ -6122,10 +6223,11 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.bzfAax8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.wDNiYT7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CitoyenRepository" type="service_closure" id="App\Repository\CitoyenRepository"/>
+        <argument key="App\Repository\ResetPasswordRequestRepository" type="service_closure" id="App\Repository\ResetPasswordRequestRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
         <argument key="App\Repository\UtilisateurRepository" type="service_closure" id="App\Repository\UtilisateurRepository"/>
       </argument>
@@ -6217,15 +6319,15 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\GestionResponsableController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\GestionResponsableController"/>
-      <argument>App\Controller\GestionResponsableController</argument>
+    <service id=".service_locator.vdmMuyE.App\Controller\GestionProfilController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\GestionProfilController"/>
+      <argument>App\Controller\GestionProfilController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\LoginCitoyenController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\LoginCitoyenController"/>
-      <argument>App\Controller\LoginCitoyenController</argument>
+    <service id=".service_locator.vdmMuyE.App\Controller\GestionResponsableController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\GestionResponsableController"/>
+      <argument>App\Controller\GestionResponsableController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6238,6 +6340,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\RegistrationController"/>
       <argument>App\Controller\RegistrationController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ResetPasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ResetPasswordController"/>
+      <argument>App\Controller\ResetPasswordController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6411,12 +6519,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.nJJQlT0"/>
+      <argument type="service" id=".service_locator.z_AAeck"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.nJJQlT0"/>
+      <argument type="service" id=".service_locator.z_AAeck"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6439,7 +6547,7 @@
     <service id=".errored..service_locator._6fPF7O.App\Entity\Service" class="App\Entity\Service"/>
     <service id=".errored..service_locator..gcCqtT.App\Entity\Service" class="App\Entity\Service"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.TfYcj5y"/>
+      <argument type="service" id=".service_locator.aJllJ2p"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -6509,6 +6617,7 @@
         <argument key="server:start">web_server.command.server_start</argument>
         <argument key="server:stop">web_server.command.server_stop</argument>
         <argument key="server:status">web_server.command.server_status</argument>
+        <argument key="reset-password:remove-expired">SymfonyCasts\Bundle\ResetPassword\Command\ResetPasswordRemoveExpiredCommand</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -6534,10 +6643,11 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.TfYcj5y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.aJllJ2p" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand" type="service_closure" id="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand"/>
+        <argument key="SymfonyCasts\Bundle\ResetPassword\Command\ResetPasswordRemoveExpiredCommand" type="service_closure" id="SymfonyCasts\Bundle\ResetPassword\Command\ResetPasswordRemoveExpiredCommand"/>
         <argument key="console.command.about" type="service_closure" id="console.command.about"/>
         <argument key="console.command.assets_install" type="service_closure" id="console.command.assets_install"/>
         <argument key="console.command.cache_clear" type="service_closure" id="console.command.cache_clear"/>
@@ -6826,9 +6936,10 @@
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.main" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
+    <service id="SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface" alias="symfonycasts.reset_password.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.nJJQlT0"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.z_AAeck"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -6843,7 +6954,7 @@
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id=".service_locator.xkmSecI" alias=".service_locator.u8z4W6F" public="false"/>
-    <service id=".service_locator.0z8n0Ba" alias=".service_locator.aASXWu9" public="false"/>
+    <service id=".service_locator.vEpX.KJ" alias=".service_locator.JUhgEdM" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
