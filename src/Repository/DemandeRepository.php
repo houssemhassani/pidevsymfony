@@ -44,7 +44,13 @@ class DemandeRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
+    public function findTeamwithNumber($num){
+        return $this->createQueryBuilder('demande')
+            ->where('demande.numDemande LIKE :numDemande')
+            ->setParameter('numDemande', '%'.$num.'%')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Demande[] Returns an array of Demande objects
     //  */

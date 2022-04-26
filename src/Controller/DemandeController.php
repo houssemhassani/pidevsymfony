@@ -15,6 +15,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
+
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
+
 
 /**
  * @Route("/demande")
@@ -26,10 +33,17 @@ class DemandeController extends AbstractController
     /**
      * @Route("/table", name="app_demande_index", methods={"GET"})
      */
-    public function indexadmin(): Response
+    public function indexadmin(Request $request, PaginatorInterface $paginator): Response
     {
           $demande =$this->getDoctrine()->getManager()->getRepository(Demande::class)->findAll();
 
+            $demande=$paginator->paginate(
+                $demande,
+                $request->query->getInt('page',1),4
+
+
+
+            );
 
 
         return $this->render('demande/index.html.twig', [
@@ -149,7 +163,7 @@ class DemandeController extends AbstractController
      */
 
 
-    public function  rechercheByDate(Request $request , DemandeRepository $repository){
+    public function  rechercheByDate(Request $request , DemandeRepository $repository,PaginatorInterface $paginator){
 
       //  $em=$this->getDoctrine()->getManager();
        // $demande = $em->getRepository($repository)->findAll();
@@ -161,7 +175,18 @@ class DemandeController extends AbstractController
             'demandes'=>$demande
         ]);
     }
-
+    /**
+     * @Route("/rechercheEquipe", name="rechercheEquipe", methods={"GET","POST"},options={"expose"=true})
+     */
+    public function rechercheEquipe(Request $request,NormalizerInterface $Normalizer,DemandeRepository $repository)
+    {
+        $repository = $this->getDoctrine()->getRepository(Demande::class);
+        $x=$request->get('Recherche');
+        $demandes = $repository->findTeamwithNumber($x);
+        $jsonContent = $Normalizer->normalize($demandes, 'json',['groups'=>'post:read']);
+        $retour=json_encode($jsonContent);
+        return new Response($retour);
+    }
 
 
 
