@@ -39,6 +39,18 @@ class NotificationController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/pay", name="app_notification_indexx", methods={"GET"})
+     */
+    public function indexx(): Response
+    {
+
+
+        return $this->render('notification/payement.html.twig', [
+
+        ]);
+    }
+
 
 
 
