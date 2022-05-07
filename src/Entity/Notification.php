@@ -52,5 +52,58 @@ class Notification
      */
     private $idDemande;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTypeNotification(): ?string
+    {
+        return $this->typeNotification;
+    }
+
+    public function setTypeNotification(string $typeNotification): self
+    {
+        $this->typeNotification = $typeNotification;
+
+        return $this;
+    }
+
+    public function getEmailNotification(): ?string
+    {
+        return $this->emailNotification;
+    }
+
+    public function setEmailNotification(string $emailNotification): self
+    {
+        $this->emailNotification = $emailNotification;
+
+        return $this;
+    }
+
+    public function getNumNotification(): ?int
+    {
+        return $this->numNotification;
+    }
+
+    public function setNumNotification(int $numNotification): self
+    {
+        $this->numNotification = $numNotification;
+
+        return $this;
+    }
+
+    public function getIdDemande(): ?Demande
+    {
+        return $this->idDemande;
+    }
+
+    public function setIdDemande(?Demande $idDemande): self
+    {
+        $this->idDemande = $idDemande;
+
+        return $this;
+    }
+
 
 }

@@ -42,5 +42,46 @@ class Equipe
      */
     private $nbreEmp;
 
+    public function getIdEquipe(): ?int
+    {
+        return $this->idEquipe;
+    }
+
+    public function getNumEquipe(): ?int
+    {
+        return $this->numEquipe;
+    }
+
+    public function setNumEquipe(int $numEquipe): self
+    {
+        $this->numEquipe = $numEquipe;
+
+        return $this;
+    }
+
+    public function getServiceNom(): ?string
+    {
+        return $this->serviceNom;
+    }
+
+    public function setServiceNom(string $serviceNom): self
+    {
+        $this->serviceNom = $serviceNom;
+
+        return $this;
+    }
+
+    public function getNbreEmp(): ?int
+    {
+        return $this->nbreEmp;
+    }
+
+    public function setNbreEmp(int $nbreEmp): self
+    {
+        $this->nbreEmp = $nbreEmp;
+
+        return $this;
+    }
+
 
 }

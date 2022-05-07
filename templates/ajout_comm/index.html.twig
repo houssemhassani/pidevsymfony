@@ -36,7 +36,7 @@
                                     <a class="btn btn-success" href="{{ path('app_ajout_comm_edit', {'id': commantaire.id}) }}">edit</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ path('app_ajout_comm_new') }}">Ajouter</a>
+                                    <a class="btn btn-primary" href="{{ path('app_ajout_comm_new', {'id': commantaire.id}) }}">Ajouter</a>
                                 </td>
                             </tr>
                         {% else %}

@@ -4,12 +4,18 @@
 
 {% block body %}
     <h1>Publication index</h1>
+
 <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;padding-left: 250px">
 
     <div class="col-lg-12">
 
         <div class="card">
             <div class="card-body">
+                {% for message in app.flashes('info') %}
+                    <center> <div class="alert alert-success">
+                        {{ message }}
+                    </div></center>
+                {%endfor %}
                <center> <h5 class="card-title">Liste Des Publications</h5> </center>
 
                 <!-- Table with stripped rows -->

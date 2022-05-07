@@ -66,5 +66,82 @@ class Demande
      */
     private $idService;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNumDemande(): ?int
+    {
+        return $this->numDemande;
+    }
+
+    public function setNumDemande(int $numDemande): self
+    {
+        $this->numDemande = $numDemande;
+
+        return $this;
+    }
+
+    public function getTypeDemande(): ?string
+    {
+        return $this->typeDemande;
+    }
+
+    public function setTypeDemande(string $typeDemande): self
+    {
+        $this->typeDemande = $typeDemande;
+
+        return $this;
+    }
+
+    public function getDateDemande(): ?string
+    {
+        return $this->dateDemande;
+    }
+
+    public function setDateDemande(string $dateDemande): self
+    {
+        $this->dateDemande = $dateDemande;
+
+        return $this;
+    }
+
+    public function getIdCitoyen(): ?int
+    {
+        return $this->idCitoyen;
+    }
+
+    public function setIdCitoyen(int $idCitoyen): self
+    {
+        $this->idCitoyen = $idCitoyen;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getIdService(): ?Service
+    {
+        return $this->idService;
+    }
+
+    public function setIdService(?Service $idService): self
+    {
+        $this->idService = $idService;
+
+        return $this;
+    }
+
 
 }

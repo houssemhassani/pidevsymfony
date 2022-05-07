@@ -28,5 +28,22 @@ class Service
      */
     private $nomservice;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNomservice(): ?string
+    {
+        return $this->nomservice;
+    }
+
+    public function setNomservice(string $nomservice): self
+    {
+        $this->nomservice = $nomservice;
+
+        return $this;
+    }
+
 
 }

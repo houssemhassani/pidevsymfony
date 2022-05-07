@@ -30,15 +30,19 @@ class AjoutCommController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="app_ajout_comm_new", methods={"GET", "POST"})
+     * @Route("/new/{id}", name="app_ajout_comm_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager,int $id): Response
     {
+        $commantaires = $entityManager
+            ->getRepository(Commantaire::class)
+            ->findAll();
         $commantaire = new Commantaire();
         $form = $this->createForm(CommantaireType::class, $commantaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $commantaire->setIdPublication($id);
             $entityManager->persist($commantaire);
             $entityManager->flush();
 
@@ -46,7 +50,7 @@ class AjoutCommController extends AbstractController
         }
 
         return $this->render('ajout_comm/new.html.twig', [
-            'commantaire' => $commantaire,
+            'commantaires' => $commantaires,
             'form' => $form->createView(),
         ]);
     }

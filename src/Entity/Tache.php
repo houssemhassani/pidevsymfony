@@ -63,5 +63,82 @@ class Tache
      */
     private $importance = 'Normal';
 
+    public function getIdTache(): ?int
+    {
+        return $this->idTache;
+    }
+
+    public function getNumTache(): ?int
+    {
+        return $this->numTache;
+    }
+
+    public function setNumTache(int $numTache): self
+    {
+        $this->numTache = $numTache;
+
+        return $this;
+    }
+
+    public function getNomTache(): ?string
+    {
+        return $this->nomTache;
+    }
+
+    public function setNomTache(string $nomTache): self
+    {
+        $this->nomTache = $nomTache;
+
+        return $this;
+    }
+
+    public function getEmpId(): ?int
+    {
+        return $this->empId;
+    }
+
+    public function setEmpId(int $empId): self
+    {
+        $this->empId = $empId;
+
+        return $this;
+    }
+
+    public function getNeededTime(): ?int
+    {
+        return $this->neededTime;
+    }
+
+    public function setNeededTime(int $neededTime): self
+    {
+        $this->neededTime = $neededTime;
+
+        return $this;
+    }
+
+    public function getEtatTache(): ?string
+    {
+        return $this->etatTache;
+    }
+
+    public function setEtatTache(string $etatTache): self
+    {
+        $this->etatTache = $etatTache;
+
+        return $this;
+    }
+
+    public function getImportance(): ?string
+    {
+        return $this->importance;
+    }
+
+    public function setImportance(string $importance): self
+    {
+        $this->importance = $importance;
+
+        return $this;
+    }
+
 
 }

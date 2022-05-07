@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <!-- Blog Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+
+            <div class="row g-10">
+                <!-- Blog list Start -->
+
+                <div class="col-lg-8">
+                    {% for publication in publications %}
+
+                    <div class="row" >
+
+                        <div class="col-md-6 wow slideInUp" data-wow-delay="0.1s" style="max-width: 100%;max-height: 100%;display: block;margin: auto">
+
+                            <div class="blog-item bg-light rounded overflow-hidden">
+                                <div class="blog-img position-relative overflow-hidden">
+                                    <img class="img-fluid" src="{{ asset('uploads/' ~ publication.photo ) }}" alt="" style="width: 400px;height: 400px">
+                                    <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href={{ "/details/" ~ publication.id }}>Web Design</a>
+                                </div>
+                                <div class="p-4">
+                                    <div class="d-flex mb-3">
+                                        <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{ publication.status }}</small>
+                                        <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
+                                    </div>
+
+                                     </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+
+                <!-- Blog list End -->
+
+
+                <!-- Sidebar Start -->
+
+
+
+
+
+
+
+
+
+
+                <!-- Sidebar End -->
+
+                {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-4 col-form-label">Statut</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.status,{'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(form.status,{'attr':{'class':'text-Danger'}}) }}
+
+                    </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-4 col-form-label">Choisir Image</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.photo,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <legend class="col-form-label col-sm-9 pt-0"></legend>
+                    <div class="col-sm-5">
+
+                        <div class="form-check">
+
+                            {{ form_widget(form.confirmPublication,{'attr':{'class':'form-check-input'}}) }}
+                        </div>
+
+                    </div>
+                </div>
+                <br/>
+
+                <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                    {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+{% endblock %}

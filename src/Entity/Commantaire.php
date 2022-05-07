@@ -6,11 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * Commantaire
  *
- * @ORM\Table(name="commantaire", indexes={@ORM\Index(name="commantaire_ibfk_1", columns={"id_citoyen"}), @ORM\Index(name="commantaire_ibfk_3", columns={"id_publication"})})
- * @ORM\Entity
+ * @ORM\Table(name="commantaire", indexes={@ORM\Index(name="commantaire_ibfk_1", columns={"id_citoyen"})})
+ * @ORM\Entity(repositoryClass="App\Repository\AjoutCommRepository")
  */
 class Commantaire
 {
@@ -38,16 +39,6 @@ class Commantaire
     private $idEmployee;
 
     /**
-     * @var \Publication
-     *
-     * @ORM\ManyToOne(targetEntity="Publication")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_publication", referencedColumnName="id")
-     * })
-     */
-    private $idPublication;
-
-    /**
      * @var \Citoyen
      *
      * @ORM\ManyToOne(targetEntity="Citoyen")
@@ -57,6 +48,10 @@ class Commantaire
      */
     private $idCitoyen;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="commantaires")
+     */
+    private $publication;
     /**
      * @return int
      */
@@ -108,25 +103,6 @@ class Commantaire
     /**
      * @return int
      */
-    public function __toString(){
-        return (String)$this->getIdPublication();
-    }
-    public function getIdPublication(): ?int
-    {
-        return $this->idPublication;
-    }
-
-    /**
-     * @param \Publication $idPublication
-     */
-    public function setIdPublication(\Publication $idPublication): void
-    {
-        $this->idPublication = $idPublication;
-    }
-
-    /**
-     * @return int
-     */
     public function getIdCitoyen(): ?int
     {
         return $this->idCitoyen;
@@ -138,6 +114,18 @@ class Commantaire
     public function setIdCitoyen(\Citoyen $idCitoyen): void
     {
         $this->idCitoyen = $idCitoyen;
+    }
+
+    public function getPublication(): ?Publication
+    {
+        return $this->publication;
+    }
+
+    public function setPublication(?Publication $publication): self
+    {
+        $this->publication = $publication;
+
+        return $this;
     }
 
 

@@ -52,5 +52,58 @@ class Secteur
      */
     private $idService;
 
+    public function getIdSecteur(): ?int
+    {
+        return $this->idSecteur;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getGouvernement(): ?string
+    {
+        return $this->gouvernement;
+    }
+
+    public function setGouvernement(string $gouvernement): self
+    {
+        $this->gouvernement = $gouvernement;
+
+        return $this;
+    }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->codePostal;
+    }
+
+    public function setCodePostal(string $codePostal): self
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    public function getIdService(): ?Service
+    {
+        return $this->idService;
+    }
+
+    public function setIdService(?Service $idService): self
+    {
+        $this->idService = $idService;
+
+        return $this;
+    }
+
 
 }

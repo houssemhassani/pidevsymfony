@@ -22,6 +22,7 @@ class PublicationType extends AbstractType
             ->add('confirmPublication',CheckboxType::class)
 
             ->add('ajouter',SubmitType::class)
+
         ;
     }
 

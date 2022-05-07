@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -64,6 +66,46 @@ class Publication
      * })
      */
     private $idCitoyen;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="publication")
+     */
+    private $likes;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="publicationsLiked")
+     * @ORM\JoinTable(name="users_publication_liked",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id")}
+     *      )
+     */
+    private $userLikes;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="publicationsDisliked")
+     * @ORM\JoinTable(name="users_publication_disliked",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="publication_id", referencedColumnName="id")}
+     *      )
+     */
+    private $userDisliked;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commantaire::class, mappedBy="publication")
+     */
+    private $commantaires;
+
+
+    public function __construct()
+    {
+        $this->likes = new ArrayCollection();
+        $this->userLikes = new ArrayCollection();
+        $this->userDisliked = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+        $this->commantaires = new ArrayCollection();
+    }
+
+
 
 
 
@@ -195,6 +237,126 @@ class Publication
 
         return $this;
     }
+
+    public function getConfirmPublication(): ?bool
+    {
+        return $this->confirmPublication;
+    }
+
+    /**
+     * @return Collection<int, PostLike>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(PostLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(PostLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getPublication() === $this) {
+                $like->setPublication(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUserLikes(): Collection
+    {
+        return $this->userLikes;
+    }
+
+    public function addUserLike(User $userLike): self
+    {
+        if (!$this->userLikes->contains($userLike)) {
+            $this->userLikes[] = $userLike;
+        }
+
+        return $this;
+    }
+
+    public function removeUserLike(User $userLike): self
+    {
+        $this->userLikes->removeElement($userLike);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUserDisliked(): Collection
+    {
+        return $this->userDisliked;
+    }
+
+    public function addUserDisliked(User $userDisliked): self
+    {
+        if (!$this->userDisliked->contains($userDisliked)) {
+            $this->userDisliked[] = $userDisliked;
+        }
+
+        return $this;
+    }
+
+    public function removeUserDisliked(User $userDisliked): self
+    {
+        $this->userDisliked->removeElement($userDisliked);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Commantaire>
+     */
+    public function getCommantaires(): Collection
+    {
+        return $this->commantaires;
+    }
+
+    public function addCommantaire(Commantaire $commantaire): self
+    {
+        if (!$this->commantaires->contains($commantaire)) {
+            $this->commantaires[] = $commantaire;
+            $commantaire->setPublication($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommantaire(Commantaire $commantaire): self
+    {
+        if ($this->commantaires->removeElement($commantaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commantaire->getPublication() === $this) {
+                $commantaire->setPublication(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+
+
+
+
 
 
 

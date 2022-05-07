@@ -1,0 +1,70 @@
+{% extends 'base.html.twig'  %}
+
+{% block content %}
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <!-- Blog Detail Start -->
+                    <div class="mb-5">
+                        <img class="img-fluid w-100 rounded mb-5" src="{{ asset('uploads/' ~ publications.photo ) }}" alt="" style="width: 400px;height: 400px">
+                        <h1 class="mb-4">{{ publications.status }}</h1>
+                        <a href="{{ path('app_ajout_pub_like',{'id':publications.id}) }}"><i class="bi bi-hand-thumbs-up-fill" style="color: green"> ({{ publications.userLikes|length }})</i></a>
+                        <a href="{{ path('app_ajout_pub_dislike',{'id':publications.id}) }}"><i class="bi bi-hand-thumbs-down-fill" style="color: red"> ({{ publications.userDisliked|length }})</i></a>
+
+                    </div>
+                    <!-- Blog Detail End -->
+
+                    <!-- Comment List Start -->
+                    <div class="mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="mb-0">{{ commantaires|length}} Comments</h3>
+                        </div>
+                        {% for commantaire in commantaires %}
+                        <div class="d-flex mb-4">
+                            <div class="ps-3">
+                                <h6><a href="">Ghassen almia</a> <small><i>01 Jan 2045</i></small></h6>
+                                <p>{{ commantaire.content }}</p>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                       </div>
+                    <!-- Comment List End -->
+
+                    <!-- Comment Form Start -->
+                    <div class="bg-light rounded p-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="mb-0">Leave A Comment</h3>
+                        </div>
+                        {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+                            <div class="row g-3">
+
+                                <div class="col-12">
+                                    <label for="inputText" class="col-sm-4 col-form-label">Content</label>
+                                    <div class="col-sm-10">
+                                        {{ form_widget(form.content,{'attr':{'class':'form-control'}}) }}
+                                        {{ form_errors(form.content,{'attr':{'class':'text-Danger'}}) }}
+                                    </div>                               </div>
+                                <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                                    {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+                                </div>
+                            </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                    <!-- Comment Form End -->
+                </div>
+
+                <!-- Sidebar Start -->
+
+                <!-- Sidebar End -->
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Publication;
+use App\Entity\User;
 use App\Form\PublicationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -56,7 +57,10 @@ class AjoutPubController extends AbstractController
             $publication->setPhoto($fileName);
             $entityManager->persist($publication);
             $entityManager->flush();
-
+            $this->addFlash(
+                'info',
+                'added successfully'
+            );
             return $this->redirectToRoute('app_ajout_pub_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -119,6 +123,42 @@ class AjoutPubController extends AbstractController
         }
 
         return $this->redirectToRoute('app_ajout_pub_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/{id}/like", name="app_ajout_pub_like", methods={"GET","POST"})
+     */
+    public function like(Publication $publication, EntityManagerInterface $entityManager)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $publication->addUserLike($user);
+        $user->addPublicationsLiked($publication);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_details',[
+            'id' => $publication->getId()
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/dislike", name="app_ajout_pub_dislike", methods={"GET","POST"})
+     */
+    public function dislike(Publication $publication, EntityManagerInterface $entityManager)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $publication->addUserDisliked($user);
+        $user->addPublicationsDisliked($publication);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_details',[
+            'id' => $publication->getId()
+        ]);
     }
 
 }
