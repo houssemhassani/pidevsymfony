@@ -13,7 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Knp\Component\Pager\PaginatorInterface;
 
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 
 
@@ -28,23 +32,30 @@ class NotificationController extends AbstractController
     /**
      * @Route("/table", name="app_notification_index", methods={"GET"})
      */
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, PaginatorInterface $paginator,Request $request): Response
     {
-        $notifications = $entityManager
+        $notifications = $paginator->paginate( $entityManager
             ->getRepository(Notification::class)
-            ->findAll();
+            ->findAll(),$request->query->getInt('page', 1),6 );
 
         return $this->render('notification/index.html.twig', [
             'notifications' => $notifications,
         ]);
     }
 
-    /**
-     * @Route("/pay", name="app_notification_indexx", methods={"GET"})
-     */
-    public function indexx(): Response
-    {
 
+    // hethi payment l citoyen lbe9i lkol teb3in responsable
+    /**
+     * @Route("/pay", name="app_notification_indexx", methods={"GET", "POST"})
+     */
+    public function indexx(Request $request): Response
+    {$stripe = new \Stripe\StripeClient("sk_test_51KsyziEmiVl8fQHylCw9rCjbEc5Nf6A1PYYrgL36UHb9PoqUWBBEEHCV3NeF6fi2wdadkYX2HzqUQobNYBvJeGFc00LrVKSNXf");
+        $stripe->charges->create([
+            "amount" => 2000,
+            "currency" => "eur",
+            "source" => "tok_visa", // obtained with Stripe.js
+            "metadata" => ["order_id" => "6735"]
+        ]);
 
         return $this->render('notification/payement.html.twig', [
 

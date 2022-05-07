@@ -53,6 +53,30 @@ class DemandeController extends AbstractController
     }
 
 
+    // hethi zeda teb3a citoyen w lbe9i teb3in responsable
+    /**
+     * @Route("/tablecitoyen", name="app_demande_index1", methods={"GET"})
+     */
+    public function indexcitoyen(Request $request, PaginatorInterface $paginator): Response
+    {
+        $demande =$this->getDoctrine()->getManager()->getRepository(Demande::class)->findAll();
+
+        $demande=$paginator->paginate(
+            $demande,
+            $request->query->getInt('page',1),4
+
+
+
+        );
+
+
+        return $this->render('demande/index2.html.twig', [
+            'demandes'=>$demande
+        ]);
+
+    }
+
+
 
 
 

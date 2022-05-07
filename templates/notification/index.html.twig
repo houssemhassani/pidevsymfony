@@ -40,7 +40,10 @@
         {% endfor %}
         </tbody>
     </table>
-                <a class="btn btn-danger"  href="{{ path('app_notification_indexx') }}">Paye</a>
+                <div class="pag">
+                    {{ knp_pagination_render(notifications,'pagination.html.twig') }}
+                </div>
+
 
             </div>
         </div>
