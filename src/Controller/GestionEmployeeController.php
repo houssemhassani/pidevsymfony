@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Controller;
+use Twilio\Rest\Client;
 
 use App\Entity\Employee;
 use App\Form\EmployeeType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -39,17 +41,7 @@ class GestionEmployeeController extends AbstractController
         ]);
 
     }
-    public function randomm()
-    {
-        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $longueurMax = strlen($caracteres);
-        $chaineAleatoire = '';
-        for ($i = 0; $i <8; $i++)
-        {
-            $chaineAleatoire .= $caracteres[rand(0, $longueurMax - 1)];
-        }
-        return $chaineAleatoire;
-    }
+
 
     /**
      * @Route("/new", name="app_gestion_employee_new", methods={"GET", "POST"})
@@ -60,6 +52,9 @@ class GestionEmployeeController extends AbstractController
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
+        $sid    = "AC522e7bcbe6182a9e25d41e420bd2603f";
+        $token  = "6b01aceaf76e4c7f44ff5476923f36dd";
+        $twilio = new Client($sid, $token);
 
 
             if ($form->isSubmitted() && $form->isValid()) {
@@ -68,19 +63,29 @@ class GestionEmployeeController extends AbstractController
                 $hash = $encoder->encodePassword($employee, $employee->getPassword());
                 $employee->setPassword($hash);
                 $e=$form["email"]->getData();
+                $message = $twilio->messages
+                    ->create("whatsapp:+21692144965", // to
+                        array(
+                            "from" => "whatsapp:+14155238886",
+                            "body" => "Bienvenue Mr/Mme : ".$employee->getNom()."Vous êtes un Employée \n Vous pouvez coonecter sur notre application avec les coordonées suivants: \n CIN: ".$employee->getCin()."\n Mot De Passe :".$form->get('motDePasse')->getData(),
+                        )
+                    );
                 $entityManager->persist($employee);
-                $nbr=$this->randomm();
+               // $nbr=$this->randomm();
                 $entityManager->flush();
                 $e=$form["email"]->getData();
 
-                $email = (new Email())
-                    ->from('houssemhassanii@gmail.com')
-                    ->to($e)
-                    ->subject('🥳 Une nouvelle reclamation est organisé à 🥳ForU🥳')
 
-                    ->text('Bien Inscrit . Vous voulez attendre une email de confirmation de la part de notre admin : '.$nbr);
 
-                $mailer->send($email);
+                /*$email = (new TemplatedEmail())
+                    ->from(new Address('noreplysahti@gmail.com', 'E-Citoyen'))
+                    ->to($form->get("email")->getData())
+                    ->subject('Bienvenue')
+                    ->text("bienvenue à notre application E_Citoyen \n Vous êtes ajoutée comme une employee
+                    \n Login:".$form->get('cin')->getData()." \n Mot De Passe :".$form->get("motDePasse")->getData());
+                ;
+                $mailer->send($email);*/
+
 
 
 

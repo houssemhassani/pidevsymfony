@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
+use Twilio\Rest\Client;
 
 /**
  * @Route("/gesresponsable")
@@ -43,6 +44,9 @@ class GestionResponsableController extends AbstractController
         $employee = new Employee();
         $form = $this->createForm(Employee1Type::class, $employee);
         $form->handleRequest($request);
+        $sid    = "AC522e7bcbe6182a9e25d41e420bd2603f";
+        $token  = "6b01aceaf76e4c7f44ff5476923f36dd";
+        $twilio = new Client($sid, $token);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -51,8 +55,15 @@ class GestionResponsableController extends AbstractController
             $hash = $encoder->encodePassword($employee, $employee->getPassword());
             $employee->setPassword($hash);
             $entityManager->persist($employee);
-
             $entityManager->flush();
+            $message = $twilio->messages
+                ->create("whatsapp:+21692144965", // to
+                    array(
+                        "from" => "whatsapp:+14155238886",
+                        "body" => "Bienvenue Mr/Mme : ".$employee->getNom()."\n Vous êtes un responsable dans notre application \n
+                         Vous pouvez connecter avec les coordonnées suivants: \n CIN:".$employee->getCin()."\n Mot De Passe: ".$form->get('motDePasse')->getData(),
+                    )
+                );
 
             return $this->redirectToRoute('app_gestion_responsable_index', [], Response::HTTP_SEE_OTHER);
         }

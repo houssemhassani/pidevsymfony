@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Employee{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div style="display: flex;align-items: center;justify-content: center;margin-top: 80px; padding:10px">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Modification D'email </h5>
+
+
+                    {{ form_start(form,{'attr':{'novalidate': 'novalidate'}}) }}
+
+                    <label for="inputNanme4" class="form-label">Nouveau Email :</label>
+                    {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.email) }}</span>
+
+
+                    <label for="inputNanme4" class="form-label">Cin :</label>
+                    {{ form_widget(form.cin,{'attr':{'class':'form-control'}}) }}
+                    <span style="color:red">{{ form_errors(form.cin) }}</span>
+                    <br/>
+
+                    <div class="text-center">
+                        {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}})}}
+                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                    </div>
+                    {{ form_end(form) }}<!-- Vertical Form -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

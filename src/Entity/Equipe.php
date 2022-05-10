@@ -75,8 +75,8 @@ class Equipe
         return (string) $this->numEquipe;
     }
     /**
- * Constructor
- */
+     * Constructor
+     */
     public function __construct()
     {
     }

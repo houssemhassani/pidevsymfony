@@ -116,45 +116,51 @@ class __TwigTemplate_8985179478764facdd53928bfbb445bc48ab3f3d6716111e6de4778a35c
         $context['_seq'] = twig_ensure_traversable((isset($context["employees"]) || array_key_exists("employees", $context) ? $context["employees"] : (function () { throw new RuntimeError('Variable "employees" does not exist.', 28, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["employee"]) {
             // line 29
-            echo "                                    <tr>
+            echo "                                    ";
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["employee"], "role", [], "any", false, false, false, 29), 1))) {
+                // line 30
+                echo "                                    <tr>
                                         <td>";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "nom", [], "any", false, false, false, 30), "html", null, true);
-            echo "</td>
+                // line 31
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "nom", [], "any", false, false, false, 31), "html", null, true);
+                echo "</td>
                                         <td>";
-            // line 31
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "prenom", [], "any", false, false, false, 31), "html", null, true);
-            echo "</td>
+                // line 32
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "prenom", [], "any", false, false, false, 32), "html", null, true);
+                echo "</td>
                                         <td>";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "email", [], "any", false, false, false, 32), "html", null, true);
-            echo "</td>
+                // line 33
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "email", [], "any", false, false, false, 33), "html", null, true);
+                echo "</td>
                                         <td>";
-            // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "cin", [], "any", false, false, false, 33), "html", null, true);
-            echo "</td>
+                // line 34
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "cin", [], "any", false, false, false, 34), "html", null, true);
+                echo "</td>
                                         <td>
                                             <a href=\"";
-            // line 35
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 35)]), "html", null, true);
-            echo "\">Supprimer</a>
+                // line 36
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 36)]), "html", null, true);
+                echo "\">Supprimer</a>
                                             <a href=\"";
-            // line 36
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 36)]), "html", null, true);
-            echo "\">Modifier</a>
+                // line 37
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 37)]), "html", null, true);
+                echo "\">Modifier</a>
                                         </td>
                                     </tr>
-                                ";
+                                    ";
+            }
+            // line 41
+            echo "                                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['employee'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
+        // line 42
         echo "                                </tbody>
                             </table>
                             <br/>
                             <a href=\"";
-        // line 43
+        // line 45
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
         echo "\">Ajouter nouveau</a>
                             <!-- End Table with stripped rows -->
@@ -190,7 +196,7 @@ class __TwigTemplate_8985179478764facdd53928bfbb445bc48ab3f3d6716111e6de4778a35c
 
     public function getDebugInfo()
     {
-        return array (  158 => 43,  153 => 40,  143 => 36,  139 => 35,  134 => 33,  130 => 32,  126 => 31,  122 => 30,  119 => 29,  115 => 28,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  164 => 45,  159 => 42,  153 => 41,  146 => 37,  142 => 36,  137 => 34,  133 => 33,  129 => 32,  125 => 31,  122 => 30,  119 => 29,  115 => 28,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -223,6 +229,7 @@ class __TwigTemplate_8985179478764facdd53928bfbb445bc48ab3f3d6716111e6de4778a35c
                                 </thead>
                                 <tbody>
                                 {% for employee in employees %}
+                                    {% if employee.role==1 %}
                                     <tr>
                                         <td>{{ employee.nom }}</td>
                                         <td>{{ employee.prenom }}</td>
@@ -233,6 +240,7 @@ class __TwigTemplate_8985179478764facdd53928bfbb445bc48ab3f3d6716111e6de4778a35c
                                             <a href=\"{{ path('app_gestion_employee_edit', {'id': employee.id}) }}\">Modifier</a>
                                         </td>
                                     </tr>
+                                    {% endif %}
                                 {% endfor %}
                                 </tbody>
                             </table>

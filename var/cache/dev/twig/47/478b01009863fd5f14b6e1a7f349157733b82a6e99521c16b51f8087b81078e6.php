@@ -99,24 +99,9 @@ class __TwigTemplate_429f04d5d0c6e6df79a2ad7cd6b2a477e4e43783dcf505edd2b8a96c7b0
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
         echo "\"><i class=\"ri-arrow-left-circle-fill\" style=\"font-size: 50px;\"></i></a>
               <h5 class=\"card-title\">Liste des Employées</h5>
-              <h3>";
-        // line 17
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 17, $this->source); })()), "getNom", [], "method", false, false, false, 17), "html", null, true);
-        echo "</h3>
               <!-- Table with stripped rows -->
-              ";
-        // line 19
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 19, $this->source); })()), "user", [], "any", false, false, false, 19)) {
-            // line 20
-            echo "                  <h1>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20), "nom", [], "any", false, false, false, 20), "html", null, true);
-            echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 20, $this->source); })()), "user", [], "any", false, false, false, 20), "role", [], "any", false, false, false, 20), "html", null, true);
-            echo " </h1>
-              ";
-        }
-        // line 22
-        echo "              <table class=\"table datatable\">
+
+              <table class=\"table datatable\">
                 <thead>
                   <tr>
                     <th scope=\"col\">Nom</th>
@@ -128,52 +113,58 @@ class __TwigTemplate_429f04d5d0c6e6df79a2ad7cd6b2a477e4e43783dcf505edd2b8a96c7b0
                 </thead>
                 <tbody>
                 ";
-        // line 33
+        // line 30
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["employees"]) || array_key_exists("employees", $context) ? $context["employees"] : (function () { throw new RuntimeError('Variable "employees" does not exist.', 33, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["employees"]) || array_key_exists("employees", $context) ? $context["employees"] : (function () { throw new RuntimeError('Variable "employees" does not exist.', 30, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["employee"]) {
-            // line 34
-            echo "                  <tr>
+            // line 31
+            echo "                  ";
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["employee"], "role", [], "any", false, false, false, 31), 2))) {
+                // line 32
+                echo "                  <tr>
                     <td>";
-            // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "nom", [], "any", false, false, false, 35), "html", null, true);
-            echo "</td>
+                // line 33
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "nom", [], "any", false, false, false, 33), "html", null, true);
+                echo "</td>
                     <td>";
-            // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "prenom", [], "any", false, false, false, 36), "html", null, true);
-            echo "</td>
+                // line 34
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "prenom", [], "any", false, false, false, 34), "html", null, true);
+                echo "</td>
                     <td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "email", [], "any", false, false, false, 37), "html", null, true);
-            echo "</td>
+                // line 35
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "email", [], "any", false, false, false, 35), "html", null, true);
+                echo "</td>
                     <td>";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "cin", [], "any", false, false, false, 38), "html", null, true);
-            echo "</td>
+                // line 36
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["employee"], "cin", [], "any", false, false, false, 36), "html", null, true);
+                echo "</td>
                     <td>
                     <a href=\"";
-            // line 40
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 40)]), "html", null, true);
-            echo "\">Supprimer</a>
+                // line 38
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+                echo "\">Supprimer</a>
                     <a href=\"";
-            // line 41
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 41)]), "html", null, true);
-            echo "\">Modifier</a>
+                // line 39
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["employee"], "id", [], "any", false, false, false, 39)]), "html", null, true);
+                echo "\">Modifier</a>
                     </td>
 
                  </tr>
-                 ";
+                  ";
+            }
+            // line 44
+            echo "                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['employee'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 45
         echo "
                 </tbody>
               </table>
                <br/>
                 <a href=\"";
-        // line 50
+        // line 49
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
         echo "\">Ajouter nouveau</a>
               <!-- End Table with stripped rows -->
@@ -209,7 +200,7 @@ class __TwigTemplate_429f04d5d0c6e6df79a2ad7cd6b2a477e4e43783dcf505edd2b8a96c7b0
 
     public function getDebugInfo()
     {
-        return array (  177 => 50,  171 => 46,  160 => 41,  156 => 40,  151 => 38,  147 => 37,  143 => 36,  139 => 35,  136 => 34,  132 => 33,  119 => 22,  111 => 20,  109 => 19,  104 => 17,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  168 => 49,  162 => 45,  156 => 44,  148 => 39,  144 => 38,  139 => 36,  135 => 35,  131 => 34,  127 => 33,  124 => 32,  121 => 31,  117 => 30,  99 => 15,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -230,11 +221,8 @@ class __TwigTemplate_429f04d5d0c6e6df79a2ad7cd6b2a477e4e43783dcf505edd2b8a96c7b0
 
             <a href=\"{{ path('app_gestion_employee_new') }}\"><i class=\"ri-arrow-left-circle-fill\" style=\"font-size: 50px;\"></i></a>
               <h5 class=\"card-title\">Liste des Employées</h5>
-              <h3>{{ user.getNom() }}</h3>
               <!-- Table with stripped rows -->
-              {% if app.user %}
-                  <h1>{{ app.user.nom }} {{ app.user.role }} </h1>
-              {% endif%}
+
               <table class=\"table datatable\">
                 <thead>
                   <tr>
@@ -247,6 +235,7 @@ class __TwigTemplate_429f04d5d0c6e6df79a2ad7cd6b2a477e4e43783dcf505edd2b8a96c7b0
                 </thead>
                 <tbody>
                 {% for employee in employees %}
+                  {% if employee.role==2 %}
                   <tr>
                     <td>{{ employee.nom }}</td>
                     <td>{{ employee.prenom }}</td>
@@ -258,6 +247,7 @@ class __TwigTemplate_429f04d5d0c6e6df79a2ad7cd6b2a477e4e43783dcf505edd2b8a96c7b0
                     </td>
 
                  </tr>
+                  {% endif %}
                  {% endfor %}
 
                 </tbody>

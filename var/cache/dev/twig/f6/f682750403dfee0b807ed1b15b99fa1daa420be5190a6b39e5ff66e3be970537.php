@@ -75,13 +75,13 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             ";
             // line 39
             $this->displayBlock('header', $context, $blocks);
-            // line 153
+            // line 146
             $this->displayBlock('sidebar', $context, $blocks);
-            // line 257
+            // line 305
             $this->displayBlock('body', $context, $blocks);
-            // line 258
+            // line 306
             $this->displayBlock('footer', $context, $blocks);
-            // line 269
+            // line 317
             echo "</body>
 </html>
 ";
@@ -341,7 +341,10 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"";
+        // line 115
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_profil");
+        echo "\">
                 <i class=\"bi bi-person\"></i>
                 <span>Mon Profil</span>
               </a>
@@ -349,16 +352,6 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             <li>
               <hr class=\"dropdown-divider\">
             </li>
-
-            <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"";
-        // line 125
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_profil");
-        echo "\">
-                <i class=\"bi bi-gear\"></i>
-                <span>Paramètres du compte</span>
-              </a>
-            </li>
             <li>
               <hr class=\"dropdown-divider\">
             </li>
@@ -369,7 +362,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
             <li>
               <a class=\"dropdown-item d-flex align-items-center\" href=\"";
-        // line 139
+        // line 132
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
         echo "\">
                 <i class=\"bi bi-box-arrow-right\"></i>
@@ -393,7 +386,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 153
+    // line 146
     public function block_sidebar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -403,7 +396,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "sidebar"));
 
-        // line 154
+        // line 147
         echo "<aside id=\"sidebar\" class=\"sidebar\">
 
     <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
@@ -415,9 +408,9 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         </a>
       </li><!-- End Dashboard Nav -->
 ";
-        // line 164
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 164, $this->source); })()), "user", [], "any", false, false, false, 164), "role", [], "any", false, false, false, 164), 0))) {
-            // line 165
+        // line 157
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 157, $this->source); })()), "user", [], "any", false, false, false, 157), "role", [], "any", false, false, false, 157), 0))) {
+            // line 158
             echo "      <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
           <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Employee</span><i class=\"bi bi-chevron-down ms-auto\"></i>
@@ -425,7 +418,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
             <a href=\"";
-            // line 171
+            // line 164
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_index");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste des Employées</span>
@@ -433,7 +426,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           </li>
           <li>
             <a  href=\"";
-            // line 176
+            // line 169
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_new");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter nouveau Employée</span>
@@ -454,7 +447,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
           <li>
             <a href=\"";
-            // line 194
+            // line 187
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_index");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste des Responsable</span>
@@ -462,7 +455,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           </li>
           <li>
             <a href=\"";
-            // line 199
+            // line 192
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_responsable_new");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Responsable</span>
@@ -479,7 +472,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
             <a href=\"";
-            // line 213
+            // line 206
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_index");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste de citoyen</span>
@@ -487,7 +480,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           </li>
           <li>
             <a href=\"";
-            // line 218
+            // line 211
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestio_citoyen_new");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Citoyen</span>
@@ -503,7 +496,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
         <ul id=\"charts-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
           <li>
             <a href=\"";
-            // line 231
+            // line 224
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_index");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Liste Des Administrteurs</span>
@@ -511,7 +504,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
           </li>
           <li>
             <a href=\"";
-            // line 236
+            // line 229
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_admin_new");
             echo "\">
               <i class=\"bi bi-circle\"></i><span>Ajouter Nouveau Administrateur</span>
@@ -522,17 +515,76 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
 ";
         }
-        // line 244
+        // line 237
+        echo "      ";
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 237, $this->source); })()), "user", [], "any", false, false, false, 237), "role", [], "any", false, false, false, 237), 1))) {
+            // line 238
+            echo "        <li class=\"nav-item\">
+          <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+            <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Equipe</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          </a>
+          <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+            <li>
+              <a href=\"#\">
+                <i class=\"bi bi-circle\"></i><span>Liste des Employées</span>
+              </a>
+            </li>
+            <li>
+              <a  href=\"#\">
+                <i class=\"bi bi-circle\"></i><span>Affecter un Employée à une équipe</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class=\"nav-item\">
+          <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+            <i class=\"bi bi-journal-text\"></i><span>Gestion Tâches</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          </a>
+          <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+            <li>
+              <a href=\"\">
+                <i class=\"bi bi-circle\"></i><span>Liste des Tâches</span>
+              </a>
+            </li>
+            <li>
+              <a href=\"\">
+                <i class=\"bi bi-circle\"></i><span>Affecter une tâche à un employée</span>
+              </a>
+            </li>
+
+          </ul>
+        </li><!-- End Forms Nav -->
+
+        <li class=\"nav-item\">
+          <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+            <i class=\"bi bi-layout-text-window-reverse\"></i><span>Gestion des Demandes</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          </a>
+          <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+            <li>
+              <a href=\"\">
+                <i class=\"bi bi-circle\"></i><span>Liste des demandes</span>
+              </a>
+            </li>
+          </ul>
+        </li><!-- End Tables Nav -->
+
+        <!-- End Charts Nav -->
+
+      ";
+        }
+        // line 292
         echo "
 
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" href=\"";
-        // line 248
+        // line 296
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_profil");
         echo "\">
           <i class=\"bi bi-person\"></i>
-          <span>Profile</span>
+          <span>Profil</span>
         </a>
       </li><!-- End Profile Page Nav -->
     </ul>
@@ -547,7 +599,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 257
+    // line 305
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -565,7 +617,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     }
 
-    // line 258
+    // line 306
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -579,23 +631,23 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 <footer id=\"footer\" class=\"footer\">
     <div class=\"copyright\">
       &copy;  <strong> ";
-        // line 261
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 261, $this->source); })()), "user", [], "any", false, false, false, 261), "role", [], "any", false, false, false, 261), 0))) {
+        // line 309
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 309, $this->source); })()), "user", [], "any", false, false, false, 309), "role", [], "any", false, false, false, 309), 0))) {
             echo " <span>Admin</span>";
         }
-        // line 262
+        // line 310
         echo "        ";
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 262, $this->source); })()), "user", [], "any", false, false, false, 262), "role", [], "any", false, false, false, 262), 1))) {
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 310, $this->source); })()), "user", [], "any", false, false, false, 310), "role", [], "any", false, false, false, 310), 1))) {
             echo " <span>Responsable</span>";
         }
-        // line 263
+        // line 311
         echo "        ";
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 263, $this->source); })()), "user", [], "any", false, false, false, 263), "role", [], "any", false, false, false, 263), 2))) {
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 311, $this->source); })()), "user", [], "any", false, false, false, 311), "role", [], "any", false, false, false, 311), 2))) {
             echo " <span>Employee</span>";
         }
-        // line 264
+        // line 312
         echo "        ";
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 264, $this->source); })()), "user", [], "any", false, false, false, 264), "role", [], "any", false, false, false, 264), 3))) {
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 312, $this->source); })()), "user", [], "any", false, false, false, 312), "role", [], "any", false, false, false, 312), 3))) {
             echo " <span>Citoyen</span>";
         }
         echo "</strong>
@@ -623,7 +675,7 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
 
     public function getDebugInfo()
     {
-        return array (  597 => 264,  592 => 263,  587 => 262,  583 => 261,  569 => 258,  551 => 257,  532 => 248,  526 => 244,  515 => 236,  507 => 231,  491 => 218,  483 => 213,  466 => 199,  458 => 194,  437 => 176,  429 => 171,  421 => 165,  419 => 164,  407 => 154,  397 => 153,  373 => 139,  356 => 125,  338 => 109,  333 => 108,  328 => 107,  323 => 106,  319 => 105,  315 => 104,  307 => 99,  303 => 98,  246 => 44,  240 => 40,  230 => 39,  218 => 34,  214 => 33,  210 => 32,  206 => 31,  202 => 30,  198 => 29,  194 => 28,  190 => 27,  186 => 26,  183 => 25,  173 => 24,  161 => 21,  155 => 18,  151 => 17,  147 => 16,  143 => 15,  139 => 14,  135 => 13,  131 => 12,  127 => 10,  117 => 9,  98 => 6,  85 => 269,  83 => 258,  81 => 257,  79 => 153,  77 => 39,  72 => 36,  70 => 24,  67 => 23,  64 => 9,  60 => 6,  55 => 3,  53 => 2,  50 => 1,);
+        return array (  649 => 312,  644 => 311,  639 => 310,  635 => 309,  621 => 306,  603 => 305,  584 => 296,  578 => 292,  522 => 238,  519 => 237,  508 => 229,  500 => 224,  484 => 211,  476 => 206,  459 => 192,  451 => 187,  430 => 169,  422 => 164,  414 => 158,  412 => 157,  400 => 147,  390 => 146,  366 => 132,  346 => 115,  338 => 109,  333 => 108,  328 => 107,  323 => 106,  319 => 105,  315 => 104,  307 => 99,  303 => 98,  246 => 44,  240 => 40,  230 => 39,  218 => 34,  214 => 33,  210 => 32,  206 => 31,  202 => 30,  198 => 29,  194 => 28,  190 => 27,  186 => 26,  183 => 25,  173 => 24,  161 => 21,  155 => 18,  151 => 17,  147 => 16,  143 => 15,  139 => 14,  135 => 13,  131 => 12,  127 => 10,  117 => 9,  98 => 6,  85 => 317,  83 => 306,  81 => 305,  79 => 146,  77 => 39,  72 => 36,  70 => 24,  67 => 23,  64 => 9,  60 => 6,  55 => 3,  53 => 2,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -742,20 +794,13 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
             </li>
 
             <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"\">
+              <a class=\"dropdown-item d-flex align-items-center\" href=\"{{ path('app_gestion_profil') }}\">
                 <i class=\"bi bi-person\"></i>
                 <span>Mon Profil</span>
               </a>
             </li>
             <li>
               <hr class=\"dropdown-divider\">
-            </li>
-
-            <li>
-              <a class=\"dropdown-item d-flex align-items-center\" href=\"{{ path('app_gestion_profil') }}\">
-                <i class=\"bi bi-gear\"></i>
-                <span>Paramètres du compte</span>
-              </a>
             </li>
             <li>
               <hr class=\"dropdown-divider\">
@@ -871,13 +916,68 @@ class __TwigTemplate_c070cf7d2a47cc77506d87ca71d4091b793c56fdd040cde0940456b69e1
       </li><!-- End Charts Nav -->
 
 {% endif %}
+      {% if app.user.role == 1 %}
+        <li class=\"nav-item\">
+          <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+            <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Equipe</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          </a>
+          <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+            <li>
+              <a href=\"#\">
+                <i class=\"bi bi-circle\"></i><span>Liste des Employées</span>
+              </a>
+            </li>
+            <li>
+              <a  href=\"#\">
+                <i class=\"bi bi-circle\"></i><span>Affecter un Employée à une équipe</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class=\"nav-item\">
+          <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+            <i class=\"bi bi-journal-text\"></i><span>Gestion Tâches</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          </a>
+          <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+
+            <li>
+              <a href=\"\">
+                <i class=\"bi bi-circle\"></i><span>Liste des Tâches</span>
+              </a>
+            </li>
+            <li>
+              <a href=\"\">
+                <i class=\"bi bi-circle\"></i><span>Affecter une tâche à un employée</span>
+              </a>
+            </li>
+
+          </ul>
+        </li><!-- End Forms Nav -->
+
+        <li class=\"nav-item\">
+          <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
+            <i class=\"bi bi-layout-text-window-reverse\"></i><span>Gestion des Demandes</span><i class=\"bi bi-chevron-down ms-auto\"></i>
+          </a>
+          <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+            <li>
+              <a href=\"\">
+                <i class=\"bi bi-circle\"></i><span>Liste des demandes</span>
+              </a>
+            </li>
+          </ul>
+        </li><!-- End Tables Nav -->
+
+        <!-- End Charts Nav -->
+
+      {% endif %}
 
 
 
       <li class=\"nav-item\">
         <a class=\"nav-link collapsed\" href=\"{{ path('app_gestion_profil') }}\">
           <i class=\"bi bi-person\"></i>
-          <span>Profile</span>
+          <span>Profil</span>
         </a>
       </li><!-- End Profile Page Nav -->
     </ul>

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top:150px;">
+        <div class="col-lg-7">
+
+            <div class="card">
+                <div class="card-body">
+
+
+
+
+
+
+
+
+                    <h5 class="card-title">listes des demandes</h5>
+
+
+
+                    <!-- Table with stripped rows -->
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+
+                            <th>NumDemande</th>
+                            <th>TypeDemande</th>
+                            <th>DateDemande</th>
+
+                            <
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for demande in demandes %}
+                            <tr>
+
+                                <td>{{ demande.numDemande }}</td>
+                                <td>{{ demande.typeDemande }}</td>
+                                <td>{{ demande.dateDemande | date }}</td>
+
+
+                                <td>
+                                    <a class="btn btn-danger" href="/notification/pay">Paye</a>
+                                </td>
+
+
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+                    <!-- End small tables -->
+                    <div class="pag">
+                        {{ knp_pagination_render(demandes,'pagination.html.twig') }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+

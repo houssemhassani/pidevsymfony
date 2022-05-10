@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+   <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top:150px;">
+       <div class="col-lg-7">
+
+           <div class="card">
+               <div class="card-body">
+
+                   <div>
+
+                       <input style="margin-left: 150px" type="text" id="search" class="form-control" placeholder="Search par Numero Demande">
+                   </div>
+
+
+
+
+
+
+
+                   <h5 class="card-title">listes des demandes</h5>
+
+                   {% for message in app.flashes('info') %}
+                   <div class="alert alert-success">
+                   {{ message }}
+
+                   </div>
+                     {% endfor %}
+
+                   <!-- Table with stripped rows -->
+                   <table class="table table-striped">
+                       <thead>
+                       <tr>
+
+                           <th>NumDemande</th>
+                           <th>TypeDemande</th>
+                           <th>DateDemande</th>
+                           <th>Etat</th>
+                           <th>actions</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       {% for demande in demandes %}
+                           <tr>
+
+                               <td>{{ demande.numDemande }}</td>
+                               <td>{{ demande.typeDemande }}</td>
+                               <td>{{ demande.dateDemande | date }}</td>
+                               <td>{{ demande.etat }}</td>
+
+
+                               <td>
+
+                                   <a class="btn btn-success"  href="{{ path('app_demande_delete', {'id': demande.id}) }}" > delete</a>
+                                    {% if demande.etat != "traité" %}
+                                   <a id="btn" class="btn btn-danger"  href="{{ path('app_demande_edit', {'id': demande.id}) }}" >traité</a>
+                                   {% endif %}
+                                   <a class="btn btn-primary"   href="{{ path('app_notification_new',{'id': demande.id})}}">notifier</a>
+                               </td>
+                           </tr>
+
+                       {% endfor %}
+
+                       </tbody>
+
+                   </table>
+                   <!-- End small tables -->
+                   <div class="pag">
+                       {{ knp_pagination_render(demandes,'pagination.html.twig') }}
+                   </div>
+               </div>
+           </div>
+
+       </div>
+
+   </div>
+    <script>
+        $(document).ready(function () {
+            $("#btn").onclick(function () {
+                $("p").hide();
+            });
+        });
+    </script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#search").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte
+                afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est
+                « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est
+                    envoyée */
+                    url : "{{ path('rechercheEquipe') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    type : 'GET',
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la
+                    zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le
+                    nouveau contenu*/
+                    success : function(data){
+                        if(data){
+                            $('#t tbody#search').empty();
+                            $.each(JSON.parse(data), function(i, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#search').append('' +
+                                    '<tr><td> '+obj.numEquipe+'</td>' +
+                                    '<td> '+obj.nbreEmp+' </td>' +
+                                    '<td>'+obj.service+' </td>' +
+                                    '<td>' +
+                                    '<ahref="Equipe/'+obj.idEquipe+'">show</a> </br>' +
+                                    '<ahref="'+obj.idEquipe+'/edit">edit</a>' +
+                                    '<ahref="'+obj.idEquipe+'/AffecterService">Affecter Au Service</a>' +
+                                    '</td></tr>');
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#search').empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+
+
+

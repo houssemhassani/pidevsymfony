@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Twilio\Rest\Client;
 use function PHPUnit\Framework\equalTo;
 
 /**
@@ -42,6 +43,9 @@ class GestionAdminController extends AbstractController
         $admin = new Admin();
         $form = $this->createForm(AdminType::class, $admin);
         $form->handleRequest($request);
+        $sid    = "AC522e7bcbe6182a9e25d41e420bd2603f";
+        $token  = "6b01aceaf76e4c7f44ff5476923f36dd";
+        $twilio = new Client($sid, $token);
 
         if ($form->isSubmitted() && $form->isValid()  ) {
             if($admin->getConfirmMotDePasse()==$admin->getMotDePasse())
@@ -50,6 +54,13 @@ class GestionAdminController extends AbstractController
                 $admin->setMotDePasse($hash);
                 $entityManager->persist($admin);
                 $entityManager->flush();
+                $message = $twilio->messages
+                    ->create("whatsapp:+21692144965", // to
+                        array(
+                            "from" => "whatsapp:+14155238886",
+                            "body" => "Bienvenue Mr/Mme : ".$admin->getNom()."Vous êtes un Admin \n Vous pouvez connecter sur notre application avec les coordonées suivants: \n CIN: ".$admin->getCin()."\n Mot De Passe :".$form->get('motDePasse')->getData(),
+                        )
+                    );
                 return $this->redirectToRoute('app_gestion_admin_index', [], Response::HTTP_SEE_OTHER);
             }
         }

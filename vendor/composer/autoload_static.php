@@ -34,6 +34,7 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         ),
         'T' => 
         array (
+            'Twilio\\' => 7,
             'Twig\\Extra\\TwigExtraBundle\\' => 27,
             'Twig\\' => 5,
         ),
@@ -108,7 +109,10 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'SymfonyCasts\\Bundle\\ResetPassword\\' => 34,
+            'Svg\\' => 4,
+            'Stripe\\' => 7,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
+            'Sabberworm\\CSS\\' => 15,
         ),
         'P' => 
         array (
@@ -123,10 +127,21 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MessageBird\\' => 12,
         ),
         'L' => 
         array (
             'Laminas\\Code\\' => 13,
+        ),
+        'K' => 
+        array (
+            'Knp\\Component\\' => 14,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
+        'F' => 
+        array (
+            'FontLib\\' => 8,
+            'Firebase\\JWT\\' => 13,
         ),
         'E' => 
         array (
@@ -134,6 +149,7 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         ),
         'D' => 
         array (
+            'Dompdf\\' => 7,
             'Doctrine\\SqlFormatter\\' => 22,
             'Doctrine\\Persistence\\' => 21,
             'Doctrine\\ORM\\' => 13,
@@ -154,6 +170,7 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         'C' => 
         array (
             'Captcha\\Bundle\\CaptchaBundle\\' => 29,
+            'CMEN\\GoogleChartsBundle\\' => 24,
         ),
         'A' => 
         array (
@@ -172,6 +189,10 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Twilio\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
         ),
         'Twig\\Extra\\TwigExtraBundle\\' => 
         array (
@@ -457,9 +478,21 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         array (
             0 => __DIR__ . '/..' . '/symfonycasts/reset-password-bundle/src',
         ),
+        'Svg\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
+        ),
+        'Sabberworm\\CSS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -493,13 +526,37 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'MessageBird\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/messagebird/php-rest-api/src/MessageBird',
+        ),
         'Laminas\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-code/src',
         ),
+        'Knp\\Component\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-components/src/Knp/Component',
+        ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle/src',
+        ),
+        'FontLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
+        ),
+        'Dompdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
         'Doctrine\\SqlFormatter\\' => 
         array (
@@ -571,6 +628,10 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         array (
             0 => __DIR__ . '/..' . '/captcha-com/symfony-captcha-bundle',
         ),
+        'CMEN\\GoogleChartsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmen/google-charts-bundle',
+        ),
         'App\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
@@ -585,6 +646,12 @@ class ComposerStaticInit9010973bbe6c301b372092984369a1df
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
+        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
+        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
+        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
+        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
         'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/IntlDateFormatter.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Locale' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Locale.php',

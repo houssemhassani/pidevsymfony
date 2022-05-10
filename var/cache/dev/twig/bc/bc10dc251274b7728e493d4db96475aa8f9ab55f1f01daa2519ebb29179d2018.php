@@ -85,17 +85,14 @@ class __TwigTemplate_ef7233677696e39e38fdfc8d3e0e2c96fa7b98d89a0257a0d48ca546418
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Employee</h1>
+        echo "<main id=\"main\" class=\"main\">
+
+<section class=\"section\">
+    <div class=\"row\">
+    <h1>Employee</h1>
 
     <table class=\"table\">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["employee"]) || array_key_exists("employee", $context) ? $context["employee"] : (function () { throw new RuntimeError('Variable "employee" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12), "html", null, true);
-        echo "</td>
-            </tr>
             <tr>
                 <th>Nom</th>
                 <td>";
@@ -126,33 +123,26 @@ class __TwigTemplate_ef7233677696e39e38fdfc8d3e0e2c96fa7b98d89a0257a0d48ca546418
                 <td>
                         </td>
             </tr>
-
-
-            <tr>
-                <th>MotDePasse</th>
-                <td>";
-        // line 36
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["employee"]) || array_key_exists("employee", $context) ? $context["employee"] : (function () { throw new RuntimeError('Variable "employee" does not exist.', 36, $this->source); })()), "motDePasse", [], "any", false, false, false, 36), "html", null, true);
-        echo "</td>
-            </tr>
         </tbody>
     </table>
     <a href=\"";
-        // line 40
+        // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 42
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["employee"]) || array_key_exists("employee", $context) ? $context["employee"] : (function () { throw new RuntimeError('Variable "employee" does not exist.', 42, $this->source); })()), "id", [], "any", false, false, false, 42)]), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_gestion_employee_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["employee"]) || array_key_exists("employee", $context) ? $context["employee"] : (function () { throw new RuntimeError('Variable "employee" does not exist.', 36, $this->source); })()), "id", [], "any", false, false, false, 36)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 44
+        // line 38
         echo twig_include($this->env, $context, "gestion_employee/_delete_form.html.twig");
         echo "
 
-
+    </div>
+</section>
+</main>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -174,7 +164,7 @@ class __TwigTemplate_ef7233677696e39e38fdfc8d3e0e2c96fa7b98d89a0257a0d48ca546418
 
     public function getDebugInfo()
     {
-        return array (  152 => 44,  147 => 42,  142 => 40,  135 => 36,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  140 => 38,  135 => 36,  130 => 34,  121 => 28,  114 => 24,  107 => 20,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -184,14 +174,14 @@ class __TwigTemplate_ef7233677696e39e38fdfc8d3e0e2c96fa7b98d89a0257a0d48ca546418
 {% block title %}Employee{% endblock %}
 
 {% block body %}
+<main id=\"main\" class=\"main\">
+
+<section class=\"section\">
+    <div class=\"row\">
     <h1>Employee</h1>
 
     <table class=\"table\">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ employee.id }}</td>
-            </tr>
             <tr>
                 <th>Nom</th>
                 <td>{{ employee.nom }}</td>
@@ -210,12 +200,6 @@ class __TwigTemplate_ef7233677696e39e38fdfc8d3e0e2c96fa7b98d89a0257a0d48ca546418
                 <td>
                         </td>
             </tr>
-
-
-            <tr>
-                <th>MotDePasse</th>
-                <td>{{ employee.motDePasse }}</td>
-            </tr>
         </tbody>
     </table>
     <a href=\"{{ path('app_gestion_employee_index') }}\">back to list</a>
@@ -224,7 +208,9 @@ class __TwigTemplate_ef7233677696e39e38fdfc8d3e0e2c96fa7b98d89a0257a0d48ca546418
 
     {{ include('gestion_employee/_delete_form.html.twig') }}
 
-
+    </div>
+</section>
+</main>
 {% endblock %}
 ", "gestion_employee/show.html.twig", "C:\\xampp\\htdocs\\PidevSymfony\\templates\\gestion_employee\\show.html.twig");
     }

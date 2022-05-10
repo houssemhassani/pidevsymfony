@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notification index{% endblock %}
+
+{% block body %}
+<div class="row" style="display: flex;align-items: center;justify-content: center;margin-top:150px;">
+    <div class="col-lg-7">
+
+        <div class="card">
+            <div class="card-body">
+
+                <a href="{{ path('app_demande_index') }}"><i class="ri-arrow-left-circle-fill" style="font-size:50px;"></i></a>
+                <h5 class="card-title">Notification</h5>
+
+                <!-- Table with stripped rows -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th>TypeNotification</th>
+                <th>EmailNotification</th>
+                <th>id demande</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for notification in notifications %}
+            <tr>
+
+                <td>{{ notification.typeNotification }}</td>
+                <td>{{ notification.emailNotification }}</td>
+                <td>{{ notification.idDemande }}</td>
+
+                <td>
+                    <a class="btn btn-success" href="{{ path('delete', {'id': notification.id}) }}">delete</a>
+                    <a class="btn btn-danger"  href="{{ path('app_notification_edit', {'id': notification.id}) }}">edit</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+                <div class="pag">
+                    {{ knp_pagination_render(notifications,'pagination.html.twig') }}
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

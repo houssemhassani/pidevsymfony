@@ -36,9 +36,9 @@ class Notification
     private $emailNotification;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="nom_notification", type="string", length=255, nullable=false)
+     * @ORM\Column(name="nom_notification", type="integer", nullable=false)
      */
     private $nomNotification;
 
@@ -51,6 +51,59 @@ class Notification
      * })
      */
     private $idDemande;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTypeNotification(): ?string
+    {
+        return $this->typeNotification;
+    }
+
+    public function setTypeNotification(string $typeNotification): self
+    {
+        $this->typeNotification = $typeNotification;
+
+        return $this;
+    }
+
+    public function getEmailNotification(): ?string
+    {
+        return $this->emailNotification;
+    }
+
+    public function setEmailNotification(string $emailNotification): self
+    {
+        $this->emailNotification = $emailNotification;
+
+        return $this;
+    }
+
+    public function getNumNotification(): ?string
+    {
+        return $this->nomNotification;
+    }
+
+    public function setNumNotification(string $nomNotification): self
+    {
+        $this->NomNotification = $nomNotification;
+
+        return $this;
+    }
+
+    public function getIdDemande(): ?Demande
+    {
+        return $this->idDemande;
+    }
+
+    public function setIdDemande(?Demande $idDemande): self
+    {
+        $this->idDemande = $idDemande;
+
+        return $this;
+    }
 
 
 }

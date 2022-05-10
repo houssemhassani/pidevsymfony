@@ -15,6 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Twilio\Rest\Client;
 
 /**
  * @Route("/gescitoyen")
@@ -64,8 +65,18 @@ class GestioCitoyenController extends AbstractController
             $user->setEquipe(null);
 
 
-                $entityManager->persist($citoyen);
+            $entityManager->persist($citoyen);
             $entityManager->persist($user);
+            $sid    = "AC522e7bcbe6182a9e25d41e420bd2603f";
+            $token  = "6b01aceaf76e4c7f44ff5476923f36dd";
+            $twilio = new Client($sid, $token);
+            $message = $twilio->messages
+                ->create("whatsapp:+21692144965", // to
+                    array(
+                        "from" => "whatsapp:+14155238886",
+                        "body" => "Bienvenue Mr/Mme : ".$citoyen->getNom()."Vous êtes un citoyen \n Vous pouvez connecter sur notre application avec les coordonées suivants: \n CIN: ".$citoyen->getCin()."\n Mot De Passe :".$form->get('motDePasse')->getData(),
+                    )
+                );
                 $entityManager->flush();
                 return $this->redirectToRoute('app_gestio_citoyen_index', [], Response::HTTP_SEE_OTHER);
 

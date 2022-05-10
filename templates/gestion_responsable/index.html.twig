@@ -26,6 +26,7 @@
                                 </thead>
                                 <tbody>
                                 {% for employee in employees %}
+                                    {% if employee.role==1 %}
                                     <tr>
                                         <td>{{ employee.nom }}</td>
                                         <td>{{ employee.prenom }}</td>
@@ -36,6 +37,7 @@
                                             <a href="{{ path('app_gestion_employee_edit', {'id': employee.id}) }}">Modifier</a>
                                         </td>
                                     </tr>
+                                    {% endif %}
                                 {% endfor %}
                                 </tbody>
                             </table>

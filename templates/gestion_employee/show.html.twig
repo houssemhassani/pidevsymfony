@@ -3,14 +3,14 @@
 {% block title %}Employee{% endblock %}
 
 {% block body %}
+<main id="main" class="main">
+
+<section class="section">
+    <div class="row">
     <h1>Employee</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ employee.id }}</td>
-            </tr>
             <tr>
                 <th>Nom</th>
                 <td>{{ employee.nom }}</td>
@@ -29,12 +29,6 @@
                 <td>
                         </td>
             </tr>
-
-
-            <tr>
-                <th>MotDePasse</th>
-                <td>{{ employee.motDePasse }}</td>
-            </tr>
         </tbody>
     </table>
     <a href="{{ path('app_gestion_employee_index') }}">back to list</a>
@@ -43,5 +37,7 @@
 
     {{ include('gestion_employee/_delete_form.html.twig') }}
 
-
+    </div>
+</section>
+</main>
 {% endblock %}
