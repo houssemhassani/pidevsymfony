@@ -1,0 +1,41 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+
+    <main id="main" class="main">
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Reservez votre rendez-vous</h5>
+
+                            <!-- Vertical Form -->
+                            {{ form_start(form,{'attr':{'novalidate': 'novalidate'}}) }}
+
+                            <label for="inputNanme4" class="form-label">date souhaiter :</label>
+                            {{ form_widget(form.dateReservation,{'attr':{'class':'form-control'}}) }}
+                            <span style="color:red">{{ form_errors(form.dateReservation) }}</span>
+
+
+                            <br/>
+                            <div class="text-center">
+                                {{ form_widget(form.add,{'attr':{'class':'btn btn-primary'}})}}
+                                <button type="reset" class="btn btn-secondary">Annuler</button>
+                            </div>
+                            {{ form_end(form) }}<!-- Vertical Form -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ path('app_reservation_index')}}">Vos reservations</a>
+                <a href="{{ path('app_reservation_pdf')}}">votre ticket</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

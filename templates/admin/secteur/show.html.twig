@@ -1,0 +1,42 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Secteur{% endblock %}
+{% block body %}
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <div class="card-body">
+    <h1>Secteur</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdSecteur</th>
+                <td>{{ secteur.idSecteur }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ secteur.ville }}</td>
+            </tr>
+            <tr>
+                <th>Gouvernement</th>
+                <td>{{ secteur.gouvernement }}</td>
+            </tr>
+            <tr>
+                <th>CodePostal</th>
+                <td>{{ secteur.codePostal }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('app_secteur_index') }}">back to list</a>
+    <a href="{{ path('app_secteur_edit', {'idSecteur': secteur.idSecteur}) }}">edit</a>
+    {{ include('admin/secteur/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+

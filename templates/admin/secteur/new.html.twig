@@ -1,0 +1,49 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}ajouter Secteur{% endblock %}
+
+{% block body %}
+
+<main id="main" class="main">
+
+<section class="section">
+<div class="row">
+<div class="col-lg-6">
+
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">Ajout D'Un secteur</h5>
+
+                            <!-- Vertical Form -->
+                            {{ form_start(form,{'attr':{'novalidate': 'novalidate'}}) }}
+
+                            <label for="inputNanme4" class="form-label">ville :</label>
+                            {{ form_widget(form.ville,{'attr':{'class':'form-control'}}) }}
+                            <span style="color:red">{{ form_errors(form.ville) }}</span>
+
+
+                            <label for="inputNanme4" class="form-label">gouvernement :</label>
+                            {{ form_widget(form.gouvernement,{'attr':{'class':'form-control'}}) }}
+                            <span style="color:red">{{ form_errors(form.gouvernement) }}</span>
+
+
+
+                            <label for="inputEmail4" class="form-label">code postal :</label>
+                            {{ form_widget(form.codePostal,{'attr':{'class':'form-control'}}) }}
+                            <span style="color:red">{{ form_errors(form.codePostal) }}</span>
+                            <br/>
+                            <div class="text-center">
+                                {{ form_widget(form.add,{'attr':{'class':'btn btn-primary'}})}}
+                                <button type="reset" class="btn btn-secondary">Annuler</button>
+                            </div>
+                            {{ form_end(form) }}<!-- Vertical Form -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ path('app_secteur_index')}}">Liste Des Employees</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

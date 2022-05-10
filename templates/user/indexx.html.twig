@@ -1,0 +1,40 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}select service/secteur{% endblock %}
+
+{% block body %}
+        <main id="main" class="main">
+
+            <section class="section">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <div class="card">
+                            <div class="nav-item dropdown">
+
+
+                                <select id ="service" class="nav-link dropdown-toggle">
+                                        {% for s in services %}
+                                        <option id="s1">{{ s.nomservice }}</option>
+                                        {% endfor %}
+                                </select>
+
+                                <select id="secteur" class="nav-link dropdown-toggle">
+                                    {% for s in secteurs %}
+                                        <option value="s2">{{ s.gouvernement }}</option>
+                                    {% endfor %}
+                                </select>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+        <a href="{{ path('app_service_map') }}">redirect vers map</a>
+
+
+{% endblock %}
